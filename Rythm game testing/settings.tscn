@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://settings.cs" type="Script" id=1]
+[ext_resource path="res://gameSprites/SettingsMenu/volumeCursor.png" type="Texture" id=2]
+[ext_resource path="res://gameSprites/SettingsMenu/volumeBar.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 487, 48 )
 
 [node name="settings" type="Control"]
 anchor_right = 1.0
@@ -24,5 +30,23 @@ anchor_bottom = 0.106
 margin_right = 0.0799866
 margin_bottom = 0.199997
 text = "Back To Main Menu"
+
+[node name="Volume Slider" type="HSlider" parent="."]
+anchor_left = 0.043
+anchor_top = 0.572
+anchor_right = 0.944
+anchor_bottom = 0.626
+margin_left = -0.220001
+margin_top = 0.347961
+margin_right = 0.23996
+margin_bottom = 0.233948
+custom_icons/grabber_disabled = ExtResource( 2 )
+custom_icons/grabber_highlight = ExtResource( 2 )
+custom_icons/grabber = ExtResource( 2 )
+custom_styles/slider = SubResource( 1 )
+custom_styles/grabber_area_highlight = SubResource( 1 )
+__meta__ = {
+"_editor_description_": "slider for volume"
+}
 
 [connection signal="pressed" from="return_button" to="." method="return_button_pressed"]
