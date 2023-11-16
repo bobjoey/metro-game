@@ -1,16 +1,36 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://settings.cs" type="Script" id=1]
 [ext_resource path="res://gameSprites/SettingsMenu/volumeCursor.png" type="Texture" id=2]
-[ext_resource path="res://gameSprites/SettingsMenu/volumeBar.png" type="Texture" id=3]
+[ext_resource path="res://gameSprites/SettingsMenu/volumeBar_updated.png" type="Texture" id=3]
+[ext_resource path="res://gameSprites/SettingsMenu/volumeBar_left.png" type="Texture" id=4]
+[ext_resource path="res://gameSprites/SettingsMenu/volumeBar_right.png" type="Texture" id=5]
+[ext_resource path="res://gameSprites/SettingsMenu/volumeMinus.png" type="Texture" id=6]
+[ext_resource path="res://gameSprites/SettingsMenu/muteIcon.png" type="Texture" id=7]
+[ext_resource path="res://gameSprites/SettingsMenu/volumePlus.png" type="Texture" id=8]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 487, 48 )
+region_rect = Rect2( 0, 0, 371, 48 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "minus",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "mute",
+"speed": 5.0
+} ]
 
 [node name="settings" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = -2.0
 script = ExtResource( 1 )
 
 [node name="placeholder_label" type="Label" parent="."]
@@ -32,21 +52,41 @@ margin_bottom = 0.199997
 text = "Back To Main Menu"
 
 [node name="Volume Slider" type="HSlider" parent="."]
-anchor_left = 0.043
-anchor_top = 0.572
-anchor_right = 0.944
-anchor_bottom = 0.626
-margin_left = -0.220001
-margin_top = 0.347961
-margin_right = 0.23996
-margin_bottom = 0.233948
+anchor_left = 0.156
+anchor_top = 0.574
+anchor_right = 0.843
+anchor_bottom = 0.627
+margin_left = -0.240005
+margin_top = -0.43399
+margin_right = -0.220032
+margin_bottom = 0.342957
 custom_icons/grabber_disabled = ExtResource( 2 )
 custom_icons/grabber_highlight = ExtResource( 2 )
 custom_icons/grabber = ExtResource( 2 )
 custom_styles/slider = SubResource( 1 )
 custom_styles/grabber_area_highlight = SubResource( 1 )
+custom_styles/grabber_area = SubResource( 1 )
+value = 50.0
 __meta__ = {
 "_editor_description_": "slider for volume"
 }
 
+[node name="VolumeBarLeft" type="Sprite" parent="."]
+position = Vector2( 72, 535 )
+texture = ExtResource( 4 )
+
+[node name="VolumeBarRight" type="Sprite" parent="."]
+position = Vector2( 465, 535 )
+texture = ExtResource( 5 )
+
+[node name="VolumePlus" type="Sprite" parent="."]
+position = Vector2( 506, 534 )
+texture = ExtResource( 8 )
+
+[node name="VolumeMinusMute" type="AnimatedSprite" parent="."]
+position = Vector2( 33, 533 )
+frames = SubResource( 2 )
+animation = "minus"
+
 [connection signal="pressed" from="return_button" to="." method="return_button_pressed"]
+[connection signal="value_changed" from="Volume Slider" to="." method="volume_changed"]

@@ -7,10 +7,12 @@ public class settings : Control
 	// private int a = 2;
 	// private string b = "text";
 
+	private AnimatedSprite _VolumeMinusMute;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
+		_VolumeMinusMute = GetNode<AnimatedSprite>("VolumeMinusMute");
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,7 +27,21 @@ public class settings : Control
 		GetTree().ChangeScene("res://main_menu.tscn");
 	}
 
+	private void volume_changed(float value)
+	{
+		GD.Print("Volume: "+value);
+		var globalVariables = (globalVariables)GetNode("/root/globalVariables");
+		globalVariables.volume = (int) value;
+		if(globalVariables.volume == 0){
+			_VolumeMinusMute.Play("mute");
+		} else{
+			_VolumeMinusMute.Play("minus");
+		}
+	}
 
 }
+
+
+
 
 

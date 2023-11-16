@@ -14,6 +14,10 @@ config/name="rhythm"
 run/main_scene="res://main_menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+globalVariables="*res://globalVariables.cs"
+
 [display]
 
 window/size/width=540
