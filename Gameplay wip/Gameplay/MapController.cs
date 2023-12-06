@@ -6,7 +6,6 @@ using System.Security.Policy;
 public class MapController : Node2D
 {
     public AudioStreamPlayer songPlayer;
-    // SeekBar, seek funcs go here but display code goes there (takes in input reference to songPlayer to know current time? or just input time ratio every frame)
 
     [Export]
     public PackedScene tapNote;
@@ -31,12 +30,13 @@ public class MapController : Node2D
         songPlayer = GetNode<AudioStreamPlayer>("SongPlayer");
         noteSpeed = bpm/60 * displaySize.y/8; // time to fall = 480/bpm seconds
         playRegion = new Vector2(displaySize.y*0.875f - noteSpeed*0.25f, displaySize.y*0.875f + noteSpeed*0.25f);
+        // scrollPos = getPositionRatio() * displaySize.y;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-
+        scrollPos += delta*noteSpeed;
         /*
         if (gameState == 0) {
             return;
