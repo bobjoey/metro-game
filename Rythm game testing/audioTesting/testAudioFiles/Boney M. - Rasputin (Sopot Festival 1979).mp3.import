@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Boney M. - Rasputin (Sopot Festival 1979).mp3-9ec5d9a8e69a4087c009fe7219702b09.mp3str"
+
+[deps]
+
+source_file="res://audioTesting/testAudioFiles/Boney M. - Rasputin (Sopot Festival 1979).mp3"
+dest_files=[ "res://.import/Boney M. - Rasputin (Sopot Festival 1979).mp3-9ec5d9a8e69a4087c009fe7219702b09.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

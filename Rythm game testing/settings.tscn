@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://settings.cs" type="Script" id=1]
 [ext_resource path="res://gameSprites/SettingsMenu/volumeCursor.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://gameSprites/SettingsMenu/muteIcon.png" type="Texture" id=7]
 [ext_resource path="res://gameSprites/SettingsMenu/volumePlus.png" type="Texture" id=8]
 [ext_resource path="res://gameSprites/SettingsMenu/settingsBackground.png" type="Texture" id=9]
+[ext_resource path="res://audioTesting/audioPlayer.tscn" type="PackedScene" id=10]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 3 )
@@ -59,7 +60,7 @@ margin_right = -4.24004
 margin_bottom = -4.03701
 text = "Back To Main Menu"
 
-[node name="Volume Slider" type="HSlider" parent="."]
+[node name="VolumeSlider" type="HSlider" parent="."]
 anchor_left = 0.156
 anchor_top = 0.574
 anchor_right = 0.843
@@ -96,5 +97,11 @@ position = Vector2( 33, 533 )
 frames = SubResource( 2 )
 animation = "minus"
 
+[node name="audioPlayer" parent="." instance=ExtResource( 10 )]
+margin_left = 40.0
+margin_top = 599.0
+margin_right = 39.04
+margin_bottom = 598.046
+
 [connection signal="pressed" from="return_button" to="." method="return_button_pressed"]
-[connection signal="value_changed" from="Volume Slider" to="." method="volume_changed"]
+[connection signal="value_changed" from="VolumeSlider" to="." method="volume_changed"]

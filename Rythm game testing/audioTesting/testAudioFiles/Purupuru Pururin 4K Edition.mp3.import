@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Purupuru Pururin 4K Edition.mp3-fff80e463d226450d7bc3988dfd8360e.mp3str"
+
+[deps]
+
+source_file="res://audioTesting/testAudioFiles/Purupuru Pururin 4K Edition.mp3"
+dest_files=[ "res://.import/Purupuru Pururin 4K Edition.mp3-fff80e463d226450d7bc3988dfd8360e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

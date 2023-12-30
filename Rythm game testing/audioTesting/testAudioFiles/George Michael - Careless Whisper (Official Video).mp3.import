@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/George Michael - Careless Whisper (Official Video).mp3-e93cd3faa0054597abf1b8ddbfdd60c4.mp3str"
+
+[deps]
+
+source_file="res://audioTesting/testAudioFiles/George Michael - Careless Whisper (Official Video).mp3"
+dest_files=[ "res://.import/George Michael - Careless Whisper (Official Video).mp3-e93cd3faa0054597abf1b8ddbfdd60c4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

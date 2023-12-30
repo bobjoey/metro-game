@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/The Duck Song.mp3-19eae0339cdc7b3a620a681fe0c1de33.mp3str"
+
+[deps]
+
+source_file="res://audioTesting/testAudioFiles/The Duck Song.mp3"
+dest_files=[ "res://.import/The Duck Song.mp3-19eae0339cdc7b3a620a681fe0c1de33.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
