@@ -8,7 +8,7 @@ public class globalVariables : Node
 	// private string b = "text";
 	public int volume = 50; // volume set in settings
 
-	public string song = "duck"; // should be set in song selection scene, ** MUST BE CHANGED WHEN USING REAL SONGS, DUCK SONG WONT BE IN THERE **
+	public String song = "duck"; // should be set in song selection scene, ** MUST BE CHANGED WHEN USING REAL SONGS, DUCK SONG WONT BE IN THERE **
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -20,5 +20,89 @@ public class globalVariables : Node
 //  {
 //      
 //  }
+
+	public AudioStreamMP3 getSong(){
+		switch(song){
+			case "duck":
+				return (AudioStreamMP3)GD.Load("res://audioTesting/testAudioFiles/The Duck Song.mp3");
+			case "rasputin":
+				return (AudioStreamMP3)GD.Load("res://audioTesting/testAudioFiles/Boney M. - Rasputin (Sopot Festival 1979).mp3");
+			case "whisper":
+				return (AudioStreamMP3)GD.Load("res://audioTesting/testAudioFiles/George Michael - Careless Whisper (Official Video).mp3");
+			case "pururin":
+				return (AudioStreamMP3)GD.Load("res://audioTesting/testAudioFiles/Purupuru Pururin 4K Edition.mp3");
+		}
+		return (AudioStreamMP3)GD.Load("res://audioTesting/testAudioFiles/The Duck Song.mp3");
+	}
+	
+	public float getPreviewTime(){
+		switch(song){
+			case "duck":
+				return 5;
+			case "rasputin":
+				return 86;
+			case "whisper":
+				return 1;
+			case "pururin":
+				return 0;
+		}
+		return 0;
+	}
+	
+	public String getAuthor(){
+		switch(song){
+			case "duck":
+				return "Bryant Oden";
+			case "rasputin":
+				return "Boney M.";
+			case "whisper":
+				return "George Michael";
+			case "pururin":
+				return "some dude"; // ** who is this author idk fill in pls **
+		}
+		return "author not found";
+	}
+	
+	public String getTimeSignature(){
+		switch(song){ // bro idk how to figure out these songs time signatures
+			case "duck":
+				return "4:4";
+			case "rasputin":
+				return "4:4";
+			case "whisper":
+				return "4:4";
+			case "pururin":
+				return "4:4";
+		}
+		return "time signature not found";
+	}
+	
+	public String getSongLength(){
+		switch(song){ 
+			case "duck":
+				return "3:11";
+			case "rasputin":
+				return "4:27";
+			case "whisper":
+				return "5:00";
+			case "pururin":
+				return "3:59";
+		}
+		return "time signature not found";
+	}
+	
+	public String getSongTitle(){
+		switch(song){ 
+			case "duck":
+				return "The Duck Song";
+			case "rasputin":
+				return "Rasputin";
+			case "whisper":
+				return "Careless Whisper";
+			case "pururin":
+				return "Purupuru Pururin";
+		}
+		return "name not found";
+	}
 
 }
