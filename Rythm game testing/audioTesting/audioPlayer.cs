@@ -28,9 +28,9 @@ public class audioPlayer : Control
 		var globalVariables = (globalVariables)GetNode("/root/globalVariables"); // changing the global variable to the changed song
 		globalVariables.song = songName;
 
-		musicPlayer.Stream = globalVariables.getSong(); // setting song into musicPlayer
+		musicPlayer.Stream = globalVariables.getSong(songName); // setting song into musicPlayer
 		
-		float startTime = globalVariables.getPreviewTime(); // getting the start time for the preview
+		float startTime = globalVariables.getPreviewTime(songName); // getting the start time for the preview
 		
 		float volumeConversion = ((float) globalVariables.volume) * 0.01F; // setting volume by getting bus index & converting volume variable to Db
 		float volume = (float)Math.Log(volumeConversion) * 8.685889f;

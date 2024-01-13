@@ -21,7 +21,8 @@ public class main_menu : Control
 	private void play_button_pressed()
 	{
 		GD.Print("Play button pressed");
-		GetTree().ChangeScene("res://game.tscn");
+		//GetTree().ChangeScene("res://game.tscn");
+		GetTree().ChangeScene("res://songSelect/songSelect.tscn");
 	}
 	
 	private void settings_button_pressed()

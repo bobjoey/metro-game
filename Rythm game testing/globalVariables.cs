@@ -8,7 +8,7 @@ public class globalVariables : Node
 	// private string b = "text";
 	public int volume = 50; // volume set in settings
 
-	public String song = "duck"; // should be set in song selection scene, ** MUST BE CHANGED WHEN USING REAL SONGS, DUCK SONG WONT BE IN THERE **
+	public string song = "duck"; // should be set in song selection scene, ** MUST BE CHANGED WHEN USING REAL SONGS, DUCK SONG WONT BE IN THERE **
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -21,8 +21,8 @@ public class globalVariables : Node
 //      
 //  }
 
-	public AudioStreamMP3 getSong(){
-		switch(song){
+	public AudioStreamMP3 getSong(string songCode){
+		switch(songCode){
 			case "duck":
 				return (AudioStreamMP3)GD.Load("res://audioTesting/testAudioFiles/The Duck Song.mp3");
 			case "rasputin":
@@ -35,8 +35,8 @@ public class globalVariables : Node
 		return (AudioStreamMP3)GD.Load("res://audioTesting/testAudioFiles/The Duck Song.mp3");
 	}
 	
-	public float getPreviewTime(){
-		switch(song){
+	public float getPreviewTime(string songCode){
+		switch(songCode){
 			case "duck":
 				return 5;
 			case "rasputin":
@@ -49,8 +49,8 @@ public class globalVariables : Node
 		return 0;
 	}
 	
-	public String getAuthor(){
-		switch(song){
+	public string getAuthor(string songCode){
+		switch(songCode){
 			case "duck":
 				return "Bryant Oden";
 			case "rasputin":
@@ -63,8 +63,8 @@ public class globalVariables : Node
 		return "author not found";
 	}
 	
-	public String getTimeSignature(){
-		switch(song){ // bro idk how to figure out these songs time signatures
+	public string getTimeSignature(string songCode){
+		switch(songCode){ // bro idk how to figure out these songs time signatures
 			case "duck":
 				return "4:4";
 			case "rasputin":
@@ -77,8 +77,8 @@ public class globalVariables : Node
 		return "time signature not found";
 	}
 	
-	public String getSongLength(){
-		switch(song){ 
+	public string getSongLength(string songCode){
+		switch(songCode){ 
 			case "duck":
 				return "3:11";
 			case "rasputin":
@@ -91,8 +91,8 @@ public class globalVariables : Node
 		return "time signature not found";
 	}
 	
-	public String getSongTitle(){
-		switch(song){ 
+	public string getSongTitle(string songCode){
+		switch(songCode){ 
 			case "duck":
 				return "The Duck Song";
 			case "rasputin":
