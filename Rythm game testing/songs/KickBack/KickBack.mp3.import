@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/KickBack.mp3-7585ab8aaf1862294669ce34e5463cd8.mp3str"
+
+[deps]
+
+source_file="res://songs/KickBack/KickBack.mp3"
+dest_files=[ "res://.import/KickBack.mp3-7585ab8aaf1862294669ce34e5463cd8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

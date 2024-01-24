@@ -1,47 +1,92 @@
+//using System.IO;
 using Godot;
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 public class songCard : PathFollow2D
 {
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
-
-	// Called when the node enters the scene tree for the first time.
-	//[Export(PropertyHint.Enum,"Easy,Medium,Hard")]
-	//public string difficulty = "";
-	
-	//public static string[] songNames = {"Lagtrain", "Sphere", "GHOST"};
-	//[Export(PropertyHint.Enum, "Lagtrain - INABAKUMORI,Sphere - Creo,GHOST - Camellia")]
-	//public string currentSong = "";
-	public int difficulty; //0 = Easy, 1 = Medium, 2 = Hard
 	public string songCode;
-	public string imagePath;
-	public AudioStreamMP3 songAudio;
-	public float previewTime;
-	public string songAuthor;
-	public string songLength;
+	public string diffCard; //difficulty 1-3 = Easy, 4-6 = Medium, 7-9 = Hard
+	public string diffBanner;
+	public string fPath = "res://songs/";
+	
+	//vars to be initialized with data from .txt file (MAKE SURE THE ORDER IS THE SAME AS HERE)
+	public int difficulty;
 	public string songTitle;
-	public songCard(int difficulty, string songCode, string imagePath)
-	{
-		var globalVariables = (globalVariables)GetNode("/root/globalVariables");
+	public string songAuthor;
+	public float songLength;
+	public float previewTime;
+
+	public AudioStreamMP3 songAudio; //isnt part of the .txt file, is read the mp3 directly with its path
+	public string imagePath;//Isn't part of the .txt file, is read directly with its path
 		
-		songAudio = globalVariables.getSong(songCode);
-		previewTime = globalVariables.getPreviewTime(songCode);
-		songAuthor = globalVariables.getAuthor(songCode);
-		songLength = globalVariables.getSongLength(songCode);
-		songTitle = globalVariables.getSongTitle(songCode);
+	public songCard(string songCode)
+	{
+		fPath+=(songCode+"/");
+		getInfo(songCode);
+		switch(difficulty){
+			case 1: 
+			case 2: 
+			case 3:
+				diffCard = "res://gameSprites/SongSelect/scEasy.png";
+				diffBanner = "res://gameSprites/SongSelect/sbEasy.png";
+				break;
+			case 4: 
+			case 5: 
+			case 6:
+				diffCard = "res://gameSprites/SongSelect/scMed.png";
+				diffBanner = "res://gameSprites/SongSelect/sbMed.png";
+				break;
+			case 7: 
+			case 8: 
+			case 9:
+				diffCard = "res://gameSprites/SongSelect/scHard.png";
+				diffBanner = "res://gameSprites/SongSelect/sbHard.png";
+				break;
+			default:
+				diffCard = "res://gameSprites/SongSelect/songCardBlankSkewed.png";
+				break;
+		}
+		//imagePath = ("res://gameSprites/SongsList/" + imagePath + ".png");
 	}
 	
-	public override void _Ready()
+	public void getInfo(string songCode) //res://songs/Lagtrain/lagtrain.png
 	{
-		//print(difficulty);
-		//print(currentSong);
+ 		string path = (fPath + songCode + ".txt");
+		GD.Print(path);
+		File file = new File();
+		if(file.FileExists(path)){
+			file.Open(path, File.ModeFlags.Read);
+			string[] lines = new string[5];
+			int iter = 0;
+			while(!file.EofReached()){
+				lines[iter] = file.GetLine();
+				iter++;
+			}
+			
+			file.Close();
+			difficulty = Convert.ToInt32((lines[0]));
+			songTitle = lines[1];
+			songAuthor = lines[2];
+			songLength = Convert.ToInt32(lines[3]);
+			previewTime = Convert.ToInt32(lines[4]);
+			imagePath = (fPath + songCode + ".png");
+			songAudio = (AudioStreamMP3)GD.Load(fPath + songCode + ".mp3");
+		} else {
+			GD.Print("not found: " + path);
+			difficulty = 0;
+			songTitle = "FileNotFound";
+			songAuthor = "FileNotFound";
+			songLength = 0;
+			previewTime = 0;
+			imagePath = "res://icon.png";
+			songAudio = null;
+		}
 	}
-
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
- // public override void _Process(float delta)
- // {
-	  
- // }
+	
+	public void WriteAll(){
+		//Console.WriteLine("songCode = " + songCode);
+		//Console.WriteLine("diffCard = " + diffCard);
+		//Console.WriteLine("imagePath = " + imagePath);
+	}
 }

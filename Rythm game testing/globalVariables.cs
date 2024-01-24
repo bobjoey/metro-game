@@ -9,7 +9,7 @@ public class globalVariables : Node
 	public int volume = 50; // volume set in settings
 
 	public string song = "duck"; // should be set in song selection scene, ** MUST BE CHANGED WHEN USING REAL SONGS, DUCK SONG WONT BE IN THERE **
-	// Called when the node enters the scene tree for the first time.
+		// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		

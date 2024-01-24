@@ -1,0 +1,10 @@
+/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/.mono/temp/bin/Debug/rhythm.dll
+/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/.mono/temp/bin/Debug/rhythm.pdb
+/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/.mono/temp/obj/Debug/rhythm.csproj.AssemblyReference.cache
+/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/.mono/temp/obj/Debug/rhythm.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/.mono/temp/obj/Debug/rhythm.AssemblyInfoInputs.cache
+/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/.mono/temp/obj/Debug/rhythm.AssemblyInfo.cs
+/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/.mono/temp/obj/Debug/rhythm.csproj.CoreCompileInputs.cache
+/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/.mono/temp/obj/Debug/rhythm.sourcelink.json
+/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/.mono/temp/obj/Debug/rhythm.dll
+/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/.mono/temp/obj/Debug/rhythm.pdb

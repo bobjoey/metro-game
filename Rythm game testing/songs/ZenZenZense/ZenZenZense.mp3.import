@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ZenZenZense.mp3-ee6d63dd3f543e0e5ba9216901c98811.mp3str"
+
+[deps]
+
+source_file="res://songs/ZenZenZense/ZenZenZense.mp3"
+dest_files=[ "res://.import/ZenZenZense.mp3-ee6d63dd3f543e0e5ba9216901c98811.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

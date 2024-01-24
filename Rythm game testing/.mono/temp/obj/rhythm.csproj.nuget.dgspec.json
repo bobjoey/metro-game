@@ -1,0 +1,53 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/rhythm.csproj": {}
+  },
+  "projects": {
+    "/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/rhythm.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/rhythm.csproj",
+        "projectName": "rhythm",
+        "projectPath": "/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/rhythm.csproj",
+        "packagesPath": "/Users/alexmizrahi/.nuget/packages/",
+        "outputPath": "/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/.mono/temp/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/alexmizrahi/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

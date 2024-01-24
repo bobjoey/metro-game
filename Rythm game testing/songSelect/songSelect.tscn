@@ -1,20 +1,26 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://songSelect/dynamicSwiping.gd" type="Script" id=1]
-[ext_resource path="res://gameSprites/SongSelect/songCardEasySkewed.png" type="Texture" id=2]
-[ext_resource path="res://gameSprites/SongSelect/songCardMedSkewed.png" type="Texture" id=3]
+[ext_resource path="res://songSelect/songsManager.cs" type="Script" id=1]
+[ext_resource path="res://gameSprites/SongSelect/scEasy.png" type="Texture" id=2]
+[ext_resource path="res://gameSprites/SongSelect/scMed.png" type="Texture" id=3]
 [ext_resource path="res://gameSprites/SongSelect/ticketMachine.png" type="Texture" id=4]
 [ext_resource path="res://gameSprites/SongSelect/ticketMachineBG.png" type="Texture" id=5]
 [ext_resource path="res://gameSprites/SongSelect/whiteBackground.png" type="Texture" id=6]
-[ext_resource path="res://gameSprites/SongSelect/songBannerEasy.png" type="Texture" id=7]
+[ext_resource path="res://gameSprites/SongSelect/sbEasy.png" type="Texture" id=7]
 [ext_resource path="res://gameSprites/SongSelect/mainBG.png" type="Texture" id=8]
-[ext_resource path="res://gameSprites/SongSelect/songCardHardSkewed.png" type="Texture" id=9]
-[ext_resource path="res://songSelect/songCard.cs" type="Script" id=10]
+[ext_resource path="res://gameSprites/SongSelect/scHard.png" type="Texture" id=9]
+[ext_resource path="res://songSelect/songBanner.cs" type="Script" id=10]
+[ext_resource path="res://songs/Bus/Bus.png" type="Texture" id=11]
+[ext_resource path="res://gameSprites/Fonts/Prompt-SemiBold.ttf" type="DynamicFontData" id=12]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 378, 131, 0, 0, 0, 0, 369.552, 153.073, 0, 0, 0, 0, 361.596, 171.022, 0, 0, 0, 0, 352.769, 188.559, 0, 0, 0, 0, 343.091, 205.641, 0, 0, 0, 0, 332.588, 222.228, 0, 0, 0, 0, 321.283, 238.28, 0, 0, 0, 0, 309.204, 253.757, 0, 0, 0, 0, 296.38, 268.624, 0, 0, 0, 0, 282.843, 282.843, 0, 0, 0, 0, 268.624, 296.38, 0, 0, 0, 0, 253.757, 309.204, 0, 0, 0, 0, 238.28, 321.283, 0, 0, 0, 0, 222.228, 332.588, 0, 0, 0, 0, 205.641, 343.091, 0, 0, 0, 0, 188.559, 352.768, 0, 0, 0, 0, 171.022, 361.596, 0, 0, 0, 0, 153.073, 369.552, 0, 0, 0, 0, 134.756, 376.618, 0, 0, 0, 0, 116.114, 382.776, 0, 0, 0, 0, 97.192, 388.013, 0, 0, 0, 0, 78.0361, 392.314, 0, 0, 0, 0, 58.6922, 395.671, 0, 0, 0, 0, 39.2069, 398.074, 0, 0, 0, 0, 19.6271, 399.518, 0, 0, 0, 0, -1.74846e-05, 400, 0, 0, 0, 0, -19.627, 399.518, 0, 0, 0, 0, -39.2068, 398.074, 0, 0, 0, 0, -58.6922, 395.671, 0, 0, 0, 0, -78.0361, 392.314, 0, 0, 0, 0, -97.1921, 388.013, 0, 0, 0, 0, -116.114, 382.776, 0, 0, 0, 0, -134.756, 376.618, 0, 0, 0, 0, -153.073, 369.552, 0, 0, 0, 0, -171.022, 361.596, 0, 0, 0, 0, -188.559, 352.768, 0, 0, 0, 0, -205.641, 343.091, 0, 0, 0, 0, -222.228, 332.588, 0, 0, 0, 0, -238.28, 321.283, 0, 0, 0, 0, -253.757, 309.204, 0, 0, 0, 0, -268.624, 296.38, 0, 0, 0, 0, -282.843, 282.843, 0, 0, 0, 0, -296.38, 268.624, 0, 0, 0, 0, -309.204, 253.757, 0, 0, 0, 0, -321.283, 238.28, 0, 0, 0, 0, -332.588, 222.228, 0, 0, 0, 0, -343.091, 205.641, 0, 0, 0, 0, -352.768, 188.559, 0, 0, 0, 0, -361.596, 171.022, 0, 0, 0, 0, -369.552, 153.073, 0, 0, 0, 0, -376.618, 134.756 )
 }
+
+[sub_resource type="DynamicFont" id=2]
+size = 56
+font_data = ExtResource( 12 )
 
 [node name="songSelect" type="Control"]
 anchor_right = 1.0
@@ -38,34 +44,93 @@ position = Vector2( 265, -41 )
 curve = SubResource( 1 )
 script = ExtResource( 1 )
 
-[node name="SongMain" type="PathFollow2D" parent="scene/Path2D"]
+[node name="MainSong" type="PathFollow2D" parent="scene/Path2D"]
 position = Vector2( 1.99812, 399.962 )
 offset = 492.791
 rotate = false
-script = ExtResource( 10 )
 
-[node name="SpriteM" type="Sprite" parent="scene/Path2D/SongMain"]
+[node name="MainBG" type="Polygon2D" parent="scene/Path2D/MainSong"]
+texture = ExtResource( 11 )
+texture_offset = Vector2( 120, 120 )
+texture_scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( -2.99814, -125.962, 14.0019, -123.962, 30.0019, -120.962, 40.0019, -117.962, 56.0019, -110.962, 73.0019, -100.962, 87.0019, -90.9619, 100.002, -76.9619, 111.002, -61.9619, 120.002, -44.9619, 126.002, -24.9619, 128.002, -5.96194, 128.002, 13.0381, 125.002, 28.0381, 119.002, 47.0381, 109.002, 64.0381, 93.0019, 83.0381, 75.0019, 97.0381, 58.0019, 108.038, 36.0019, 116.038, 16.0019, 121.038, -7.99814, 121.038, -29.9981, 118.038, -50.9981, 111.038, -70.9981, 102.038, -87.9981, 88.0381, -103.998, 70.0381, -117.998, 49.0381, -125.998, 25.0381, -129.998, -0.961945, -125.998, -26.9619, -117.998, -51.9619, -103.998, -75.9619, -84.9981, -93.9619, -65.9981, -107.962, -44.9981, -116.962, -23.9981, -121.962 )
+
+[node name="MainCard" type="Sprite" parent="scene/Path2D/MainSong"]
 scale = Vector2( 0.65, 0.65 )
 texture = ExtResource( 2 )
 
-[node name="SongLeft" type="PathFollow2D" parent="scene/Path2D"]
+[node name="MainDiff" type="RichTextLabel" parent="scene/Path2D/MainSong"]
+margin_left = -18.9981
+margin_top = 37.0381
+margin_right = 42.0019
+margin_bottom = 114.038
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[color=black]2[/color]"
+text = "2"
+scroll_active = false
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="RightSong" type="PathFollow2D" parent="scene/Path2D"]
 position = Vector2( 294.615, 270.471 )
 offset = 163.607
 rotate = false
 
-[node name="SpriteL" type="Sprite" parent="scene/Path2D/SongLeft"]
+[node name="RightBG" type="Polygon2D" parent="scene/Path2D/RightSong"]
+texture = ExtResource( 11 )
+texture_offset = Vector2( 120, 120 )
+texture_scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( -2.99814, -125.962, 14.0019, -123.962, 30.0019, -120.962, 40.0019, -117.962, 56.0019, -110.962, 73.0019, -100.962, 87.0019, -90.9619, 100.002, -76.9619, 111.002, -61.9619, 120.002, -44.9619, 126.002, -24.9619, 128.002, -5.96194, 128.002, 13.0381, 125.002, 28.0381, 119.002, 47.0381, 109.002, 64.0381, 93.0019, 83.0381, 75.0019, 97.0381, 58.0019, 108.038, 36.0019, 116.038, 16.0019, 121.038, -7.99814, 121.038, -29.9981, 118.038, -50.9981, 111.038, -70.9981, 102.038, -87.9981, 88.0381, -103.998, 70.0381, -117.998, 49.0381, -125.998, 25.0381, -129.998, -0.961945, -125.998, -26.9619, -117.998, -51.9619, -103.998, -75.9619, -84.9981, -93.9619, -65.9981, -107.962, -44.9981, -116.962, -23.9981, -121.962 )
+
+[node name="RightCard" type="Sprite" parent="scene/Path2D/RightSong"]
 scale = Vector2( 0.65, 0.65 )
 texture = ExtResource( 3 )
 
-[node name="SongRight" type="PathFollow2D" parent="scene/Path2D"]
+[node name="RightDiff" type="RichTextLabel" parent="scene/Path2D/RightSong"]
+margin_left = -18.9981
+margin_top = 37.0381
+margin_right = 42.0019
+margin_bottom = 114.038
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[color=black]2[/color]"
+text = "2"
+scroll_active = false
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="LeftSong" type="PathFollow2D" parent="scene/Path2D"]
 position = Vector2( -291.183, 274.084 )
 offset = 820.99
 rotate = false
 
-[node name="SpriteR" type="Sprite" parent="scene/Path2D/SongRight"]
+[node name="LeftBG" type="Polygon2D" parent="scene/Path2D/LeftSong"]
+texture = ExtResource( 11 )
+texture_offset = Vector2( 120, 120 )
+texture_scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( -2.99814, -125.962, 14.0019, -123.962, 30.0019, -120.962, 40.0019, -117.962, 56.0019, -110.962, 73.0019, -100.962, 87.0019, -90.9619, 100.002, -76.9619, 111.002, -61.9619, 120.002, -44.9619, 126.002, -24.9619, 128.002, -5.96194, 128.002, 13.0381, 125.002, 28.0381, 119.002, 47.0381, 109.002, 64.0381, 93.0019, 83.0381, 75.0019, 97.0381, 58.0019, 108.038, 36.0019, 116.038, 16.0019, 121.038, -7.99814, 121.038, -29.9981, 118.038, -50.9981, 111.038, -70.9981, 102.038, -87.9981, 88.0381, -103.998, 70.0381, -117.998, 49.0381, -125.998, 25.0381, -129.998, -0.961945, -125.998, -26.9619, -117.998, -51.9619, -103.998, -75.9619, -84.9981, -93.9619, -65.9981, -107.962, -44.9981, -116.962, -23.9981, -121.962 )
+
+[node name="LeftCard" type="Sprite" parent="scene/Path2D/LeftSong"]
 position = Vector2( 2.04848, 1.95032 )
 scale = Vector2( 0.65, 0.65 )
 texture = ExtResource( 9 )
+
+[node name="LeftDiff" type="RichTextLabel" parent="scene/Path2D/LeftSong"]
+margin_left = -18.9981
+margin_top = 37.0381
+margin_right = 42.0019
+margin_bottom = 114.038
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[color=black]2[/color]"
+text = "2"
+scroll_active = false
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="Sprite" type="Sprite" parent="scene"]
 position = Vector2( 542, 448 )
@@ -91,5 +156,6 @@ texture = ExtResource( 4 )
 position = Vector2( 266, 81 )
 scale = Vector2( 0.647651, 0.647651 )
 texture = ExtResource( 7 )
+script = ExtResource( 10 )
 
 [node name="swipeDetector" type="Camera2D" parent="."]
