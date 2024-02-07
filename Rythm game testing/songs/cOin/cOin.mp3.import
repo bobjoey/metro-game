@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/cOin.mp3-d4e5eb88e5875b00fbc37965db985b6a.mp3str"
+
+[deps]
+
+source_file="res://songs/cOin/cOin.mp3"
+dest_files=[ "res://.import/cOin.mp3-d4e5eb88e5875b00fbc37965db985b6a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/OCOLIMBO.mp3-7193c2948eb5ee08c11b762682c4a5c5.mp3str"
+
+[deps]
+
+source_file="res://songs/OCOLIMBO/OCOLIMBO.mp3"
+dest_files=[ "res://.import/OCOLIMBO.mp3-7193c2948eb5ee08c11b762682c4a5c5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -53,7 +53,7 @@ public class songCard : PathFollow2D
 	public void getInfo(string songCode) //res://songs/Lagtrain/lagtrain.png
 	{
  		string path = (fPath + songCode + ".txt");
-		GD.Print(path);
+		//GD.Print(path);
 		File file = new File();
 		if(file.FileExists(path)){
 			file.Open(path, File.ModeFlags.Read);

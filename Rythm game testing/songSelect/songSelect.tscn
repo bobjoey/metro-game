@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://songSelect/songsManager.cs" type="Script" id=1]
 [ext_resource path="res://gameSprites/SongSelect/scEasy.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://songSelect/songBanner.cs" type="Script" id=10]
 [ext_resource path="res://songs/Bus/Bus.png" type="Texture" id=11]
 [ext_resource path="res://gameSprites/Fonts/Prompt-SemiBold.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://songSelect/SongPlayer.cs" type="Script" id=13]
+[ext_resource path="res://audioTesting/testAudioFiles/The Duck Song.mp3" type="AudioStream" id=14]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -34,6 +36,17 @@ margin_bottom = -1.0
 margin_right = 540.0
 margin_bottom = 891.0
 
+[node name="SongPlayer" type="Control" parent="scene"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 13 )
+
+[node name="prevPlayer" type="AudioStreamPlayer" parent="scene/SongPlayer"]
+stream = ExtResource( 14 )
+
+[node name="prevTimer" type="Timer" parent="scene/SongPlayer"]
+wait_time = 10.0
+
 [node name="screenBG" type="Sprite" parent="scene"]
 position = Vector2( 268.5, 359.403 )
 scale = Vector2( 0.640464, 0.640464 )
@@ -51,7 +64,7 @@ rotate = false
 
 [node name="MainBG" type="Polygon2D" parent="scene/Path2D/MainSong"]
 texture = ExtResource( 11 )
-texture_offset = Vector2( 120, 120 )
+texture_offset = Vector2( 128, 120 )
 texture_scale = Vector2( 2, 2 )
 polygon = PoolVector2Array( -2.99814, -125.962, 14.0019, -123.962, 30.0019, -120.962, 40.0019, -117.962, 56.0019, -110.962, 73.0019, -100.962, 87.0019, -90.9619, 100.002, -76.9619, 111.002, -61.9619, 120.002, -44.9619, 126.002, -24.9619, 128.002, -5.96194, 128.002, 13.0381, 125.002, 28.0381, 119.002, 47.0381, 109.002, 64.0381, 93.0019, 83.0381, 75.0019, 97.0381, 58.0019, 108.038, 36.0019, 116.038, 16.0019, 121.038, -7.99814, 121.038, -29.9981, 118.038, -50.9981, 111.038, -70.9981, 102.038, -87.9981, 88.0381, -103.998, 70.0381, -117.998, 49.0381, -125.998, 25.0381, -129.998, -0.961945, -125.998, -26.9619, -117.998, -51.9619, -103.998, -75.9619, -84.9981, -93.9619, -65.9981, -107.962, -44.9981, -116.962, -23.9981, -121.962 )
 
@@ -149,7 +162,7 @@ texture = ExtResource( 8 )
 
 [node name="ticketMachine" type="Sprite" parent="scene"]
 position = Vector2( 269.5, 446.209 )
-scale = Vector2( 0.635613, 0.635613 )
+scale = Vector2( 0.637, 0.636 )
 texture = ExtResource( 4 )
 
 [node name="songBanner" type="Sprite" parent="scene"]
@@ -159,3 +172,6 @@ texture = ExtResource( 7 )
 script = ExtResource( 10 )
 
 [node name="swipeDetector" type="Camera2D" parent="."]
+
+[connection signal="songChangeEventHandler" from="scene/Path2D" to="scene/SongPlayer" method="_on_Path2D_songChangeEventHandler"]
+[connection signal="update_bannerEventHandler" from="scene/Path2D" to="scene/songBanner" method="_on_Path2D_update_bannerEventHandler"]
