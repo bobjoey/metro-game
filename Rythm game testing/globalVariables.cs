@@ -10,6 +10,9 @@ public class globalVariables : Node
 
 	public string song = "duck"; // should be set in song selection scene, ** MUST BE CHANGED WHEN USING REAL SONGS, DUCK SONG WONT BE IN THERE **
 		// Called when the node enters the scene tree for the first time.
+		
+	public string songCode = "Lagtrain";
+		
 	public override void _Ready()
 	{
 		

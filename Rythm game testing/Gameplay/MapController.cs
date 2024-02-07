@@ -24,6 +24,8 @@ public class MapController : Node2D
 	public float noteSpeed = 200; // px per sec
 	public float scrollPos = 0;
 
+	//private GenericNote note;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -91,7 +93,13 @@ public class MapController : Node2D
 
 		if (@event is InputEventMouseButton eventMouseButton)
 		{
-			
+			var pos = eventMouseButton.Position;
+			GD.Print("Input received at " + pos);
+			if (pos.y > playRegion.x && pos.y < playRegion.y){
+				GD.Print("In play region");
+			} else{
+				GD.Print("Not in play region");
+			}
 		}
 	}
 
@@ -112,6 +120,23 @@ public class MapController : Node2D
 	public float getPositionRatio()
 	{
 		return songPlayer.GetPlaybackPosition() / getSongLength();
+	}
+
+	public void addNote(Vector2 info, Vector2[,] snapPoints){
+		int xCoord = (int) (info.x /1000);
+		int yCoord = (int) (info.x %1000); 
+		Vector2 location = new Vector2(xCoord, yCoord);
+
+		int type = (int)info.y;
+
+		GD.Print("attempting to instance & spawn");
+		var note = GD.Load<PackedScene>("res://gameplay/Note.tscn");
+		var noteInstance = (GenericNote)note.Instance();
+		GD.Print("instance done");
+		noteInstance.spawn(location, type, snapPoints);
+		//AddChild(noteInstance);
+		CallDeferred("add_child", noteInstance); // other one errors, this one doesnt :)
+		GD.Print("node instanced & added as child");
 	}
 
 
