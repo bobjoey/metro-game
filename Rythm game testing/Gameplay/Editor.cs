@@ -8,9 +8,12 @@ public class Editor : Node2D
 	public Vector2 grid;
 	public Vector2[,] snapPoints;
 
+	public Vector2[] noteGrid; // grid of notes in song, x being the laneOption & y being the noteOption
+
 	public bool active;
 	public int laneOption, noteOption; // laneOption 0 1 2 3, noteOption 0 none 1 tap 2 hold 3 swipeL 4 swipeR ?
 	public float space, songLengthPx;
+	
 
 	// Lists to help organize and access notes
 	// one for lanes
@@ -32,6 +35,11 @@ public class Editor : Node2D
 				snapPoints[x, y] = new Vector2(x*space+space, y*space);
 			}
 		}
+		fillNoteGrid();
+		for(int i=0;i<noteGrid.Length;i++){
+			controller.addNote(noteGrid[i],snapPoints);
+		}
+		//controller.addNote(noteGrid[0],snapPoints);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -79,7 +87,7 @@ public class Editor : Node2D
 
 	public override void _Draw() // AAAAAAAAAAAAAAAAAAAAAAAAAAA
 	{
-		Vector2 displaySize = controller.displaySize; // 480, 800
+		Vector2 displaySize = controller.displaySize; // 540, 891
 		float offset = controller.scrollPos;
 
 		Vector2[] pts = new Vector2[(int)(grid.x * 2 + grid.y * 2)];
@@ -108,5 +116,37 @@ public class Editor : Node2D
 
 
 	// choosing note and lane
+
+	// noteGrid: each number in the Vector2 has important parts:
+	// first number: first digit = lane, second part = row number
+	// second number: first digit = color, second digit = noteType
+	// colors: 1=green, 2=purple, 3=red, 4=yellow
+	// noteTypes: 1 = tap, 2=hold, 3=swipe left, 4=swipe right,
+	// idk how were gonna do holds, but it could be that nums 5-9 are for hold values, and ones of same value connect to each other
+	public void fillNoteGrid(){
+		var globalVariables = (globalVariables)GetNode("/root/globalVariables");
+		string songCode = globalVariables.songCode;
+		string path = "res://songs/"+songCode+"/"+songCode+"Notes.txt";
+		GD.Print(path);
+		File file = new File();
+		if(file.FileExists(path)){
+			file.Open(path, File.ModeFlags.Read);
+			string[] lines = new string[Convert.ToInt32(file.GetLine())];
+			int iter = 0;
+			while(!file.EofReached()){
+				lines[iter] = file.GetLine();
+				iter++;
+			}
+			file.Close();
+			noteGrid = new Vector2[lines.Length];
+			for(int i=0;i<noteGrid.Length;i++){
+				noteGrid[i].x = Convert.ToInt32(lines[i].Substring(0, 4));
+				noteGrid[i].y = Convert.ToInt32(lines[i].Substring(5, 2));
+				GD.Print(noteGrid[i]);
+			}
+		} else {
+			GD.Print("not found: " + path);
+		}
+	}
 
 }

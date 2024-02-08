@@ -12,6 +12,7 @@ public class game : Node2D
 	{
 		var globalVariables = (globalVariables)GetNode("/root/globalVariables");
 		GD.Print("Volume: "+globalVariables.volume);
+		GD.Print("SongCode: "+globalVariables.songCode);
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
