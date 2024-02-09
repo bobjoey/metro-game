@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://songSelect/songsManager.cs" type="Script" id=1]
 [ext_resource path="res://gameSprites/SongSelect/scEasy.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://gameSprites/Fonts/Prompt-SemiBold.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://songSelect/SongPlayer.cs" type="Script" id=13]
 [ext_resource path="res://audioTesting/testAudioFiles/The Duck Song.mp3" type="AudioStream" id=14]
+[ext_resource path="res://songSelect/SizeMod.cs" type="Script" id=15]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -40,12 +41,17 @@ margin_bottom = 891.0
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 13 )
+previewLength = 8
 
 [node name="prevPlayer" type="AudioStreamPlayer" parent="scene/SongPlayer"]
 stream = ExtResource( 14 )
+autoplay = true
 
 [node name="prevTimer" type="Timer" parent="scene/SongPlayer"]
 wait_time = 10.0
+
+[node name="fadeTimer" type="Timer" parent="scene/SongPlayer"]
+wait_time = 0.5
 
 [node name="screenBG" type="Sprite" parent="scene"]
 position = Vector2( 268.5, 359.403 )
@@ -61,6 +67,7 @@ script = ExtResource( 1 )
 position = Vector2( 1.99812, 399.962 )
 offset = 492.791
 rotate = false
+script = ExtResource( 15 )
 
 [node name="MainBG" type="Polygon2D" parent="scene/Path2D/MainSong"]
 texture = ExtResource( 11 )
@@ -90,6 +97,7 @@ __meta__ = {
 position = Vector2( 294.615, 270.471 )
 offset = 163.607
 rotate = false
+script = ExtResource( 15 )
 
 [node name="RightBG" type="Polygon2D" parent="scene/Path2D/RightSong"]
 texture = ExtResource( 11 )
@@ -119,6 +127,7 @@ __meta__ = {
 position = Vector2( -291.183, 274.084 )
 offset = 820.99
 rotate = false
+script = ExtResource( 15 )
 
 [node name="LeftBG" type="Polygon2D" parent="scene/Path2D/LeftSong"]
 texture = ExtResource( 11 )
@@ -173,5 +182,8 @@ script = ExtResource( 10 )
 
 [node name="swipeDetector" type="Camera2D" parent="."]
 
+[connection signal="soundBounceEventHandler" from="scene/SongPlayer" to="scene/Path2D" method="SoundBounceReciever"]
+[connection signal="timeout" from="scene/SongPlayer/prevTimer" to="scene/SongPlayer" method="stopPlaying"]
+[connection signal="timeout" from="scene/SongPlayer/fadeTimer" to="scene/SongPlayer" method="fadeTime"]
 [connection signal="songChangeEventHandler" from="scene/Path2D" to="scene/SongPlayer" method="_on_Path2D_songChangeEventHandler"]
 [connection signal="update_bannerEventHandler" from="scene/Path2D" to="scene/songBanner" method="_on_Path2D_update_bannerEventHandler"]

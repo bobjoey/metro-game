@@ -1,6 +1,7 @@
 //using System.IO;
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 
 public class songCard : PathFollow2D
@@ -16,6 +17,7 @@ public class songCard : PathFollow2D
 	public string songAuthor;
 	public float songLength;
 	public float previewTime;
+	public int bpm;
 
 	public AudioStreamMP3 songAudio; //isnt part of the .txt file, is read the mp3 directly with its path
 	public string imagePath;//Isn't part of the .txt file, is read directly with its path
@@ -57,19 +59,19 @@ public class songCard : PathFollow2D
 		File file = new File();
 		if(file.FileExists(path)){
 			file.Open(path, File.ModeFlags.Read);
-			string[] lines = new string[5];
+			List<String> lines = new List<String>();
 			int iter = 0;
 			while(!file.EofReached()){
-				lines[iter] = file.GetLine();
+				lines.Add(file.GetLine());
 				iter++;
 			}
-			
 			file.Close();
-			difficulty = Convert.ToInt32((lines[0]));
+			difficulty = Convert.ToInt32(lines[0]);
 			songTitle = lines[1];
 			songAuthor = lines[2];
 			songLength = Convert.ToInt32(lines[3]);
 			previewTime = Convert.ToInt32(lines[4]);
+			bpm = Convert.ToInt32(lines[5]);
 			imagePath = (fPath + songCode + ".png");
 			songAudio = (AudioStreamMP3)GD.Load(fPath + songCode + ".mp3");
 		} else {
@@ -81,6 +83,7 @@ public class songCard : PathFollow2D
 			previewTime = 0;
 			imagePath = "res://icon.png";
 			songAudio = null;
+			bpm = 0;
 		}
 	}
 	
