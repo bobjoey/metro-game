@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("rhythm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a72b7092b83f8d36211d30b25e7a60f3929cdc4d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+395dcb9618bb429650755e61377f5064aa230620")]
 [assembly: System.Reflection.AssemblyProductAttribute("rhythm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("rhythm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

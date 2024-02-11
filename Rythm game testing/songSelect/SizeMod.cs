@@ -7,6 +7,6 @@ public class SizeMod : PathFollow2D
     {
         if(this.Scale > new Vector2(1,1)){
             this.Scale = new Vector2(this.Scale.x*0.99f, this.Scale.y*0.99f);
-        }   
+        }
     }
 }

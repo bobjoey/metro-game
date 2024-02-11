@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=234 format=2]
 
 [ext_resource path="res://songSelect/songsManager.cs" type="Script" id=1]
 [ext_resource path="res://gameSprites/SongSelect/scEasy.png" type="Texture" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://gameSprites/SongSelect/ticketMachine.png" type="Texture" id=4]
 [ext_resource path="res://gameSprites/SongSelect/ticketMachineBG.png" type="Texture" id=5]
 [ext_resource path="res://gameSprites/SongSelect/whiteBackground.png" type="Texture" id=6]
-[ext_resource path="res://gameSprites/SongSelect/sbEasy.png" type="Texture" id=7]
+[ext_resource path="res://gameSprites/SongSelect/sbBg.png" type="Texture" id=7]
 [ext_resource path="res://gameSprites/SongSelect/mainBG.png" type="Texture" id=8]
 [ext_resource path="res://gameSprites/SongSelect/scHard.png" type="Texture" id=9]
 [ext_resource path="res://songSelect/songBanner.cs" type="Script" id=10]
@@ -15,23 +15,425 @@
 [ext_resource path="res://songSelect/SongPlayer.cs" type="Script" id=13]
 [ext_resource path="res://audioTesting/testAudioFiles/The Duck Song.mp3" type="AudioStream" id=14]
 [ext_resource path="res://songSelect/SizeMod.cs" type="Script" id=15]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_3.png" type="Texture" id=16]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_4.png" type="Texture" id=17]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_6.png" type="Texture" id=18]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_7.png" type="Texture" id=19]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_9.png" type="Texture" id=20]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_15.png" type="Texture" id=21]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_16.png" type="Texture" id=22]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_17.png" type="Texture" id=23]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_19.png" type="Texture" id=24]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_20.png" type="Texture" id=25]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_23.png" type="Texture" id=26]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_24.png" type="Texture" id=27]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_26.png" type="Texture" id=28]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_28.png" type="Texture" id=29]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_36.png" type="Texture" id=30]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_37.png" type="Texture" id=31]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_38.png" type="Texture" id=32]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_43.png" type="Texture" id=33]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_44.png" type="Texture" id=34]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_45.png" type="Texture" id=35]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_46.png" type="Texture" id=36]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_48.png" type="Texture" id=37]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_49.png" type="Texture" id=38]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_51.png" type="Texture" id=39]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_53.png" type="Texture" id=40]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_64.png" type="Texture" id=41]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_65.png" type="Texture" id=42]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_66.png" type="Texture" id=43]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_67.png" type="Texture" id=44]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_50.png" type="Texture" id=45]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_2.png" type="Texture" id=46]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_1.png" type="Texture" id=47]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_30.png" type="Texture" id=48]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_32.png" type="Texture" id=49]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_13.png" type="Texture" id=50]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_29.png" type="Texture" id=51]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_31.png" type="Texture" id=52]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_56.png" type="Texture" id=53]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_59.png" type="Texture" id=54]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_60.png" type="Texture" id=55]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_5.png" type="Texture" id=56]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_8.png" type="Texture" id=57]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_12.png" type="Texture" id=58]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_10.png" type="Texture" id=59]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_11.png" type="Texture" id=60]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_21.png" type="Texture" id=61]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_22.png" type="Texture" id=62]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_14.png" type="Texture" id=63]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_18.png" type="Texture" id=64]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_25.png" type="Texture" id=65]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_27.png" type="Texture" id=66]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_61.png" type="Texture" id=67]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_62.png" type="Texture" id=68]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_63.png" type="Texture" id=69]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_58.png" type="Texture" id=70]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_52.png" type="Texture" id=71]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_54.png" type="Texture" id=72]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_55.png" type="Texture" id=73]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_57.png" type="Texture" id=74]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_47.png" type="Texture" id=75]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_40.png" type="Texture" id=76]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_41.png" type="Texture" id=77]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_42.png" type="Texture" id=78]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_34.png" type="Texture" id=79]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_35.png" type="Texture" id=80]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_39.png" type="Texture" id=81]
+[ext_resource path="res://gameSprites/SongSelect/sbeasyimgs/frame_33.png" type="Texture" id=82]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_40.png" type="Texture" id=83]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_42.png" type="Texture" id=84]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_33.png" type="Texture" id=85]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_39.png" type="Texture" id=86]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_43.png" type="Texture" id=87]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_6.png" type="Texture" id=88]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_7.png" type="Texture" id=89]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_8.png" type="Texture" id=90]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_36.png" type="Texture" id=91]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_35.png" type="Texture" id=92]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_2.png" type="Texture" id=93]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_42.png" type="Texture" id=94]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_43.png" type="Texture" id=95]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_48.png" type="Texture" id=96]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_34.png" type="Texture" id=97]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_22.png" type="Texture" id=98]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_37.png" type="Texture" id=99]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_39.png" type="Texture" id=100]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_23.png" type="Texture" id=101]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_32.png" type="Texture" id=102]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_44.png" type="Texture" id=103]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_33.png" type="Texture" id=104]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_3.png" type="Texture" id=105]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_4.png" type="Texture" id=106]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_20.png" type="Texture" id=107]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_12.png" type="Texture" id=108]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_45.png" type="Texture" id=109]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_58.png" type="Texture" id=110]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_62.png" type="Texture" id=111]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_63.png" type="Texture" id=112]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_64.png" type="Texture" id=113]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_65.png" type="Texture" id=114]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_66.png" type="Texture" id=115]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_67.png" type="Texture" id=116]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_62.png" type="Texture" id=117]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_63.png" type="Texture" id=118]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_59.png" type="Texture" id=119]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_15.png" type="Texture" id=120]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_58.png" type="Texture" id=121]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_3.png" type="Texture" id=122]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_40.png" type="Texture" id=123]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_57.png" type="Texture" id=124]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_14.png" type="Texture" id=125]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_38.png" type="Texture" id=126]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_48.png" type="Texture" id=127]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_37.png" type="Texture" id=128]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_4.png" type="Texture" id=129]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_41.png" type="Texture" id=130]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_44.png" type="Texture" id=131]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_18.png" type="Texture" id=132]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_26.png" type="Texture" id=133]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_27.png" type="Texture" id=134]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_28.png" type="Texture" id=135]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_38.png" type="Texture" id=136]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_50.png" type="Texture" id=137]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_51.png" type="Texture" id=138]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_52.png" type="Texture" id=139]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_53.png" type="Texture" id=140]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_46.png" type="Texture" id=141]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_47.png" type="Texture" id=142]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_49.png" type="Texture" id=143]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_16.png" type="Texture" id=144]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_45.png" type="Texture" id=145]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_6.png" type="Texture" id=146]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_7.png" type="Texture" id=147]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_8.png" type="Texture" id=148]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_9.png" type="Texture" id=149]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_13.png" type="Texture" id=150]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_17.png" type="Texture" id=151]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_18.png" type="Texture" id=152]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_19.png" type="Texture" id=153]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_22.png" type="Texture" id=154]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_23.png" type="Texture" id=155]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_26.png" type="Texture" id=156]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_27.png" type="Texture" id=157]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_28.png" type="Texture" id=158]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_29.png" type="Texture" id=159]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_30.png" type="Texture" id=160]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_32.png" type="Texture" id=161]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_34.png" type="Texture" id=162]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_35.png" type="Texture" id=163]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_36.png" type="Texture" id=164]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_5.png" type="Texture" id=165]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_5.png" type="Texture" id=166]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_59.png" type="Texture" id=167]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_60.png" type="Texture" id=168]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_61.png" type="Texture" id=169]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_50.png" type="Texture" id=170]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_51.png" type="Texture" id=171]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_52.png" type="Texture" id=172]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_53.png" type="Texture" id=173]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_54.png" type="Texture" id=174]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_55.png" type="Texture" id=175]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_56.png" type="Texture" id=176]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_10.png" type="Texture" id=177]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_11.png" type="Texture" id=178]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_14.png" type="Texture" id=179]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_15.png" type="Texture" id=180]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_16.png" type="Texture" id=181]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_20.png" type="Texture" id=182]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_21.png" type="Texture" id=183]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_24.png" type="Texture" id=184]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_25.png" type="Texture" id=185]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_31.png" type="Texture" id=186]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_41.png" type="Texture" id=187]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_46.png" type="Texture" id=188]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_47.png" type="Texture" id=189]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_49.png" type="Texture" id=190]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_1.png" type="Texture" id=191]
+[ext_resource path="res://gameSprites/SongSelect/sbhardimgs/frame_2.png" type="Texture" id=192]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_1.png" type="Texture" id=193]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_9.png" type="Texture" id=194]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_10.png" type="Texture" id=195]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_11.png" type="Texture" id=196]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_12.png" type="Texture" id=197]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_13.png" type="Texture" id=198]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_17.png" type="Texture" id=199]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_19.png" type="Texture" id=200]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_21.png" type="Texture" id=201]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_24.png" type="Texture" id=202]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_25.png" type="Texture" id=203]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_29.png" type="Texture" id=204]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_30.png" type="Texture" id=205]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_31.png" type="Texture" id=206]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_54.png" type="Texture" id=207]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_55.png" type="Texture" id=208]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_56.png" type="Texture" id=209]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_57.png" type="Texture" id=210]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_60.png" type="Texture" id=211]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_61.png" type="Texture" id=212]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_64.png" type="Texture" id=213]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_65.png" type="Texture" id=214]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_66.png" type="Texture" id=215]
+[ext_resource path="res://gameSprites/SongSelect/sbmedimgs/frame_67.png" type="Texture" id=216]
+[ext_resource path="res://gameSprites/Fonts/Prompt-Regular.ttf" type="DynamicFontData" id=217]
+[ext_resource path="res://gameSprites/MapEditor/scrollBar.png" type="Texture" id=218]
+[ext_resource path="res://main_menu.cs" type="Script" id=219]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 378, 131, 0, 0, 0, 0, 369.552, 153.073, 0, 0, 0, 0, 361.596, 171.022, 0, 0, 0, 0, 352.769, 188.559, 0, 0, 0, 0, 343.091, 205.641, 0, 0, 0, 0, 332.588, 222.228, 0, 0, 0, 0, 321.283, 238.28, 0, 0, 0, 0, 309.204, 253.757, 0, 0, 0, 0, 296.38, 268.624, 0, 0, 0, 0, 282.843, 282.843, 0, 0, 0, 0, 268.624, 296.38, 0, 0, 0, 0, 253.757, 309.204, 0, 0, 0, 0, 238.28, 321.283, 0, 0, 0, 0, 222.228, 332.588, 0, 0, 0, 0, 205.641, 343.091, 0, 0, 0, 0, 188.559, 352.768, 0, 0, 0, 0, 171.022, 361.596, 0, 0, 0, 0, 153.073, 369.552, 0, 0, 0, 0, 134.756, 376.618, 0, 0, 0, 0, 116.114, 382.776, 0, 0, 0, 0, 97.192, 388.013, 0, 0, 0, 0, 78.0361, 392.314, 0, 0, 0, 0, 58.6922, 395.671, 0, 0, 0, 0, 39.2069, 398.074, 0, 0, 0, 0, 19.6271, 399.518, 0, 0, 0, 0, -1.74846e-05, 400, 0, 0, 0, 0, -19.627, 399.518, 0, 0, 0, 0, -39.2068, 398.074, 0, 0, 0, 0, -58.6922, 395.671, 0, 0, 0, 0, -78.0361, 392.314, 0, 0, 0, 0, -97.1921, 388.013, 0, 0, 0, 0, -116.114, 382.776, 0, 0, 0, 0, -134.756, 376.618, 0, 0, 0, 0, -153.073, 369.552, 0, 0, 0, 0, -171.022, 361.596, 0, 0, 0, 0, -188.559, 352.768, 0, 0, 0, 0, -205.641, 343.091, 0, 0, 0, 0, -222.228, 332.588, 0, 0, 0, 0, -238.28, 321.283, 0, 0, 0, 0, -253.757, 309.204, 0, 0, 0, 0, -268.624, 296.38, 0, 0, 0, 0, -282.843, 282.843, 0, 0, 0, 0, -296.38, 268.624, 0, 0, 0, 0, -309.204, 253.757, 0, 0, 0, 0, -321.283, 238.28, 0, 0, 0, 0, -332.588, 222.228, 0, 0, 0, 0, -343.091, 205.641, 0, 0, 0, 0, -352.768, 188.559, 0, 0, 0, 0, -361.596, 171.022, 0, 0, 0, 0, -369.552, 153.073, 0, 0, 0, 0, -376.618, 134.756 )
 }
 
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+uniform float width = 64;
+uniform float height = 64;
+uniform vec2 mouse_position = vec2(0, -140);
+
+void fragment() {
+	vec2 uv = UV;
+
+	// map skew to [-0.5, 0.5]
+	float skew_x = mouse_position.x / width;
+	float skew_y = mouse_position.y / height;
+	
+	// map to [-0.5, 0.5]
+	uv.x = (uv.x - 0.5);
+	uv.y = (uv.y - 0.5);
+	
+	// ratio - how far are currnet point from mouse position
+	float sx = 1.0 - (uv.x * skew_x);
+	float sy = 1.0 - (uv.y * skew_y);
+	
+	// calculate z (depth) depending on ratio
+	float z = 1.0 + (sx * sy) / 2.0;
+	// correct perspective for given point
+	uv.x = uv.x / z;
+	uv.y = uv.y / z;
+	
+	// scale a bit down a reset mapping from [-0.5, 0.5] to [0, 1]
+	uv.x = uv.x / 0.45 + 0.5;
+	uv.y = uv.y / 0.45 + 0.5;
+	COLOR = texture(TEXTURE, uv);
+	
+	// if uv outside texture - then use transparent color
+	if (uv.x < 0.0 || uv.x > 1.0) {
+		COLOR.a = 0.0;
+	} else if (uv.y < 0.0 || uv.y > 1.0) {
+		COLOR.a = 0.0;
+	} else {
+		// brightness
+		//float brightness = 1.0 - mouse_position.y / (height / 2.0) * 0.2;
+		float brightness = 1.1;
+		COLOR.rgb = texture(TEXTURE, uv, 1.0).rgb * brightness;
+		
+		COLOR.a = texture(TEXTURE, uv, 1.0).a;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+shader_param/width = 64.0
+shader_param/height = 64.0
+shader_param/mouse_position = Vector2( 0, -140 )
+
 [sub_resource type="DynamicFont" id=2]
 size = 56
 font_data = ExtResource( 12 )
 
+[sub_resource type="Shader" id=9]
+code = "shader_type canvas_item;
+
+uniform float width = 64;
+uniform float height = 64;
+uniform vec2 mouse_position = vec2(0, -140);
+
+void fragment() {
+	vec2 uv = UV;
+
+	// map skew to [-0.5, 0.5]
+	float skew_x = mouse_position.x / width;
+	float skew_y = mouse_position.y / height;
+	
+	// map to [-0.5, 0.5]
+	uv.x = (uv.x - 0.5);
+	uv.y = (uv.y - 0.5);
+	
+	// ratio - how far are currnet point from mouse position
+	float sx = 1.0 - (uv.x * skew_x);
+	float sy = 1.0 - (uv.y * skew_y);
+	
+	// calculate z (depth) depending on ratio
+	float z = 1.0 + (sx * sy) / 2.0;
+	// correct perspective for given point
+	uv.x = uv.x / z;
+	uv.y = uv.y / z;
+	
+	// scale a bit down a reset mapping from [-0.5, 0.5] to [0, 1]
+	uv.x = uv.x / 0.45 + 0.5;
+	uv.y = uv.y / 0.45 + 0.5;
+	COLOR = texture(TEXTURE, uv);
+	
+	// if uv outside texture - then use transparent color
+	if (uv.x < 0.0 || uv.x > 1.0) {
+		COLOR.a = 0.0;
+	} else if (uv.y < 0.0 || uv.y > 1.0) {
+		COLOR.a = 0.0;
+	} else {
+		// brightness
+		//float brightness = 1.0 - mouse_position.y / (height / 2.0) * 0.2;
+		float brightness = 1.1;
+		COLOR.rgb = texture(TEXTURE, uv, 1.0).rgb * brightness;
+		
+		COLOR.a = texture(TEXTURE, uv, 1.0).a;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = SubResource( 9 )
+shader_param/width = 64.0
+shader_param/height = 64.0
+shader_param/mouse_position = Vector2( 0, -140 )
+
+[sub_resource type="Shader" id=11]
+code = "shader_type canvas_item;
+
+uniform float width = 64;
+uniform float height = 64;
+uniform vec2 mouse_position = vec2(0, -140);
+
+void fragment() {
+	vec2 uv = UV;
+
+	// map skew to [-0.5, 0.5]
+	float skew_x = mouse_position.x / width;
+	float skew_y = mouse_position.y / height;
+	
+	// map to [-0.5, 0.5]
+	uv.x = (uv.x - 0.5);
+	uv.y = (uv.y - 0.5);
+	
+	// ratio - how far are currnet point from mouse position
+	float sx = 1.0 - (uv.x * skew_x);
+	float sy = 1.0 - (uv.y * skew_y);
+	
+	// calculate z (depth) depending on ratio
+	float z = 1.0 + (sx * sy) / 2.0;
+	// correct perspective for given point
+	uv.x = uv.x / z;
+	uv.y = uv.y / z;
+	
+	// scale a bit down a reset mapping from [-0.5, 0.5] to [0, 1]
+	uv.x = uv.x / 0.45 + 0.5;
+	uv.y = uv.y / 0.45 + 0.5;
+	COLOR = texture(TEXTURE, uv);
+	
+	// if uv outside texture - then use transparent color
+	if (uv.x < 0.0 || uv.x > 1.0) {
+		COLOR.a = 0.0;
+	} else if (uv.y < 0.0 || uv.y > 1.0) {
+		COLOR.a = 0.0;
+	} else {
+		// brightness
+		//float brightness = 1.0 - mouse_position.y / (height / 2.0) * 0.2;
+		float brightness = 1.1;
+		COLOR.rgb = texture(TEXTURE, uv, 1.0).rgb * brightness;
+		
+		COLOR.a = texture(TEXTURE, uv, 1.0).a;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=12]
+shader = SubResource( 11 )
+shader_param/width = 64.0
+shader_param/height = 64.0
+shader_param/mouse_position = Vector2( 0, -140 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 47 ), ExtResource( 46 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 56 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 57 ), ExtResource( 20 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 58 ), ExtResource( 50 ), ExtResource( 63 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 64 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 65 ), ExtResource( 28 ), ExtResource( 66 ), ExtResource( 29 ), ExtResource( 51 ), ExtResource( 48 ), ExtResource( 52 ), ExtResource( 49 ), ExtResource( 82 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 81 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 75 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 45 ), ExtResource( 39 ), ExtResource( 71 ), ExtResource( 40 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 53 ), ExtResource( 74 ), ExtResource( 70 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ) ],
+"loop": true,
+"name": "Easy",
+"speed": 80.0
+}, {
+"frames": [ ExtResource( 191 ), ExtResource( 192 ), ExtResource( 122 ), ExtResource( 129 ), ExtResource( 165 ), ExtResource( 146 ), ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 177 ), ExtResource( 178 ), ExtResource( 108 ), ExtResource( 150 ), ExtResource( 179 ), ExtResource( 180 ), ExtResource( 181 ), ExtResource( 151 ), ExtResource( 152 ), ExtResource( 153 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 154 ), ExtResource( 155 ), ExtResource( 184 ), ExtResource( 185 ), ExtResource( 156 ), ExtResource( 157 ), ExtResource( 158 ), ExtResource( 159 ), ExtResource( 160 ), ExtResource( 186 ), ExtResource( 161 ), ExtResource( 85 ), ExtResource( 162 ), ExtResource( 163 ), ExtResource( 164 ), ExtResource( 128 ), ExtResource( 126 ), ExtResource( 86 ), ExtResource( 83 ), ExtResource( 187 ), ExtResource( 84 ), ExtResource( 87 ), ExtResource( 103 ), ExtResource( 109 ), ExtResource( 188 ), ExtResource( 189 ), ExtResource( 127 ), ExtResource( 190 ), ExtResource( 170 ), ExtResource( 171 ), ExtResource( 172 ), ExtResource( 173 ), ExtResource( 174 ), ExtResource( 175 ), ExtResource( 176 ), ExtResource( 124 ), ExtResource( 110 ), ExtResource( 167 ), ExtResource( 168 ), ExtResource( 169 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 116 ) ],
+"loop": true,
+"name": "Hard",
+"speed": 80.0
+}, {
+"frames": [ ExtResource( 193 ), ExtResource( 93 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 166 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 194 ), ExtResource( 195 ), ExtResource( 196 ), ExtResource( 197 ), ExtResource( 198 ), ExtResource( 125 ), ExtResource( 120 ), ExtResource( 144 ), ExtResource( 199 ), ExtResource( 132 ), ExtResource( 200 ), ExtResource( 107 ), ExtResource( 201 ), ExtResource( 98 ), ExtResource( 101 ), ExtResource( 202 ), ExtResource( 203 ), ExtResource( 133 ), ExtResource( 134 ), ExtResource( 135 ), ExtResource( 204 ), ExtResource( 205 ), ExtResource( 206 ), ExtResource( 102 ), ExtResource( 104 ), ExtResource( 97 ), ExtResource( 92 ), ExtResource( 91 ), ExtResource( 99 ), ExtResource( 136 ), ExtResource( 100 ), ExtResource( 123 ), ExtResource( 130 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 131 ), ExtResource( 145 ), ExtResource( 141 ), ExtResource( 142 ), ExtResource( 96 ), ExtResource( 143 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 139 ), ExtResource( 140 ), ExtResource( 207 ), ExtResource( 208 ), ExtResource( 209 ), ExtResource( 210 ), ExtResource( 121 ), ExtResource( 119 ), ExtResource( 211 ), ExtResource( 212 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 213 ), ExtResource( 214 ), ExtResource( 215 ), ExtResource( 216 ) ],
+"loop": true,
+"name": "Medium",
+"speed": 80.0
+} ]
+
+[sub_resource type="DynamicFont" id=13]
+font_data = ExtResource( 217 )
+
+[sub_resource type="DynamicFont" id=14]
+
+[sub_resource type="DynamicFont" id=15]
+
+[sub_resource type="DynamicFont" id=16]
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 72
+outline_size = 1
+outline_color = Color( 1, 1, 1, 0 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 217 )
+
 [node name="songSelect" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 margin_left = 1.0
-margin_top = -1.0
+margin_top = 300.0
 margin_right = 1.0
-margin_bottom = -1.0
+margin_bottom = 300.0
+rect_scale = Vector2( 2.187, 2.197 )
+script = ExtResource( 219 )
 
 [node name="scene" type="Panel" parent="."]
 margin_right = 540.0
@@ -70,9 +472,10 @@ rotate = false
 script = ExtResource( 15 )
 
 [node name="MainBG" type="Polygon2D" parent="scene/Path2D/MainSong"]
+material = SubResource( 7 )
 texture = ExtResource( 11 )
-texture_offset = Vector2( 128, 120 )
-texture_scale = Vector2( 2, 2 )
+texture_offset = Vector2( 200, 230 )
+texture_scale = Vector2( 1.25, 1.1 )
 polygon = PoolVector2Array( -2.99814, -125.962, 14.0019, -123.962, 30.0019, -120.962, 40.0019, -117.962, 56.0019, -110.962, 73.0019, -100.962, 87.0019, -90.9619, 100.002, -76.9619, 111.002, -61.9619, 120.002, -44.9619, 126.002, -24.9619, 128.002, -5.96194, 128.002, 13.0381, 125.002, 28.0381, 119.002, 47.0381, 109.002, 64.0381, 93.0019, 83.0381, 75.0019, 97.0381, 58.0019, 108.038, 36.0019, 116.038, 16.0019, 121.038, -7.99814, 121.038, -29.9981, 118.038, -50.9981, 111.038, -70.9981, 102.038, -87.9981, 88.0381, -103.998, 70.0381, -117.998, 49.0381, -125.998, 25.0381, -129.998, -0.961945, -125.998, -26.9619, -117.998, -51.9619, -103.998, -75.9619, -84.9981, -93.9619, -65.9981, -107.962, -44.9981, -116.962, -23.9981, -121.962 )
 
 [node name="MainCard" type="Sprite" parent="scene/Path2D/MainSong"]
@@ -100,9 +503,10 @@ rotate = false
 script = ExtResource( 15 )
 
 [node name="RightBG" type="Polygon2D" parent="scene/Path2D/RightSong"]
+material = SubResource( 10 )
 texture = ExtResource( 11 )
-texture_offset = Vector2( 120, 120 )
-texture_scale = Vector2( 2, 2 )
+texture_offset = Vector2( 200, 230 )
+texture_scale = Vector2( 1.25, 1.1 )
 polygon = PoolVector2Array( -2.99814, -125.962, 14.0019, -123.962, 30.0019, -120.962, 40.0019, -117.962, 56.0019, -110.962, 73.0019, -100.962, 87.0019, -90.9619, 100.002, -76.9619, 111.002, -61.9619, 120.002, -44.9619, 126.002, -24.9619, 128.002, -5.96194, 128.002, 13.0381, 125.002, 28.0381, 119.002, 47.0381, 109.002, 64.0381, 93.0019, 83.0381, 75.0019, 97.0381, 58.0019, 108.038, 36.0019, 116.038, 16.0019, 121.038, -7.99814, 121.038, -29.9981, 118.038, -50.9981, 111.038, -70.9981, 102.038, -87.9981, 88.0381, -103.998, 70.0381, -117.998, 49.0381, -125.998, 25.0381, -129.998, -0.961945, -125.998, -26.9619, -117.998, -51.9619, -103.998, -75.9619, -84.9981, -93.9619, -65.9981, -107.962, -44.9981, -116.962, -23.9981, -121.962 )
 
 [node name="RightCard" type="Sprite" parent="scene/Path2D/RightSong"]
@@ -130,9 +534,10 @@ rotate = false
 script = ExtResource( 15 )
 
 [node name="LeftBG" type="Polygon2D" parent="scene/Path2D/LeftSong"]
+material = SubResource( 12 )
 texture = ExtResource( 11 )
-texture_offset = Vector2( 120, 120 )
-texture_scale = Vector2( 2, 2 )
+texture_offset = Vector2( 200, 230 )
+texture_scale = Vector2( 1.25, 1.1 )
 polygon = PoolVector2Array( -2.99814, -125.962, 14.0019, -123.962, 30.0019, -120.962, 40.0019, -117.962, 56.0019, -110.962, 73.0019, -100.962, 87.0019, -90.9619, 100.002, -76.9619, 111.002, -61.9619, 120.002, -44.9619, 126.002, -24.9619, 128.002, -5.96194, 128.002, 13.0381, 125.002, 28.0381, 119.002, 47.0381, 109.002, 64.0381, 93.0019, 83.0381, 75.0019, 97.0381, 58.0019, 108.038, 36.0019, 116.038, 16.0019, 121.038, -7.99814, 121.038, -29.9981, 118.038, -50.9981, 111.038, -70.9981, 102.038, -87.9981, 88.0381, -103.998, 70.0381, -117.998, 49.0381, -125.998, 25.0381, -129.998, -0.961945, -125.998, -26.9619, -117.998, -51.9619, -103.998, -75.9619, -84.9981, -93.9619, -65.9981, -107.962, -44.9981, -116.962, -23.9981, -121.962 )
 
 [node name="LeftCard" type="Sprite" parent="scene/Path2D/LeftSong"]
@@ -174,11 +579,102 @@ position = Vector2( 269.5, 446.209 )
 scale = Vector2( 0.637, 0.636 )
 texture = ExtResource( 4 )
 
-[node name="songBanner" type="Sprite" parent="scene"]
-position = Vector2( 266, 81 )
-scale = Vector2( 0.647651, 0.647651 )
-texture = ExtResource( 7 )
+[node name="songBanner" type="AnimatedSprite" parent="scene"]
+position = Vector2( 264, 81 )
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 3 )
+animation = "Easy"
+frame = 1
+playing = true
+flip_h = true
 script = ExtResource( 10 )
+
+[node name="bannerScreen" type="Sprite" parent="scene/songBanner"]
+texture = ExtResource( 7 )
+offset = Vector2( 0, -2 )
+
+[node name="TitleLabel" type="RichTextLabel" parent="scene/songBanner"]
+margin_left = -630.0
+margin_top = -115.0
+margin_right = 640.0
+margin_bottom = 6.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = SubResource( 13 )
+custom_fonts/bold_italics_font = SubResource( 14 )
+custom_fonts/italics_font = SubResource( 15 )
+custom_fonts/bold_font = SubResource( 16 )
+custom_fonts/normal_font = SubResource( 17 )
+bbcode_enabled = true
+bbcode_text = "[center]Title[/center]"
+text = "Title"
+scroll_active = false
+__meta__ = {
+"_editor_description_": "[color=black]Title[/color]"
+}
+
+[node name="AuthorLabel" type="RichTextLabel" parent="scene/songBanner"]
+margin_left = -540.0
+margin_top = 10.0
+margin_right = 256.0
+margin_bottom = 146.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = SubResource( 13 )
+custom_fonts/bold_italics_font = SubResource( 14 )
+custom_fonts/italics_font = SubResource( 15 )
+custom_fonts/bold_font = SubResource( 16 )
+custom_fonts/normal_font = SubResource( 17 )
+bbcode_enabled = true
+bbcode_text = "[center]Title[/center]"
+text = "Title"
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_editor_description_": "[color=black]Title[/color]"
+}
+
+[node name="LengthLabel" type="RichTextLabel" parent="scene/songBanner"]
+margin_left = 156.427
+margin_top = 10.6858
+margin_right = 388.427
+margin_bottom = 144.686
+rect_scale = Vector2( 0.8, 0.8 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = SubResource( 13 )
+custom_fonts/bold_italics_font = SubResource( 14 )
+custom_fonts/italics_font = SubResource( 15 )
+custom_fonts/bold_font = SubResource( 16 )
+custom_fonts/normal_font = SubResource( 17 )
+bbcode_enabled = true
+bbcode_text = "[center]Title[/center]"
+text = "Title"
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_editor_description_": "[color=black]Title[/color]"
+}
+
+[node name="BlackBars2" type="Sprite" parent="."]
+position = Vector2( 264.06, -73.8148 )
+scale = Vector2( 78.4387, 0.291287 )
+texture = ExtResource( 218 )
+
+[node name="BlackBars4" type="Sprite" parent="."]
+position = Vector2( 436.214, 380.095 )
+scale = Vector2( 30, 2.30783 )
+texture = ExtResource( 218 )
+offset = Vector2( 8.9468, 27.0065 )
+
+[node name="BlackBars3" type="Sprite" parent="."]
+position = Vector2( -433.928, 379.891 )
+scale = Vector2( 30, 2.30695 )
+texture = ExtResource( 218 )
+offset = Vector2( 8.9468, 27.0065 )
+
+[node name="BlackBars" type="Sprite" parent="."]
+position = Vector2( 266.804, 962.513 )
+scale = Vector2( 81.4316, 0.27495 )
+texture = ExtResource( 218 )
 
 [node name="swipeDetector" type="Camera2D" parent="."]
 

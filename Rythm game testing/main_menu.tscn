@@ -1,22 +1,24 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://gameSprites/MainMenu/finalBg.png" type="Texture" id=1]
 [ext_resource path="res://main_menu.cs" type="Script" id=2]
 [ext_resource path="res://gameSprites/MainMenu/mainMenuButtons.png" type="Texture" id=3]
 [ext_resource path="res://gameSprites/MainMenu/title.png" type="Texture" id=4]
+[ext_resource path="res://gameSprites/MapEditor/scrollBar.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="main_menu" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_top = 306.0
+margin_bottom = 306.0
+rect_scale = Vector2( 2.187, 2.187 )
 script = ExtResource( 2 )
 
 [node name="background" type="Panel" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = -641.0
+margin_bottom = -1669.0
 
 [node name="MainCharacter" type="Sprite" parent="background"]
 position = Vector2( 270, 445.5 )
@@ -33,15 +35,21 @@ position = Vector2( 206, 43 )
 rotation = -0.109956
 texture = ExtResource( 4 )
 
+[node name="BlackBars" type="Sprite" parent="background"]
+show_behind_parent = true
+position = Vector2( 269.093, 445.573 )
+scale = Vector2( 49.9237, 2.29958 )
+texture = ExtResource( 5 )
+
 [node name="play_button" type="Button" parent="."]
 anchor_left = 0.651
 anchor_top = 0.721
 anchor_right = 0.965
 anchor_bottom = 0.926
-margin_left = 0.0720215
-margin_top = 0.708008
-margin_right = -0.52002
-margin_bottom = 0.0478516
+margin_left = 361.0
+margin_top = 657.0
+margin_right = 518.0
+margin_bottom = 822.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 1 )
 custom_styles/focus = SubResource( 1 )
@@ -56,10 +64,10 @@ anchor_left = 0.201
 anchor_top = 0.763
 anchor_right = 0.534
 anchor_bottom = 0.965
-margin_left = 0.671997
-margin_top = 0.924072
-margin_right = 0.247925
-margin_bottom = -1.18018
+margin_left = 127.0
+margin_top = 692.0
+margin_right = 280.0
+margin_bottom = 850.0
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 2 )

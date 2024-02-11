@@ -31,22 +31,26 @@ public class songCard : PathFollow2D
 			case 2: 
 			case 3:
 				diffCard = "res://gameSprites/SongSelect/scEasy.png";
-				diffBanner = "res://gameSprites/SongSelect/sbEasy.png";
+				//diffBanner = "res://gameSprites/SongSelect/sbEasy.png";
+				diffBanner = "Easy";
 				break;
 			case 4: 
 			case 5: 
 			case 6:
 				diffCard = "res://gameSprites/SongSelect/scMed.png";
-				diffBanner = "res://gameSprites/SongSelect/sbMed.png";
+				//diffBanner = "res://gameSprites/SongSelect/sbMed.png";
+				diffBanner = "Medium";
 				break;
 			case 7: 
 			case 8: 
 			case 9:
 				diffCard = "res://gameSprites/SongSelect/scHard.png";
-				diffBanner = "res://gameSprites/SongSelect/sbHard.png";
+				//diffBanner = "res://gameSprites/SongSelect/sbHard.png";
+				diffBanner = "Hard";
 				break;
 			default:
 				diffCard = "res://gameSprites/SongSelect/songCardBlankSkewed.png";
+				diffBanner = "Medium";
 				break;
 		}
 		//imagePath = ("res://gameSprites/SongsList/" + imagePath + ".png");

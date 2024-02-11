@@ -88,7 +88,7 @@ public class SongPlayer : Control
 	public void bounce(){
 		for (int i = 1; i < vuCount+1; i++){
 			float hz = (float)(i * freqMax / vuCount);
-			float magnitude = spectrum.GetMagnitudeForFrequencyRange(0, 150).Length();
+			float magnitude = spectrum.GetMagnitudeForFrequencyRange(150, 400).Length();
 			this.EmitSignal("soundBounceEventHandler", magnitude);
 		}
 	}

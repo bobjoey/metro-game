@@ -94,7 +94,6 @@ public class songsManager : Path2D
 		if((1+magnitude) > (GetNode<PathFollow2D>(mostMid+"Song").Scale.x)+0.1){
 			GetNode<PathFollow2D>(mostMid+"Song").Scale = new Vector2(1+magnitude, 1+magnitude);
 		}
-		
 	}
 	public override void _Ready()
 	{		
