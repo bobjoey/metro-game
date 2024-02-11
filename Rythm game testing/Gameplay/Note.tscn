@@ -3,6 +3,7 @@
 [ext_resource path="res://gameSprites/gameplay/greenNote.png" type="Texture" id=3]
 [ext_resource path="res://Gameplay/GenericNote.cs" type="Script" id=4]
 
+
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="Note" type="Area2D"]

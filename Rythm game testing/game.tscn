@@ -5,6 +5,7 @@
 [ext_resource path="res://Gameplay/MapController.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gameSprites/SongSelect/sbEasy.png" type="Texture" id=4]
 
+
 [node name="game" type="Node2D"]
 script = ExtResource( 2 )
 

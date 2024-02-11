@@ -1,24 +1,25 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Gameplay/MapController.cs" type="Script" id=1]
-[ext_resource path="res://gameSprites/MainMenu/finalBg.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Gameplay/TimeBar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Gameplay/Editor.cs" type="Script" id=4]
+[ext_resource path="res://Gameplay/TapNote.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Gameplay/NoteSlot.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Gameplay/gameWindowScaler.cs" type="Script" id=7]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 3
 
 [node name="MapController" type="Node2D"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 800.0, 700.0 ],
-"_edit_vertical_guides_": [ 480.0, 192.0, 288.0, 96.0, 384.0 ]
-}
+tapNote = ExtResource( 5 )
+noteSlot = ExtResource( 6 )
 
 [node name="tempBG" type="Sprite" parent="."]
 material = SubResource( 1 )
-position = Vector2( 270, 445.5 )
-scale = Vector2( 0.3125, 0.312413 )
+position = Vector2( 590.4, 984 )
+scale = Vector2( 18.45, 30.75 )
 texture = ExtResource( 2 )
 
 [node name="Editor" type="Node2D" parent="."]
@@ -27,4 +28,8 @@ script = ExtResource( 4 )
 [node name="SongPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="TimeBar" parent="." instance=ExtResource( 3 )]
-position = Vector2( 520, 400 )
+position = Vector2( 1136.52, 984 )
+scale = Vector2( 2.46, 2.46 )
+
+[node name="WindowScaler" type="Control" parent="."]
+script = ExtResource( 7 )

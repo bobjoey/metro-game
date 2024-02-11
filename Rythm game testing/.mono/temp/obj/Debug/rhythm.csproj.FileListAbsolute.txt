@@ -17,3 +17,12 @@ C:/Users/prana/metro-game/Rythm game testing/.mono/temp/obj/Debug/rhythm.Assembl
 C:/Users/prana/metro-game/Rythm game testing/.mono/temp/obj/Debug/rhythm.csproj.CoreCompileInputs.cache
 C:/Users/prana/metro-game/Rythm game testing/.mono/temp/obj/Debug/rhythm.dll
 C:/Users/prana/metro-game/Rythm game testing/.mono/temp/obj/Debug/rhythm.pdb
+C:\Users\chang\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\bin\Debug\rhythm.dll
+C:\Users\chang\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\bin\Debug\rhythm.pdb
+C:\Users\chang\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.csproj.AssemblyReference.cache
+C:\Users\chang\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chang\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.AssemblyInfoInputs.cache
+C:\Users\chang\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.AssemblyInfo.cs
+C:\Users\chang\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.csproj.CoreCompileInputs.cache
+C:\Users\chang\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.dll
+C:\Users\chang\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.pdb
