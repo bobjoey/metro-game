@@ -28,7 +28,7 @@ public class TimeBar : Area2D
     {
         base._InputEvent(viewport, @event, shapeIdx);
 
-        // if (controller.gameState != 2) return;
+        if (controller.gameState != 2) return;
         if (@event is InputEventMouseButton eventMouseButton && eventMouseButton.Pressed == true)
         {
             // GD.Print("Input received at " + eventMouseButton.Position);
@@ -36,5 +36,7 @@ public class TimeBar : Area2D
             // controller.songPlayer.Seek(controller.getSongLength() * ratio);
             controller.scrollPos = controller.getSongLength() * controller.noteSpeed * ratio; // temp
         }
+
+        GetTree().SetInputAsHandled();
     }
 }

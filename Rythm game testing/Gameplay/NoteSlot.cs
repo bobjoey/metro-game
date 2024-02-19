@@ -36,4 +36,11 @@ public class NoteSlot : Node2D
         note = null;
         full = false;
     }
+
+    public void reset()
+    {
+        if (note == null) return;
+        note.active = true;
+        note.Visible = true;
+    }
 }

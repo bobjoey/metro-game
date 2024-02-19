@@ -1,34 +1,27 @@
 using Godot;
 using System;
 
-public class TapNote : GenericNote
+public class PauseButton : Area2D
 {
-
+    public MapController controller;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        base._Ready();
-
+        InputPickable = true;
+        controller = GetParent<MapController>();
     }
 
-    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(float delta)
-    {
-        base._Process(delta);
-
-    }
     public override void _InputEvent(Godot.Object viewport, InputEvent @event, int shapeIdx)
     {
         base._InputEvent(viewport, @event, shapeIdx);
 
         if (@event is InputEventMouseButton eventMouseButton && eventMouseButton.Pressed == true)
         {
-            active = false;
-            Visible = false;
-            // GD.Print("U press me");
+            if (controller.gameState != 0) controller.enterPause();
+            else controller.enterPlay();
         }
 
-        // GetTree().SetInputAsHandled();
+        GetTree().SetInputAsHandled();
     }
 }

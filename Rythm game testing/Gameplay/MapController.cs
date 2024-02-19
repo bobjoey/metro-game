@@ -33,16 +33,22 @@ public class MapController : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        // displaySize = OS.WindowSize;
         editor = GetNode<Editor>("Editor");
         songPlayer = GetNode<AudioStreamPlayer>("SongPlayer");
-        noteSpeed = bpm/60 * displaySize.y/8; // time to fall = 480/bpm seconds
-        playRegion = new Vector2(displaySize.y*0.875f - noteSpeed*0.25f, displaySize.y*0.875f + noteSpeed*0.25f);
+        
+        updateInfo();
+    }
+
+    public void updateInfo()
+    {
+        // displaySize = OS.WindowSize;
+        noteSpeed = bpm / 60 * displaySize.y / 8; // time to fall = 480/bpm seconds
+        playRegion = new Vector2(displaySize.y * 0.875f - noteSpeed * 0.25f, displaySize.y * 0.875f + noteSpeed * 0.25f);
         // scrollPos = getPositionRatio() * displaySize.y;
 
         space = displaySize.x / (keyCount + 1);
         songLengthPx = getSongLength() * noteSpeed;
-        int vSlotCnt = (int) (songLengthPx / space) + 1;
+        int vSlotCnt = (int)(songLengthPx / space) + 1;
         noteSlots = new NoteSlot[keyCount, vSlotCnt];
 
         for (int x = 0; x < keyCount; x++)
@@ -69,6 +75,9 @@ public class MapController : Node2D
 
             case 1:
                 scrollPos += delta * noteSpeed; // irl make it based on song pos (?)
+                break;
+
+            case 2:
                 break;
 
             default: break;
@@ -108,13 +117,17 @@ public class MapController : Node2D
         gameState = 2;
         songPlayer.Stop();
 
+        foreach (NoteSlot slot in noteSlots)
+        {
+            slot.reset();
+        }
     }
 
     public override void _Input(InputEvent @event)
     {
         base._Input(@event);
 
-        if (@event is InputEventMouseButton eventMouseButton)
+        if (@event is InputEventMouseButton eventMouseButton && eventMouseButton.Pressed == true)
         {
             
         }

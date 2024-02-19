@@ -7,7 +7,7 @@ public class GenericNote : Area2D
     public MapController controller;
 
     public Vector2 playRegion; // y1, y2
-    public bool active;
+    public bool active = true;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -22,9 +22,18 @@ public class GenericNote : Area2D
     {
         // Translate(new Vector2(0, delta * speed));
         Position = new Vector2(0, controller.scrollPos);
-        if (Position.y > playRegion.x && Position.y < playRegion.y) active = true;
-        else active = false; // miss if tp.y > pr.y
-        InputPickable = active;
+
+        float pos = controller.scrollPos + slot.Position.y;
+
+        if (pos > playRegion.x && pos < playRegion.y)
+        {
+            InputPickable = active && controller.gameState == 1;
+        }
+        else
+        {
+            InputPickable = false;
+        }
+        // else active = false; // miss if tp.y > pr.y
         // Visible = active;
     }
 }
