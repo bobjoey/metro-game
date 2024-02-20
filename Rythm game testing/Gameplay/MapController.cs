@@ -88,8 +88,11 @@ public class MapController : Node2D
                 break;
 
             case 1:
+                if (time > getSongLength()) enterPause();
+
                 time += delta;
-                scrollPos = time * noteSpeed; // irl make it based on song pos (?)
+                scrollPos = time * noteSpeed + playRegion.x;
+
                 break;
 
             case 2:
@@ -103,7 +106,7 @@ public class MapController : Node2D
     public void updateTime(float newTime)
     {
         time = newTime;
-        scrollPos = time * noteSpeed;
+        scrollPos = time * noteSpeed + playRegion.x;
     }
 
     // starts the game with an initial delay to show the title card (playing songs in normal game)
@@ -165,8 +168,7 @@ public class MapController : Node2D
 
     public float getSongLength() // in seconds
     {
-        return 30;
-        //return songPlayer.Stream.GetLength();
+        return songPlayer.Stream.GetLength();
     }
 
     public float getPositionRatio()

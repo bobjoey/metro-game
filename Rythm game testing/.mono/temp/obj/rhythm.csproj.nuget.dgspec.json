@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/rhythm.csproj": {}
+    "C:\\Users\\chang\\Documents\\GitHub\\metro-game\\Rythm game testing\\rhythm.csproj": {}
   },
   "projects": {
-    "/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/rhythm.csproj": {
+    "C:\\Users\\chang\\Documents\\GitHub\\metro-game\\Rythm game testing\\rhythm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/rhythm.csproj",
+        "projectUniqueName": "C:\\Users\\chang\\Documents\\GitHub\\metro-game\\Rythm game testing\\rhythm.csproj",
         "projectName": "rhythm",
-        "projectPath": "/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/rhythm.csproj",
-        "packagesPath": "/Users/alexmizrahi/.nuget/packages/",
-        "outputPath": "/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/.mono/temp/obj/",
+        "projectPath": "C:\\Users\\chang\\Documents\\GitHub\\metro-game\\Rythm game testing\\rhythm.csproj",
+        "packagesPath": "C:\\Users\\chang\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chang\\Documents\\GitHub\\metro-game\\Rythm game testing\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/alexmizrahi/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\chang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net472"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,15 +39,7 @@
       "frameworks": {
         "net472": {
           "targetAlias": "net472",
-          "dependencies": {
-            "Microsoft.NETFramework.ReferenceAssemblies": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[1.0.3, )",
-              "autoReferenced": true
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
