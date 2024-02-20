@@ -23,6 +23,7 @@ SongPlayer="*res://songSelect/SongPlayer.cs"
 
 window/size/width=1181
 window/size/height=2560
+window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

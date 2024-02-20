@@ -1,4 +1,4 @@
-[gd_scene load_steps=234 format=2]
+[gd_scene load_steps=236 format=2]
 
 [ext_resource path="res://songSelect/songsManager.cs" type="Script" id=1]
 [ext_resource path="res://gameSprites/SongSelect/scEasy.png" type="Texture" id=2]
@@ -219,6 +219,8 @@
 [ext_resource path="res://gameSprites/Fonts/Prompt-Regular.ttf" type="DynamicFontData" id=217]
 [ext_resource path="res://gameSprites/MapEditor/scrollBar.png" type="Texture" id=218]
 [ext_resource path="res://main_menu.cs" type="Script" id=219]
+[ext_resource path="res://gameSprites/SongSelect/border2.png" type="Texture" id=220]
+[ext_resource path="res://gameSprites/SongSelect/border1.png" type="Texture" id=221]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -583,8 +585,8 @@ texture = ExtResource( 4 )
 position = Vector2( 264, 81 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
-animation = "Easy"
-frame = 27
+animation = "Hard"
+frame = 47
 playing = true
 flip_h = true
 script = ExtResource( 10 )
@@ -653,6 +655,15 @@ scroll_active = false
 __meta__ = {
 "_editor_description_": "[color=black]Title[/color]"
 }
+
+[node name="border1" type="Sprite" parent="scene/songBanner"]
+position = Vector2( 0, -1.51721 )
+scale = Vector2( 0.996, 0.98 )
+texture = ExtResource( 221 )
+
+[node name="border2" type="Sprite" parent="scene/songBanner"]
+scale = Vector2( 0.998, 0.987 )
+texture = ExtResource( 220 )
 
 [node name="BlackBars2" type="Sprite" parent="."]
 position = Vector2( 264.06, -73.8148 )
