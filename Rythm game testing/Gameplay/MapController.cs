@@ -22,10 +22,11 @@ public class MapController : Node2D
 
     public Vector2 displaySize = new Vector2(1181, 1968);
     public Vector2 playRegion; // y1, y2: bottom 1/8 of screen +- 1/4 sec
-    public int gameState = 1; // 0 = pause, 1 = play, 2 = edit (?)
+    public int gameState = 0; // 0 = pause, 1 = play, 2 = edit (?)
     public int keyCount = 4;
     public float bpm = 120;
     public float noteSpeed = 200; // px per sec
+    public float time = 0;
     public float scrollPos = 0;
     public float space;
     public float songLengthPx;
@@ -35,11 +36,12 @@ public class MapController : Node2D
     {
         editor = GetNode<Editor>("Editor");
         songPlayer = GetNode<AudioStreamPlayer>("SongPlayer");
-        
-        updateInfo();
+
+        // updateInfo();
+        loadSong(new songCard("Lagtrain"));
     }
 
-    public void updateInfo()
+    public void updateInfo() // updates noteSpeed, playRegion, space, songLengthPx, noteSlots
     {
         // displaySize = OS.WindowSize;
         noteSpeed = bpm / 60 * displaySize.y / 8; // time to fall = 480/bpm seconds
@@ -65,6 +67,18 @@ public class MapController : Node2D
         editor.init();
     }
 
+    public void loadSong(songCard song)
+    {
+        time = 0;
+        songPlayer.Stream = song.songAudio;
+        bpm = song.bpm;
+        // some other cosmetic data like title and author to be displayed at the start maybe
+
+        updateInfo();
+
+        enterPlay();
+    }
+
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
@@ -74,7 +88,8 @@ public class MapController : Node2D
                 break;
 
             case 1:
-                scrollPos += delta * noteSpeed; // irl make it based on song pos (?)
+                time += delta;
+                scrollPos = time * noteSpeed; // irl make it based on song pos (?)
                 break;
 
             case 2:
@@ -83,6 +98,12 @@ public class MapController : Node2D
             default: break;
         }
         
+    }
+
+    public void updateTime(float newTime)
+    {
+        time = newTime;
+        scrollPos = time * noteSpeed;
     }
 
     // starts the game with an initial delay to show the title card (playing songs in normal game)
@@ -95,6 +116,7 @@ public class MapController : Node2D
         // ^ will be done elsewhere (perhaps in their own funcs or the interaction bar)
 
         // play song and start the game
+        songPlayer.Play(time);
     }
 
     // immediately starts game at a certain timestamp (used in editor)
@@ -102,14 +124,14 @@ public class MapController : Node2D
     {
         gameState = 1;
         // take some code from startplay but generation wise may be issues with start bar
-
+        songPlayer.Play(time);
     }
 
     public void enterPause()
     {
         gameState = 0;
-        songPlayer.Stop(); // does it need to store timestamp?
-        // some stuff
+        songPlayer.Stop();
+
     }
 
     public void enterEdit()
