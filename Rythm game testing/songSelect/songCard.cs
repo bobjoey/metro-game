@@ -24,6 +24,7 @@ public class songCard : PathFollow2D
 		
 	public songCard(string songCode)
 	{
+		this.songCode = songCode;
 		fPath+=(songCode+"/");
 		getInfo(songCode);
 		switch(difficulty){

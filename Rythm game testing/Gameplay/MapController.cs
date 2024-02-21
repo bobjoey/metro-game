@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.CodeDom;
+using System.Runtime.CompilerServices;
 using System.Security.Policy;
 
 public class MapController : Node2D
@@ -30,6 +31,7 @@ public class MapController : Node2D
     public float scrollPos = 0;
     public float space;
     public float songLengthPx;
+    public string songCode; // the song code, used in saveNotes()
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -38,7 +40,20 @@ public class MapController : Node2D
         songPlayer = GetNode<AudioStreamPlayer>("SongPlayer");
 
         // updateInfo();
-        loadSong(new songCard("Lagtrain"));
+        // finding the song:
+        string path = "res://settings.txt";
+		File file = new File();
+		if(file.FileExists(path)){
+			file.Open(path, File.ModeFlags.Read);
+			string song = file.GetLine();
+            song = file.GetLine(); // is there a better way to open the second line? (pls fix)
+			file.Close();
+            songCode = song.Substring(6);
+		} else {
+			GD.Print("not found: " + path);
+		}
+
+        loadSong(new songCard(songCode));
     }
 
     public void updateInfo() // updates noteSpeed, playRegion, space, songLengthPx, noteSlots
@@ -75,7 +90,7 @@ public class MapController : Node2D
         // some other cosmetic data like title and author to be displayed at the start maybe
 
         updateInfo();
-
+        editor.setNotes(song.songCode);
         enterPlay();
     }
 
@@ -176,6 +191,34 @@ public class MapController : Node2D
         return songPlayer.GetPlaybackPosition() / getSongLength();
     }
 
-
-
+    public void saveNotes(){ // saves notes to a txt
+        GD.Print("attempting to save notes");
+        string path = "res://songs/"+songCode+"/"+songCode+"Notes.txt";
+		GD.Print(path);
+        File file = new File();
+        if(file.FileExists(path)){
+			file.Open(path, File.ModeFlags.Write);
+            for(int x = 0; x < noteSlots.GetLength(0); x++){
+                for(int y = 0; y < noteSlots.GetLength(1); y++){
+                    if (noteSlots[x, y].full){
+                        string color = noteSlots[x, y].color;
+                        string type = Convert.ToString(noteSlots[x, y].noteType);
+                        string yString = Convert.ToString(y);
+                        if (y<100){
+                            yString = "0"+yString;
+                            if(y<10){
+                                yString = "0"+yString;
+                            }
+                        }
+                        string line = Convert.ToString(x) + " " + yString + " " + color + " " + type;
+                        file.StoreLine(line);
+                    }
+                }
+            }
+			file.Close();
+		} else {
+			GD.Print("not found: " + path);
+		}
+        
+    }
 }

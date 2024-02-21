@@ -1,4 +1,4 @@
-[gd_scene load_steps=236 format=2]
+[gd_scene load_steps=237 format=2]
 
 [ext_resource path="res://songSelect/songsManager.cs" type="Script" id=1]
 [ext_resource path="res://gameSprites/SongSelect/scEasy.png" type="Texture" id=2]
@@ -221,6 +221,7 @@
 [ext_resource path="res://main_menu.cs" type="Script" id=219]
 [ext_resource path="res://gameSprites/SongSelect/border2.png" type="Texture" id=220]
 [ext_resource path="res://gameSprites/SongSelect/border1.png" type="Texture" id=221]
+[ext_resource path="res://icon.png" type="Texture" id=222]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -586,7 +587,7 @@ position = Vector2( 264, 81 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "Hard"
-frame = 47
+frame = 48
 playing = true
 flip_h = true
 script = ExtResource( 10 )
@@ -665,6 +666,18 @@ texture = ExtResource( 221 )
 scale = Vector2( 0.998, 0.987 )
 texture = ExtResource( 220 )
 
+[node name="GameplayButtonPlaceholder" type="Button" parent="scene"]
+anchor_left = 0.224
+anchor_top = 0.798
+anchor_right = 0.365
+anchor_bottom = 0.877
+margin_left = 0.210541
+margin_top = 0.406616
+margin_right = 0.0705414
+margin_bottom = 0.0175781
+icon = ExtResource( 222 )
+flat = true
+
 [node name="BlackBars2" type="Sprite" parent="."]
 position = Vector2( 264.06, -73.8148 )
 scale = Vector2( 78.4387, 0.291287 )
@@ -694,3 +707,4 @@ texture = ExtResource( 218 )
 [connection signal="timeout" from="scene/SongPlayer/fadeTimer" to="scene/SongPlayer" method="fadeTime"]
 [connection signal="songChangeEventHandler" from="scene/Path2D" to="scene/SongPlayer" method="_on_Path2D_songChangeEventHandler"]
 [connection signal="update_bannerEventHandler" from="scene/Path2D" to="scene/songBanner" method="_on_Path2D_update_bannerEventHandler"]
+[connection signal="pressed" from="scene/GameplayButtonPlaceholder" to="scene/SongPlayer" method="nextScene"]

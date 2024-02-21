@@ -35,28 +35,29 @@ margin_bottom = -2.0
 script = ExtResource( 1 )
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 270, 447.5 )
-scale = Vector2( 0.3125, 0.312412 )
+position = Vector2( 590.5, 1282 )
+scale = Vector2( 0.683449, 0.897615 )
 texture = ExtResource( 9 )
 
 [node name="placeholder_label" type="Label" parent="."]
-anchor_left = 0.215
-anchor_top = 0.146
-anchor_right = 0.629
-anchor_bottom = 0.312
-margin_left = -0.200005
-margin_top = 0.199989
-margin_right = 0.0799866
-margin_bottom = 0.399994
+anchor_left = 0.187
+anchor_top = 0.127
+anchor_right = 0.601
+anchor_bottom = 0.293
+margin_left = 0.153
+margin_top = 0.879974
+margin_right = 0.432983
+margin_bottom = 1.08002
 text = "Like settings and stuff"
+percent_visible = -0.05
 
 [node name="return_button" type="Button" parent="."]
-anchor_top = 0.002
-anchor_right = 0.312
-anchor_bottom = 0.113
-margin_top = 0.218
-margin_right = -4.24004
-margin_bottom = -4.03701
+anchor_top = 0.001
+anchor_right = 0.308
+anchor_bottom = 0.11
+margin_top = -0.56
+margin_right = 0.483917
+margin_bottom = 0.304962
 text = "Back To Main Menu"
 
 [node name="VolumeSlider" type="HSlider" parent="."]
@@ -80,19 +81,21 @@ __meta__ = {
 }
 
 [node name="VolumeBarLeft" type="Sprite" parent="."]
-position = Vector2( 72, 535 )
+position = Vector2( 172, 1537 )
 texture = ExtResource( 4 )
 
 [node name="VolumeBarRight" type="Sprite" parent="."]
-position = Vector2( 465, 535 )
+position = Vector2( 1005, 1537 )
 texture = ExtResource( 5 )
 
 [node name="VolumePlus" type="Sprite" parent="."]
-position = Vector2( 506, 534 )
+position = Vector2( 1070.5, 1539 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 8 )
 
 [node name="VolumeMinusMute" type="AnimatedSprite" parent="."]
-position = Vector2( 33, 533 )
+position = Vector2( 113, 1537 )
+scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
 animation = "minus"
 

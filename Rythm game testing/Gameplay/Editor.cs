@@ -95,4 +95,28 @@ public class Editor : Node2D
 
     // choosing note and lane
 
+    public void setNotes(string songCode){
+        string path = "res://songs/"+songCode+"/"+songCode+"Notes.txt";
+		GD.Print(path);
+		File file = new File();
+		if(file.FileExists(path)){
+			file.Open(path, File.ModeFlags.Read);
+			while(!file.EofReached()){
+				string line = file.GetLine();
+                if (line != ""){
+                    int x = Convert.ToInt32(line.Substring(0,1));
+                    int y = Convert.ToInt32(line.Substring(2,3));
+                    string color = line.Substring(6, 1);
+                    int type = Convert.ToInt32(line.Substring(8,2));
+                    GD.Print("x: " + x + " y: " + y + " color: " + color + " type" + type);
+                    placeNote(x, y);
+                    // placeNote(x, y, color, type); // when placeNote supports note types
+                }
+			}
+			file.Close();
+		} else {
+			GD.Print("not found: " + path);
+		}
+    }
+
 }

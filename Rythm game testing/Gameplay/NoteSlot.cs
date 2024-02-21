@@ -7,7 +7,8 @@ public class NoteSlot : Node2D
     public GenericNote note;
 
     public bool full = false;
-    public int noteType, color;
+    public string color = "g"; // g - green, p - purple, y - yellow, r - red
+    public int noteType = 11; // idk man chang can figure this one out
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()

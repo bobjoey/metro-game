@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chang\\Documents\\GitHub\\metro-game\\Rythm game testing\\rhythm.csproj": {}
+    "C:\\Users\\prana\\OneDrive\\Documents\\GitHub\\metro-game\\Rythm game testing\\rhythm.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chang\\Documents\\GitHub\\metro-game\\Rythm game testing\\rhythm.csproj": {
+    "C:\\Users\\prana\\OneDrive\\Documents\\GitHub\\metro-game\\Rythm game testing\\rhythm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chang\\Documents\\GitHub\\metro-game\\Rythm game testing\\rhythm.csproj",
+        "projectUniqueName": "C:\\Users\\prana\\OneDrive\\Documents\\GitHub\\metro-game\\Rythm game testing\\rhythm.csproj",
         "projectName": "rhythm",
-        "projectPath": "C:\\Users\\chang\\Documents\\GitHub\\metro-game\\Rythm game testing\\rhythm.csproj",
-        "packagesPath": "C:\\Users\\chang\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chang\\Documents\\GitHub\\metro-game\\Rythm game testing\\.mono\\temp\\obj\\",
+        "projectPath": "C:\\Users\\prana\\OneDrive\\Documents\\GitHub\\metro-game\\Rythm game testing\\rhythm.csproj",
+        "packagesPath": "C:\\Users\\prana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\prana\\OneDrive\\Documents\\GitHub\\metro-game\\Rythm game testing\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\chang\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\prana\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net472"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,7 +37,7 @@
       "frameworks": {
         "net472": {
           "targetAlias": "net472",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
