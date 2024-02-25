@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.CodeDom;
+using System.Runtime.CompilerServices;
 using System.Security.Policy;
 
 public class MapController : Node2D
@@ -22,24 +23,40 @@ public class MapController : Node2D
 
     public Vector2 displaySize = new Vector2(1181, 1968);
     public Vector2 playRegion; // y1, y2: bottom 1/8 of screen +- 1/4 sec
-    public int gameState = 1; // 0 = pause, 1 = play, 2 = edit (?)
+    public int gameState = 0; // 0 = pause, 1 = play, 2 = edit (?)
     public int keyCount = 4;
     public float bpm = 120;
     public float noteSpeed = 200; // px per sec
+    public float time = 0;
     public float scrollPos = 0;
     public float space;
     public float songLengthPx;
+    public string songCode; // the song code, used in saveNotes()
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         editor = GetNode<Editor>("Editor");
         songPlayer = GetNode<AudioStreamPlayer>("SongPlayer");
-        
-        updateInfo();
+
+        // updateInfo();
+        // finding the song:
+        string path = "res://settings.txt";
+		File file = new File();
+		if(file.FileExists(path)){
+			file.Open(path, File.ModeFlags.Read);
+			string song = file.GetLine();
+            song = file.GetLine(); // is there a better way to open the second line? (pls fix)
+			file.Close();
+            songCode = song.Substring(6);
+		} else {
+			GD.Print("not found: " + path);
+		}
+
+        loadSong(new songCard(songCode));
     }
 
-    public void updateInfo()
+    public void updateInfo() // updates noteSpeed, playRegion, space, songLengthPx, noteSlots
     {
         // displaySize = OS.WindowSize;
         noteSpeed = bpm / 60 * displaySize.y / 8; // time to fall = 480/bpm seconds
@@ -65,6 +82,18 @@ public class MapController : Node2D
         editor.init();
     }
 
+    public void loadSong(songCard song)
+    {
+        time = 0;
+        songPlayer.Stream = song.songAudio;
+        bpm = song.bpm;
+        // some other cosmetic data like title and author to be displayed at the start maybe
+
+        updateInfo();
+        editor.setNotes(song.songCode);
+        enterPlay();
+    }
+
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
@@ -74,7 +103,11 @@ public class MapController : Node2D
                 break;
 
             case 1:
-                scrollPos += delta * noteSpeed; // irl make it based on song pos (?)
+                if (time > getSongLength()) enterPause();
+
+                time += delta;
+                scrollPos = time * noteSpeed + playRegion.x;
+
                 break;
 
             case 2:
@@ -83,6 +116,12 @@ public class MapController : Node2D
             default: break;
         }
         
+    }
+
+    public void updateTime(float newTime)
+    {
+        time = newTime;
+        scrollPos = time * noteSpeed + playRegion.x;
     }
 
     // starts the game with an initial delay to show the title card (playing songs in normal game)
@@ -95,6 +134,7 @@ public class MapController : Node2D
         // ^ will be done elsewhere (perhaps in their own funcs or the interaction bar)
 
         // play song and start the game
+        songPlayer.Play(time);
     }
 
     // immediately starts game at a certain timestamp (used in editor)
@@ -102,14 +142,14 @@ public class MapController : Node2D
     {
         gameState = 1;
         // take some code from startplay but generation wise may be issues with start bar
-
+        songPlayer.Play(time);
     }
 
     public void enterPause()
     {
         gameState = 0;
-        songPlayer.Stop(); // does it need to store timestamp?
-        // some stuff
+        songPlayer.Stop();
+
     }
 
     public void enterEdit()
@@ -143,8 +183,7 @@ public class MapController : Node2D
 
     public float getSongLength() // in seconds
     {
-        return 30;
-        //return songPlayer.Stream.GetLength();
+        return songPlayer.Stream.GetLength();
     }
 
     public float getPositionRatio()
@@ -152,6 +191,34 @@ public class MapController : Node2D
         return songPlayer.GetPlaybackPosition() / getSongLength();
     }
 
-
-
+    public void saveNotes(){ // saves notes to a txt
+        GD.Print("attempting to save notes");
+        string path = "res://songs/"+songCode+"/"+songCode+"Notes.txt";
+		GD.Print(path);
+        File file = new File();
+        if(file.FileExists(path)){
+			file.Open(path, File.ModeFlags.Write);
+            for(int x = 0; x < noteSlots.GetLength(0); x++){
+                for(int y = 0; y < noteSlots.GetLength(1); y++){
+                    if (noteSlots[x, y].full){
+                        string color = noteSlots[x, y].color;
+                        string type = Convert.ToString(noteSlots[x, y].noteType);
+                        string yString = Convert.ToString(y);
+                        if (y<100){
+                            yString = "0"+yString;
+                            if(y<10){
+                                yString = "0"+yString;
+                            }
+                        }
+                        string line = Convert.ToString(x) + " " + yString + " " + color + " " + type;
+                        file.StoreLine(line);
+                    }
+                }
+            }
+			file.Close();
+		} else {
+			GD.Print("not found: " + path);
+		}
+        
+    }
 }

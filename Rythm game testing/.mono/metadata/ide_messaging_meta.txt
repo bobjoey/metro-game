@@ -1,2 +1,2 @@
-﻿55760
-/private/var/folders/30/wc8h01nd7m31n4fxvrj1cjt80000gn/T/AppTranslocation/C2765EF7-CDFA-4F66-8AC3-0A5AFA6148F6/d/Godot_mono.app/Contents/MacOS/Godot
+﻿59813
+C:/Users/prana/Downloads/Godot_v3.5.3-stable_mono_win64/Godot_v3.5.3-stable_mono_win64/Godot_v3.5.3-stable_mono_win64.exe

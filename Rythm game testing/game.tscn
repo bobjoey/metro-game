@@ -1,10 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://gameSprites/MainMenu/finalBg.png" type="Texture" id=1]
 [ext_resource path="res://game.cs" type="Script" id=2]
 [ext_resource path="res://Gameplay/MapController.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gameSprites/SongSelect/sbEasy.png" type="Texture" id=4]
-
 
 [node name="game" type="Node2D"]
 script = ExtResource( 2 )
@@ -24,8 +22,3 @@ margin_bottom = 174.0
 text = "game and stuffs"
 
 [node name="MapController" parent="." instance=ExtResource( 3 )]
-
-[node name="playRegionTemp" type="Sprite" parent="."]
-position = Vector2( 271, 781 )
-scale = Vector2( 0.795287, 0.738255 )
-texture = ExtResource( 4 )

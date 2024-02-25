@@ -21,7 +21,7 @@ public class TimeBar : Area2D
     public override void _Process(float delta)
     {
         // scroll.Position = new Vector2(0, size - controller.getPositionRatio() * size);
-        scroll.Position = new Vector2(0, size - (controller.scrollPos / controller.getSongLength() / controller.noteSpeed) * size*2) / Scale; // temp
+        scroll.Position = new Vector2(0, size - (controller.time / controller.getSongLength()) * size*2) / Scale; // temp
     }
 
     public override void _InputEvent(Godot.Object viewport, InputEvent @event, int shapeIdx)
@@ -34,7 +34,7 @@ public class TimeBar : Area2D
             // GD.Print("Input received at " + eventMouseButton.Position);
             float ratio = (Position.y + size - eventMouseButton.Position.y)/size/2;
             // controller.songPlayer.Seek(controller.getSongLength() * ratio);
-            controller.scrollPos = controller.getSongLength() * controller.noteSpeed * ratio; // temp
+            controller.updateTime(controller.getSongLength() * ratio); // temp
         }
 
         GetTree().SetInputAsHandled();
