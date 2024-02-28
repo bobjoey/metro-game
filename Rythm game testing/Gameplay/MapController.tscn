@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Gameplay/MapController.cs" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -10,6 +10,13 @@
 [ext_resource path="res://Gameplay/PauseButton.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Gameplay/EditButton.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Gameplay/SaveButton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://gameSprites/gameplay/Asset 1.png" type="Texture" id=11]
+[ext_resource path="res://gameSprites/gameplay/Asset 3.png" type="Texture" id=12]
+[ext_resource path="res://gameSprites/gameplay/Asset 2.png" type="Texture" id=13]
+[ext_resource path="res://gameSprites/gameplay/greenNote.png" type="Texture" id=14]
+[ext_resource path="res://gameSprites/gameplay/purpleNote.png" type="Texture" id=15]
+[ext_resource path="res://gameSprites/gameplay/yellowNote.png" type="Texture" id=16]
+[ext_resource path="res://gameSprites/gameplay/redNote.png" type="Texture" id=17]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 3
@@ -45,3 +52,87 @@ position = Vector2( 75, 175 )
 
 [node name="SaveButton" parent="." instance=ExtResource( 10 )]
 position = Vector2( 75, 275 )
+
+[node name="TapNoteButton" type="Button" parent="."]
+margin_left = 1038.0
+margin_top = 10.0
+margin_right = 2074.0
+margin_bottom = 1040.0
+rect_scale = Vector2( 0.05, 0.05 )
+icon = ExtResource( 11 )
+flat = true
+
+[node name="HoldNoteButton" type="Button" parent="."]
+margin_left = 1098.0
+margin_top = 12.0
+margin_right = 2134.0
+margin_bottom = 1042.0
+rect_scale = Vector2( 0.05, 0.05 )
+icon = ExtResource( 12 )
+flat = true
+
+[node name="LSwipeNoteButton" type="Button" parent="."]
+margin_left = 1091.0
+margin_top = 118.0
+margin_right = 2127.0
+margin_bottom = 1148.0
+rect_rotation = 180.0
+rect_scale = Vector2( 0.05, 0.05 )
+icon = ExtResource( 13 )
+flat = true
+icon_align = 1
+
+[node name="RSwipeNoteButton" type="Button" parent="."]
+margin_left = 1100.0
+margin_top = 70.0
+margin_right = 2136.0
+margin_bottom = 1100.0
+rect_scale = Vector2( 0.05, 0.05 )
+icon = ExtResource( 13 )
+flat = true
+
+[node name="GNoteButton" type="Button" parent="."]
+margin_left = 1042.0
+margin_top = 184.0
+margin_right = 2078.0
+margin_bottom = 1214.0
+rect_scale = Vector2( 0.05, 0.05 )
+icon = ExtResource( 14 )
+flat = true
+icon_align = 1
+
+[node name="PNoteButton" type="Button" parent="."]
+margin_left = 1053.0
+margin_top = 240.0
+margin_right = 2089.0
+margin_bottom = 1270.0
+rect_scale = Vector2( 0.05, 0.05 )
+icon = ExtResource( 15 )
+flat = true
+
+[node name="YNoteButton" type="Button" parent="."]
+margin_left = 1055.0
+margin_top = 311.0
+margin_right = 2091.0
+margin_bottom = 1341.0
+rect_scale = Vector2( 0.05, 0.05 )
+icon = ExtResource( 16 )
+flat = true
+
+[node name="RNoteButton" type="Button" parent="."]
+margin_left = 1052.0
+margin_top = 382.0
+margin_right = 2088.0
+margin_bottom = 1412.0
+rect_scale = Vector2( 0.05, 0.05 )
+icon = ExtResource( 17 )
+flat = true
+
+[connection signal="pressed" from="TapNoteButton" to="." method="setNotePlaceSetting" binds= [ "e", 11 ]]
+[connection signal="pressed" from="HoldNoteButton" to="." method="setNotePlaceSetting" binds= [ "e", 22 ]]
+[connection signal="pressed" from="LSwipeNoteButton" to="." method="setNotePlaceSetting" binds= [ "e", 44 ]]
+[connection signal="pressed" from="RSwipeNoteButton" to="." method="setNotePlaceSetting" binds= [ "e", 33 ]]
+[connection signal="pressed" from="GNoteButton" to="." method="setNotePlaceSetting" binds= [ "g", 0 ]]
+[connection signal="pressed" from="PNoteButton" to="." method="setNotePlaceSetting" binds= [ "p", 0 ]]
+[connection signal="pressed" from="YNoteButton" to="." method="setNotePlaceSetting" binds= [ "y", 0 ]]
+[connection signal="pressed" from="RNoteButton" to="." method="setNotePlaceSetting" binds= [ "r", 0 ]]
