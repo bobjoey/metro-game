@@ -135,6 +135,14 @@ public class MapController : Node2D
 
         // play song and start the game
         songPlayer.Play(time);
+        GetNode<Button>("TapNoteButton").Visible = false;
+        GetNode<Button>("HoldNoteButton").Visible = false;
+        GetNode<Button>("LSwipeNoteButton").Visible = false;
+        GetNode<Button>("RSwipeNoteButton").Visible = false;
+        GetNode<Button>("GNoteButton").Visible = false;
+        GetNode<Button>("PNoteButton").Visible = false;
+        GetNode<Button>("YNoteButton").Visible = false;
+        GetNode<Button>("RNoteButton").Visible = false;
     }
 
     // immediately starts game at a certain timestamp (used in editor)
@@ -143,12 +151,28 @@ public class MapController : Node2D
         gameState = 1;
         // take some code from startplay but generation wise may be issues with start bar
         songPlayer.Play(time);
+        GetNode<Button>("TapNoteButton").Visible = false;
+        GetNode<Button>("HoldNoteButton").Visible = false;
+        GetNode<Button>("LSwipeNoteButton").Visible = false;
+        GetNode<Button>("RSwipeNoteButton").Visible = false;
+        GetNode<Button>("GNoteButton").Visible = false;
+        GetNode<Button>("PNoteButton").Visible = false;
+        GetNode<Button>("YNoteButton").Visible = false;
+        GetNode<Button>("RNoteButton").Visible = false;
     }
 
     public void enterPause()
     {
         gameState = 0;
         songPlayer.Stop();
+        GetNode<Button>("TapNoteButton").Visible = false;
+        GetNode<Button>("HoldNoteButton").Visible = false;
+        GetNode<Button>("LSwipeNoteButton").Visible = false;
+        GetNode<Button>("RSwipeNoteButton").Visible = false;
+        GetNode<Button>("GNoteButton").Visible = false;
+        GetNode<Button>("PNoteButton").Visible = false;
+        GetNode<Button>("YNoteButton").Visible = false;
+        GetNode<Button>("RNoteButton").Visible = false;
 
     }
 
@@ -161,6 +185,14 @@ public class MapController : Node2D
         {
             slot.reset();
         }
+        GetNode<Button>("TapNoteButton").Visible = true;
+        GetNode<Button>("HoldNoteButton").Visible = true;
+        GetNode<Button>("LSwipeNoteButton").Visible = true;
+        GetNode<Button>("RSwipeNoteButton").Visible = true;
+        GetNode<Button>("GNoteButton").Visible = true;
+        GetNode<Button>("PNoteButton").Visible = true;
+        GetNode<Button>("YNoteButton").Visible = true;
+        GetNode<Button>("RNoteButton").Visible = true;
     }
 
     public override void _Input(InputEvent @event)
@@ -220,5 +252,38 @@ public class MapController : Node2D
 			GD.Print("not found: " + path);
 		}
         
+    }
+
+    public void setNotePlaceSetting(string color, int type){
+        switch(color){
+            case "g":
+                editor.noteColor = "g";
+                break;
+            case "p":
+                editor.noteColor = "p";
+                break;
+            case "y":
+                editor.noteColor = "y";
+                break;
+            case "r":
+                editor.noteColor = "r";
+                break;
+        }
+
+        switch(type){
+            case 11:
+                editor.noteType = 11;
+                break;
+            case 22:
+                editor.noteType = 22;
+                break;
+            case 33:
+                editor.noteType = 33;
+                break;
+            case 44:
+                editor.noteType = 44;
+                break;
+        }
+        GD.Print("Color: "+editor.noteColor+", type: "+editor.noteType);
     }
 }

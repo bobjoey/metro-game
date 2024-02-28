@@ -8,7 +8,7 @@ public class NoteSlot : Node2D
 
     public bool full = false;
     public string color = "g"; // g - green, p - purple, y - yellow, r - red
-    public int noteType = 11; // idk man chang can figure this one out
+    public int noteType = 11; // 11 = tap, 22 = hold, 33 == r swipe, 44 = l swipe
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -23,11 +23,12 @@ public class NoteSlot : Node2D
 
     }*/
 
-    public void addNote(GenericNote note)
+    public void addNote(GenericNote note, string color, int type)
     {
         this.note = note;
         AddChild(note);
         full = true;
+        note.setColorType(color, type);
         // add type and color data etc
     }
 
