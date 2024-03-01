@@ -54,28 +54,38 @@ position = Vector2( 75, 175 )
 position = Vector2( 75, 275 )
 
 [node name="TapNoteButton" type="Button" parent="."]
-margin_left = 1038.0
-margin_top = 10.0
-margin_right = 2074.0
-margin_bottom = 1040.0
+margin_left = 1069.0
+margin_top = 7.0
+margin_right = 2105.0
+margin_bottom = 1037.0
 rect_scale = Vector2( 0.05, 0.05 )
 icon = ExtResource( 11 )
 flat = true
 
 [node name="HoldNoteButton" type="Button" parent="."]
-margin_left = 1098.0
-margin_top = 12.0
-margin_right = 2134.0
-margin_bottom = 1042.0
+margin_left = 1036.0
+margin_top = 64.0
+margin_right = 2072.0
+margin_bottom = 1094.0
+rect_scale = Vector2( 0.05, 0.05 )
+icon = ExtResource( 12 )
+flat = true
+
+[node name="Hold1NoteButton" type="Button" parent="."]
+margin_left = 1159.0
+margin_top = 115.0
+margin_right = 2195.0
+margin_bottom = 1145.0
+rect_rotation = 180.0
 rect_scale = Vector2( 0.05, 0.05 )
 icon = ExtResource( 12 )
 flat = true
 
 [node name="LSwipeNoteButton" type="Button" parent="."]
-margin_left = 1091.0
-margin_top = 118.0
-margin_right = 2127.0
-margin_bottom = 1148.0
+margin_left = 1090.0
+margin_top = 175.0
+margin_right = 2126.0
+margin_bottom = 1205.0
 rect_rotation = 180.0
 rect_scale = Vector2( 0.05, 0.05 )
 icon = ExtResource( 13 )
@@ -83,10 +93,10 @@ flat = true
 icon_align = 1
 
 [node name="RSwipeNoteButton" type="Button" parent="."]
-margin_left = 1100.0
-margin_top = 70.0
-margin_right = 2136.0
-margin_bottom = 1100.0
+margin_left = 1104.0
+margin_top = 122.0
+margin_right = 2140.0
+margin_bottom = 1152.0
 rect_scale = Vector2( 0.05, 0.05 )
 icon = ExtResource( 13 )
 flat = true
@@ -130,6 +140,7 @@ flat = true
 
 [connection signal="pressed" from="TapNoteButton" to="." method="setNotePlaceSetting" binds= [ "e", 11 ]]
 [connection signal="pressed" from="HoldNoteButton" to="." method="setNotePlaceSetting" binds= [ "e", 22 ]]
+[connection signal="pressed" from="Hold1NoteButton" to="." method="setNotePlaceSetting" binds= [ "e", 21 ]]
 [connection signal="pressed" from="LSwipeNoteButton" to="." method="setNotePlaceSetting" binds= [ "e", 44 ]]
 [connection signal="pressed" from="RSwipeNoteButton" to="." method="setNotePlaceSetting" binds= [ "e", 33 ]]
 [connection signal="pressed" from="GNoteButton" to="." method="setNotePlaceSetting" binds= [ "g", 0 ]]

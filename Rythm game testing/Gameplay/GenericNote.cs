@@ -15,6 +15,8 @@ public class GenericNote : Area2D
         slot = GetParent<NoteSlot>();
         controller = slot.controller;
         playRegion = controller.playRegion;
+        var sprite = GetNode<Sprite>("Sprite");
+        sprite.Visible = false;
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,6 +39,14 @@ public class GenericNote : Area2D
         // Visible = active;
     }
 
+    public void setColorType(string color, int type){
+         slot.color = color;
+         slot.noteType = type;
+    }
+
+    
+
+/*
     public void setColorType(string color, int type){
         string path = getSpritePath(color, type);
         var icon = ResourceLoader.Load(path) as Texture;
@@ -86,4 +96,5 @@ public class GenericNote : Area2D
 		}
 		return "res://gameSprites/gameplay/"+color+noteType+".png";
 	}
+*/
 }
