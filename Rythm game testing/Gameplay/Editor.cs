@@ -64,7 +64,13 @@ public class Editor : Node2D
         DrawLine(new Vector2(0, ar.x), new Vector2(displaySize.x, ar.x), new Color(0.2f, 0.9f, 0.2f), width);
         DrawLine(new Vector2(0, ar.y), new Vector2(displaySize.x, ar.y), new Color(0.2f, 0.9f, 0.2f), width);
 
-        drawHoldNotes();
+        drawNoteConnections();
+
+        drawHoldNotes(0); // outer colored line
+
+        drawNotes();
+
+        drawHoldNotes(1); // inner white line
     }
 
 
@@ -132,7 +138,7 @@ public class Editor : Node2D
                     int type = Convert.ToInt32(line.Substring(8,2));
                     GD.Print("x: " + x + " y: " + y + " color: " + color + " type" + type);
                     //placeNote(x, y);
-                    placeNote(x, y, color, type); // when placeNote supports note types
+                    placeNote(x, y, color, type); 
                 }
 			}
 			file.Close();
@@ -141,32 +147,140 @@ public class Editor : Node2D
 		}
     }
 
-    public void drawHoldNotes(){
+    // from hererererererrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+
+    public void drawNotes(){
         var noteSlots = controller.noteSlots;
         for(int y=0;y<grid.y;y++){
-            for(int x=0;x<4;x++){
-                if(noteSlots[x, y].noteType==22){ // hold notes is 22
-                    Vector2 nextSlot = findNextHoldNote(noteSlots[x,y], x, y);
+            for(int x=0; x<controller.keyCount;x++){
+                if(noteSlots[x,y].full && noteSlots[x,y].note.active == true){
+                    if(noteSlots[x,y].noteType < 30){ // tap notes & hold notes
+                        drawTapNote(x, y, noteSlots);
+                    } else if(noteSlots[x,y].noteType == 33){ // right swipe
+                        drawRSwipeNote(x, y, noteSlots);
+                    } else if(noteSlots[x,y].noteType == 44){ // left swipe
+                        drawLSwipeNote(x, y, noteSlots);
+                    }
+                }
+                
+            }
+        }
+        
+    }
+
+    public void drawTapNote(int x, int y, NoteSlot[,] noteSlots){
+        float space = controller.editor.space;
+        Vector2 position = new Vector2(x*space+space, controller.scrollPos + noteSlots[x,y].Position.y);
+        Color color = getColor(x, y);
+        DrawCircle(position, 70, color);
+        DrawCircle(position, 50, new Color(0.9f, 0.9f, 0.9f));
+    }
+
+    public void drawRSwipeNote(int x, int y, NoteSlot[,] noteSlots){
+        float space = controller.editor.space;
+        Vector2 position = new Vector2(x*space+space, controller.scrollPos + noteSlots[x,y].Position.y);
+        Color color = getColor(x, y);
+        Vector2[] points = new  Vector2[3];
+
+        points[0] = new Vector2(position.x+75, position.y); // right vertex
+        points[1] = new Vector2(position.x-60, position.y+85); // top left vertex
+        points[2] = new Vector2(position.x-60, position.y-85); // top left vertex
+        DrawColoredPolygon(points, color); // outer triangle
+
+        points[0] = new Vector2(position.x+50, position.y); // right vertex
+        points[1] = new Vector2(position.x-45, position.y+60); // top left vertex
+        points[2] = new Vector2(position.x-45, position.y-60); // top left vertex
+        DrawColoredPolygon(points, new Color(0.9f, 0.9f, 0.9f)); // smol triangle
+    }
+
+    public void drawLSwipeNote(int x, int y, NoteSlot[,] noteSlots){
+        float space = controller.editor.space;
+        Vector2 position = new Vector2(x*space+space, controller.scrollPos + noteSlots[x,y].Position.y);
+        Color color = getColor(x, y);
+        Vector2[] points = new  Vector2[3];
+
+        points[0] = new Vector2(position.x-75, position.y); // left vertex
+        points[1] = new Vector2(position.x+60, position.y+85); // top right vertex
+        points[2] = new Vector2(position.x+60, position.y-85); // top right vertex
+        DrawColoredPolygon(points, color); // outer triangle
+
+        points[0] = new Vector2(position.x-50, position.y); // left vertex
+        points[1] = new Vector2(position.x+45, position.y+60); // top right vertex
+        points[2] = new Vector2(position.x+45, position.y-60); // top right vertex
+        DrawColoredPolygon(points, new Color(0.9f, 0.9f, 0.9f)); // smol triangle
+    }
+
+    public Color getColor(int x, int y){
+		switch(controller.noteSlots[x, y].color){
+			case "g":
+				return new Color(0.1f, 0.6f,0.1f);
+			case "p":
+				return new Color(0.8f, 0.1f,0.9f);
+			case "r":
+				return new Color(0.9f, 0.1f,0.1f);
+			case "y":
+				return new Color(0.77f, 0.77f,0.1f);
+		}
+        return new Color(0.1f, 0.1f,0.1f);
+	}
+
+    public void drawNoteConnections(){
+        var noteSlots = controller.noteSlots;
+        for(int y=0;y<grid.y;y++){
+            for(int x=0;x<controller.keyCount;x++){
+                if(noteSlots[x, y].noteType!=0){ // hold notes is 22/21
+                    Vector2 nextSlot = findNextNote(noteSlots[x,y], y);
                     if (nextSlot.x!=-1){
                         Vector2 slot1Pos = new Vector2(x*space+space, controller.scrollPos + noteSlots[x,y].Position.y);
                         int slot2x = (int) (nextSlot.x*space+space);
                         int slot2y = (int) (controller.scrollPos + noteSlots[(int)nextSlot.x,(int)nextSlot.y].Position.y);
                         Vector2 slot2Pos = new Vector2(slot2x, slot2y);
-                        DrawLine(slot1Pos, slot2Pos, new Color(0.2f, 0.2f, 0.9f), 10f);
+                        DrawLine(slot1Pos, slot2Pos, new Color(0.9f, 0.9f, 0.9f), 40f);
                     }
                 }
             }
         }
     }
 
-    public Vector2 findNextHoldNote(NoteSlot slot, int x, int y){
+    public Vector2 findNextNote(NoteSlot slot,  int y){
         var noteSlots = controller.noteSlots;
-        int x1 = 0;
-        int y1 = 0;
+        for(int y1=y+1;y1<y+5;y1++){
+            for(int x1=0;x1<4;x1++){
+                if(slot.color==noteSlots[x1,y1].color){
+                    return new Vector2(x1, y1);
+                }
+            }
+        }
+        return new Vector2(-1, -1);
+    }
 
-        for(y1=y+1;y1<grid.y;y1++){
-            for(x1=0;x1<4;x1++){
-                if(noteSlots[x1, y1].noteType==22 && slot.color==noteSlots[x1,y1].color){ // hold notes is 22
+    public void drawHoldNotes(int inout){
+        var noteSlots = controller.noteSlots;
+        for(int y=0;y<grid.y;y++){
+            for(int x=0;x<controller.keyCount;x++){
+                if(noteSlots[x, y].noteType==22 || noteSlots[x, y].noteType==21){ // hold notes is 22/21
+                    Vector2 nextSlot = findNextHoldNote(noteSlots[x,y], y);
+                    if (nextSlot.x!=-1){
+                        Vector2 slot1Pos = new Vector2(x*space+space, controller.scrollPos + noteSlots[x,y].Position.y);
+                        int slot2x = (int) (nextSlot.x*space+space);
+                        int slot2y = (int) (controller.scrollPos + noteSlots[(int)nextSlot.x,(int)nextSlot.y].Position.y);
+                        Vector2 slot2Pos = new Vector2(slot2x, slot2y);
+                        if(inout == 1){ // draw white line, after colored one
+                            DrawLine(slot1Pos, slot2Pos, new Color(0.9f, 0.9f, 0.9f), 40f);
+                        } else {
+                            DrawLine(slot1Pos, slot2Pos, getColor(x,y), 80f);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public Vector2 findNextHoldNote(NoteSlot slot, int y){
+        var noteSlots = controller.noteSlots;
+        for(int y1=y+1;y1<y+5;y1++){
+            for(int x1=0;x1<4;x1++){
+                if(noteSlots[x1, y1].noteType==slot.noteType && slot.color==noteSlots[x1,y1].color){ // hold notes is 22
                     return new Vector2(x1, y1);
                 }
             }

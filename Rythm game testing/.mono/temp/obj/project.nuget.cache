@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "CwEYghUoYVnuf1EHTvNks4HbRP6VyyyKYpXmWNRbTvmX9nGmqeo8SclsGcdT7gA8zcV5UGrPxVGhAaOhk8jetQ==",
+  "dgSpecHash": "1a6cOrFJ+Zi7Hzw6JJX49poqD9Kv5xENjO2dJaaDAfICKSSG/aM1a2MN1vPONn+yBRcl9hyexNnb73Z8rhtJ0g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\prana\\OneDrive\\Documents\\GitHub\\metro-game\\Rythm game testing\\rhythm.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/alexmizrahi/Documents/GitHub/metro-game/Rythm game testing/rhythm.csproj",
+  "expectedPackageFiles": [
+    "/Users/alexmizrahi/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.3/microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "/Users/alexmizrahi/.nuget/packages/microsoft.netframework.referenceassemblies.net472/1.0.3/microsoft.netframework.referenceassemblies.net472.1.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
