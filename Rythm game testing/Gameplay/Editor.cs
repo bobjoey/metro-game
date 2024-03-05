@@ -46,7 +46,7 @@ public class Editor : Node2D
         Vector2 displaySize = controller.displaySize; // 480, 800
         float offset = controller.scrollPos;
         Color red = new Color(0.9f, 0.2f, 0.2f);
-        float width = 3;
+        float width = 4;
 
         // vertical
         for (int i = 1; i < grid.x; i++)
@@ -116,8 +116,22 @@ public class Editor : Node2D
         }
         else
         {
-            GenericNote note = controller.tapNote.Instance<TapNote>(); // add a switch for diff note types based on noteOption **still needs to be done**
-            controller.noteSlots[x, y].addNote(note, color, type);
+            if(type==11){
+                GenericNote note = controller.tapNote.Instance<TapNote>();
+                controller.noteSlots[x, y].addNote(note, color, type);
+            } else if (type==33||type==44){
+                GenericNote note = controller.swipeNote.Instance<SwipeNote>();
+                controller.noteSlots[x, y].addNote(note, color, type);
+            } else if (type==21||type==22){
+                /*GenericNote note = controller.holdNote.Instance<TapNote>();
+                controller.noteSlots[x, y].addNote(note, color, type);*/
+                GenericNote note = controller.tapNote.Instance<TapNote>();
+                controller.noteSlots[x, y].addNote(note, color, type);
+                GD.Print("hold note moment");
+            } else{
+                GD.Print("bro u messed up the note type");
+            }
+            
         }
     }
 
@@ -162,6 +176,9 @@ public class Editor : Node2D
                         drawLSwipeNote(x, y, noteSlots);
                     }
                 }
+                else if(noteSlots[x,y].full && noteSlots[x,y].note.active == false){
+                    drawDeadNote(x, y, noteSlots);
+                }
                 
             }
         }
@@ -185,12 +202,12 @@ public class Editor : Node2D
         points[0] = new Vector2(position.x+75, position.y); // right vertex
         points[1] = new Vector2(position.x-60, position.y+85); // top left vertex
         points[2] = new Vector2(position.x-60, position.y-85); // top left vertex
-        DrawColoredPolygon(points, color); // outer triangle
+        DrawColoredPolygon(points, color, null, null, null, true); // outer triangle
 
         points[0] = new Vector2(position.x+50, position.y); // right vertex
         points[1] = new Vector2(position.x-45, position.y+60); // top left vertex
         points[2] = new Vector2(position.x-45, position.y-60); // top left vertex
-        DrawColoredPolygon(points, new Color(0.9f, 0.9f, 0.9f)); // smol triangle
+        DrawColoredPolygon(points, new Color(0.9f, 0.9f, 0.9f), null, null, null, true); // smol triangle
     }
 
     public void drawLSwipeNote(int x, int y, NoteSlot[,] noteSlots){
@@ -202,12 +219,20 @@ public class Editor : Node2D
         points[0] = new Vector2(position.x-75, position.y); // left vertex
         points[1] = new Vector2(position.x+60, position.y+85); // top right vertex
         points[2] = new Vector2(position.x+60, position.y-85); // top right vertex
-        DrawColoredPolygon(points, color); // outer triangle
+        DrawColoredPolygon(points, color, null, null, null, true); // outer triangle
 
         points[0] = new Vector2(position.x-50, position.y); // left vertex
         points[1] = new Vector2(position.x+45, position.y+60); // top right vertex
         points[2] = new Vector2(position.x+45, position.y-60); // top right vertex
-        DrawColoredPolygon(points, new Color(0.9f, 0.9f, 0.9f)); // smol triangle
+        DrawColoredPolygon(points, new Color(0.9f, 0.9f, 0.9f), null, null, null, true); // smol triangle
+    }
+
+    public void drawDeadNote(int x, int y, NoteSlot[,] noteSlots){
+        float space = controller.editor.space;
+        Vector2 position = new Vector2(x*space+space, controller.scrollPos + noteSlots[x,y].Position.y);
+        Color color = getColor(x, y);
+        DrawCircle(position, 40, color);
+        DrawCircle(position, 20, new Color(0.9f, 0.9f, 0.9f));
     }
 
     public Color getColor(int x, int y){
@@ -235,7 +260,7 @@ public class Editor : Node2D
                         int slot2x = (int) (nextSlot.x*space+space);
                         int slot2y = (int) (controller.scrollPos + noteSlots[(int)nextSlot.x,(int)nextSlot.y].Position.y);
                         Vector2 slot2Pos = new Vector2(slot2x, slot2y);
-                        DrawLine(slot1Pos, slot2Pos, new Color(0.9f, 0.9f, 0.9f), 40f);
+                        DrawLine(slot1Pos, slot2Pos, new Color(0.9f, 0.9f, 0.9f), 40f, true);
                     }
                 }
             }
@@ -266,9 +291,9 @@ public class Editor : Node2D
                         int slot2y = (int) (controller.scrollPos + noteSlots[(int)nextSlot.x,(int)nextSlot.y].Position.y);
                         Vector2 slot2Pos = new Vector2(slot2x, slot2y);
                         if(inout == 1){ // draw white line, after colored one
-                            DrawLine(slot1Pos, slot2Pos, new Color(0.9f, 0.9f, 0.9f), 40f);
+                            DrawLine(slot1Pos, slot2Pos, new Color(0.9f, 0.9f, 0.9f), 40f, true);
                         } else {
-                            DrawLine(slot1Pos, slot2Pos, getColor(x,y), 80f);
+                            DrawLine(slot1Pos, slot2Pos, getColor(x,y), 80f, true);
                         }
                     }
                 }
