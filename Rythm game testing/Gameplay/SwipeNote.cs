@@ -19,34 +19,39 @@ public class SwipeNote : GenericNote
     {
         base._Process(delta);
 
-        if(Input.IsActionPressed("press") && swipeStarted && holdCount<5){
+        if(swipeStarted && Input.IsActionPressed("press") && holdCount<5){ // 5 is minimum time for swipe, 5 frames
             holdCount++;
-            GD.Print(holdCount + ": frames");
+            //GD.Print(holdCount + ": frames");
         }
-        if(Input.IsActionPressed("press") && swipeStarted && holdCount>=5){
+        if(swipeStarted && Input.IsActionPressed("press") && holdCount>=5){
             //GD.Print("mouse: "+GetGlobalMousePosition());
-            if(slot.noteType==33 && GetGlobalMousePosition().x >= mouseStartPos.x+100){
+            if(slot.noteType==33 && GetGlobalMousePosition().x >= mouseStartPos.x+100){ // 100 is minimum swipe distance (idk units)
                 active = false;
                 Visible = false;
+                swipeStarted = false; 
             }
             else if(slot.noteType==44 && GetGlobalMousePosition().x <= mouseStartPos.x-100){
                 active = false;
                 Visible = false;
+                swipeStarted = false;
             }
+        }
+        if(swipeStarted && Input.IsActionPressed("press")==false){
+            swipeStarted = false;
         }
     }
     public override void _InputEvent(Godot.Object viewport, InputEvent @event, int shapeIdx)
     {
         base._InputEvent(viewport, @event, shapeIdx);
 
-        if (@event is InputEventMouseButton eventMouseButton)
+        if (@event is InputEventMouseButton eventMouseButton) // starts hold
         {
             if(eventMouseButton.IsPressed()==true){
             swipeStarted = true;
             mouseStartPos = GetGlobalMousePosition();
             holdCount = 0;
             GD.Print("mouse: "+mouseStartPos);
-            GD.Print("hold started?");
+            GD.Print("swipe started?");
             }
         }
 

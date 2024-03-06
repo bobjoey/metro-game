@@ -110,6 +110,8 @@ public class Editor : Node2D
     public void placeNote(int x, int y, string color, int type)
     {
         NoteSlot slot = controller.noteSlots[x, y];
+        slot.noteX = x;
+        slot.noteY = y;
 
         if (slot.full) {
             slot.removeNote();
@@ -123,9 +125,7 @@ public class Editor : Node2D
                 GenericNote note = controller.swipeNote.Instance<SwipeNote>();
                 controller.noteSlots[x, y].addNote(note, color, type);
             } else if (type==21||type==22){
-                /*GenericNote note = controller.holdNote.Instance<TapNote>();
-                controller.noteSlots[x, y].addNote(note, color, type);*/
-                GenericNote note = controller.tapNote.Instance<TapNote>();
+                GenericNote note = controller.holdNote.Instance<HoldNote>();
                 controller.noteSlots[x, y].addNote(note, color, type);
                 GD.Print("hold note moment");
             } else{
@@ -161,7 +161,7 @@ public class Editor : Node2D
 		}
     }
 
-    // from hererererererrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+    // drawing notes starts from here
 
     public void drawNotes(){
         var noteSlots = controller.noteSlots;
@@ -305,7 +305,7 @@ public class Editor : Node2D
         var noteSlots = controller.noteSlots;
         for(int y1=y+1;y1<y+5;y1++){
             for(int x1=0;x1<4;x1++){
-                if(noteSlots[x1, y1].noteType==slot.noteType && slot.color==noteSlots[x1,y1].color){ // hold notes is 22
+                if(noteSlots[x1, y1].noteType==slot.noteType && slot.color==noteSlots[x1,y1].color){ // hold notes is 22/21
                     return new Vector2(x1, y1);
                 }
             }
