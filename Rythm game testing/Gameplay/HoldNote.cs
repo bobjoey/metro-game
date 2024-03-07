@@ -5,10 +5,12 @@ public class HoldNote : GenericNote
 {
     //public bool holdStarted = false;
     public Vector2 mouseStartPos;
-    public int holdCount = 0; // num of frames the hold lasts // should be irrelevent
     private bool frame1 = true;
+    private int minFrames = 0;
     private bool hasNext = false;
     private Vector2 nextNote;
+    private NoteSlot nextNoteSlot;
+    public bool isDone = false;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -21,53 +23,79 @@ public class HoldNote : GenericNote
     public override void _Process(float delta)
     {
         base._Process(delta);
+        
         if(frame1){
             nextNote = controller.editor.findNextHoldNote(slot, slot.noteY);
             frame1 = false;
             if(nextNote.x == -1){
-                hasNext = false;
+                hasNext = false; 
             } else{
                 hasNext = true;
+                nextNoteSlot = controller.noteSlots[(int)nextNote.x, (int)nextNote.y];
             }
         }
-        // if(Input.IsActionPressed("press") && mouseInLine()){
-        //     holdStarted = true;
-        // }
+        if(minFrames<=20){ // minimum length to be able to fail (discards a little bit of weirdness)
+            minFrames++;
+        }
+        if(isDone&&active){
+            isDone=false;
+        }
+
+        if(isDone||(hasNext==false&&active==false)){
+            Update();
+        }
         if(holdStarted){
             active = false;
-            Visible = false;
+            //Visible = false;
         }
         if(hasNext && holdStarted && Input.IsActionPressed("press") && mouseInLine()){
-           // increment score
-            NoteSlot nextNoteSlot = controller.noteSlots[(int)nextNote.x, (int)nextNote.y]; 
+            // increment score
             Vector2 mousePos = GetGlobalMousePosition();
             float nextNoteY = controller.scrollPos + nextNoteSlot.Position.y;
             GD.Print("holding");
-            if((nextNoteY+50>=mousePos.y)&&(nextNoteY-50<=mousePos.y)){
+            if((nextNoteY+80>=mousePos.y)&&(nextNoteY-80<=mousePos.y)){
                 holdStarted = false;
+                isDone = true;
                 GD.Print("at next note");
                 controller.noteSlots[(int)nextNote.x, (int)nextNote.y].note.holdStarted=true;
+                //Visible = false;
+                
             }
-        } else if(hasNext && holdStarted && Input.IsActionPressed("press") && !mouseInLine()){
+            Update();
+        } else if(hasNext && holdStarted && Input.IsActionPressed("press") && !mouseInLine()&&minFrames>20){
             GD.Print("mouse out of line");
             holdStarted = false;
         }
-        if(holdStarted && Input.IsActionPressed("press")==false){
+        else if(holdStarted && Input.IsActionPressed("press")==false){
             holdStarted = false;
             GD.Print("hold released");
         }
         
     }
 
-    /*public override void _Draw()
+    public override void _Draw()
     {
         base._Draw();
-        if(hasNext && holdStarted && Input.IsActionPressed("press") && mouseInLine()){
-            Vector2 slot1 = new Vector2(slot.noteX*controller.space+controller.space, controller.scrollPos + slot.Position.y);
-            Vector2 slot2 = controller.editor.findNextHoldNote(slot, slot.noteY);
-            DrawLine(slot1)
+        if(hasNext==false&&active==false){
+            DrawCircle(new Vector2(0,0), 40, controller.editor.getColor(slot.noteX, slot.noteY));
         }
-    }*/
+        if(isDone){
+            Vector2 slot1 = new Vector2(slot.noteX*controller.space+controller.space, controller.scrollPos + slot.Position.y);
+            Vector2 slot2 = new Vector2(nextNote.x*controller.space+controller.space, controller.scrollPos + nextNoteSlot.Position.y);
+            slot2.x -= slot1.x;
+            slot2.y -= slot1.y;
+            DrawLine(new Vector2(0,0), slot2, controller.editor.getColor(slot.noteX, slot.noteY), 50, true);
+            DrawCircle(new Vector2(0,0), 40, controller.editor.getColor(slot.noteX, slot.noteY));
+        }
+        else if(hasNext && holdStarted && Input.IsActionPressed("press") && mouseInLine()){
+            Vector2 slot1 = new Vector2(slot.noteX*controller.space+controller.space, controller.scrollPos + slot.Position.y);
+            Vector2 slot2 = getIdealCoord();
+            slot2.x -= slot1.x;
+            slot2.y -= slot1.y;
+            DrawLine(new Vector2(0,0), slot2, controller.editor.getColor(slot.noteX, slot.noteY), 50, true);
+            DrawCircle(new Vector2(0,0), 40, controller.editor.getColor(slot.noteX, slot.noteY));
+        }
+    }
 
     public override void _InputEvent(Godot.Object viewport, InputEvent @event, int shapeIdx)
     {
@@ -96,8 +124,11 @@ public class HoldNote : GenericNote
         Vector2 mousePos = GetGlobalMousePosition();
         float slotX = slot.noteX*controller.space+controller.space;
         float slotY = controller.scrollPos + slot.Position.y;
-        float idealX = (slotY-mousePos.y)/slope*-1 + slotX;
-        if((idealX+50>=mousePos.x)&&(idealX-50<=mousePos.x)){
+        float idealX = getIdealCoord().x;
+        if(mousePos.y>controller.playRegion.y && mousePos.y<controller.playRegion.x){
+            return false;
+        }
+        if((idealX+120>=mousePos.x)&&(idealX-120<=mousePos.x)){
             GD.Print("mouse in line");
             return true;
         }
@@ -115,7 +146,12 @@ public class HoldNote : GenericNote
         return slope;
     }
 
-    public void setHoldStarted(bool started){
-        holdStarted = started;
+    public Vector2 getIdealCoord(){
+        float slope = getSlope();
+        Vector2 mousePos = GetGlobalMousePosition();
+        float slotX = slot.noteX*controller.space+controller.space;
+        float slotY = controller.scrollPos + slot.Position.y;
+        float idealX = (slotY-mousePos.y)/slope*-1 + slotX;
+        return new Vector2(idealX,mousePos.y);
     }
 }
