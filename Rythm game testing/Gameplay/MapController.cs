@@ -136,6 +136,7 @@ public class MapController : Node2D
         // play song and start the game
         songPlayer.Play(time);
         editButtonVisible(false);
+        pauseButtonVisible(false);
     }
 
     // immediately starts game at a certain timestamp (used in editor)
@@ -145,6 +146,7 @@ public class MapController : Node2D
         // take some code from startplay but generation wise may be issues with start bar
         songPlayer.Play(time);
         editButtonVisible(false);
+        pauseButtonVisible(false);
     }
 
     public void enterPause()
@@ -152,7 +154,7 @@ public class MapController : Node2D
         gameState = 0;
         songPlayer.Stop();
         editButtonVisible(false);
-
+        pauseButtonVisible(true);
     }
 
     public void enterEdit()
@@ -165,6 +167,7 @@ public class MapController : Node2D
             slot.reset();
         }
         editButtonVisible(true);
+        pauseButtonVisible(false);
     }
 
     public override void _Input(InputEvent @event)
@@ -246,5 +249,22 @@ public class MapController : Node2D
         GetNode<Button>("PNoteButton").Visible = yesno;
         GetNode<Button>("YNoteButton").Visible = yesno;
         GetNode<Button>("RNoteButton").Visible = yesno;
+    }
+
+    public void pauseButtonVisible(bool yesno){
+        GetNode<Button>("RetryButton").Visible = yesno;
+        GetNode<Button>("ExitButton").Visible = yesno;
+    }
+
+    public void retryLevel(){
+        //retry
+        GD.Print("re-trying level");
+        GetTree().ReloadCurrentScene();
+    }
+
+    public void exitLevel(){
+        //retry
+        GD.Print("exiting level");
+        GetTree().ChangeScene("res://songSelect/songSelect.tscn");
     }
 }

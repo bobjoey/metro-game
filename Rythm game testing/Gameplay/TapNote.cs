@@ -26,6 +26,7 @@ public class TapNote : GenericNote
         {
             active = false;
             Visible = false;
+            // increase score here
             // GD.Print("U press me");
         }
 
