@@ -34,6 +34,7 @@ public class SwipeNote : GenericNote
                 active = false;
                 Visible = false;
                 swipeStarted = false;
+                //increase score here
             }
         }
         if(swipeStarted && Input.IsActionPressed("press")==false){

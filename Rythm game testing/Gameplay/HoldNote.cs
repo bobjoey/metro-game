@@ -48,7 +48,7 @@ public class HoldNote : GenericNote
             active = false;
             //Visible = false;
         }
-        if(holdStarted&&Input.IsActionPressed("press")){
+        if(holdStarted&&Input.IsActionPressed("press")&&((GetGlobalMousePosition().y>controller.playRegion.y && GetGlobalMousePosition().y<controller.playRegion.x))){
             Vector2 mousePos = GetGlobalMousePosition();
             float y = controller.scrollPos + slot.Position.y;
             if((y+80>=mousePos.y)&&(y-80<=mousePos.y)){
