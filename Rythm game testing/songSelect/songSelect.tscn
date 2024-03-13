@@ -1,4 +1,4 @@
-[gd_scene load_steps=237 format=2]
+[gd_scene load_steps=256 format=2]
 
 [ext_resource path="res://songSelect/songsManager.cs" type="Script" id=1]
 [ext_resource path="res://gameSprites/SongSelect/scEasy.png" type="Texture" id=2]
@@ -221,7 +221,25 @@
 [ext_resource path="res://main_menu.cs" type="Script" id=219]
 [ext_resource path="res://gameSprites/SongSelect/border2.png" type="Texture" id=220]
 [ext_resource path="res://gameSprites/SongSelect/border1.png" type="Texture" id=221]
-[ext_resource path="res://icon.png" type="Texture" id=222]
+[ext_resource path="res://songSelect/ExitButton.cs" type="Script" id=222]
+[ext_resource path="res://gameSprites/SongSelect/PlayButton (2).png" type="Texture" id=223]
+[ext_resource path="res://gameSprites/SongSelect/ExitButton (3).png" type="Texture" id=224]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_31_delay-0.05s.png" type="Texture" id=225]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_32_delay-0.05s.png" type="Texture" id=226]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_34_delay-0.05s.png" type="Texture" id=227]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_35_delay-0.05s.png" type="Texture" id=228]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_30_delay-0.05s.png" type="Texture" id=229]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_33_delay-0.05s.png" type="Texture" id=230]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_39_delay-0.05s.png" type="Texture" id=231]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_01_delay-0.05s.png" type="Texture" id=232]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_38_delay-0.05s.png" type="Texture" id=233]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_40_delay-0.05s.png" type="Texture" id=234]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_41_delay-0.05s.png" type="Texture" id=235]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_00_delay-0.05s.png" type="Texture" id=236]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_02_delay-0.05s.png" type="Texture" id=237]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_03_delay-0.05s.png" type="Texture" id=238]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_37_delay-0.05s.png" type="Texture" id=239]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_36_delay-0.05s.png" type="Texture" id=240]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -430,6 +448,14 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 217 )
 
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ ExtResource( 229 ), ExtResource( 225 ), ExtResource( 226 ), ExtResource( 230 ), ExtResource( 227 ), ExtResource( 228 ), ExtResource( 240 ), ExtResource( 239 ), ExtResource( 233 ), ExtResource( 231 ), ExtResource( 234 ), ExtResource( 235 ), ExtResource( 238 ), ExtResource( 237 ), ExtResource( 232 ), ExtResource( 236 ) ],
+"loop": false,
+"name": "default",
+"speed": 15.0
+} ]
+
 [node name="songSelect" type="Control"]
 margin_left = 1.0
 margin_top = 300.0
@@ -462,6 +488,39 @@ wait_time = 0.5
 position = Vector2( 268.5, 359.403 )
 scale = Vector2( 0.640464, 0.640464 )
 texture = ExtResource( 5 )
+
+[node name="PlayButton" type="Button" parent="scene"]
+anchor_left = 0.863
+anchor_top = 0.543
+anchor_right = 0.948
+anchor_bottom = 0.589
+margin_left = -8.02002
+margin_top = -6.81305
+margin_right = 5.07996
+margin_bottom = 3.20099
+flat = true
+
+[node name="PlayButton" type="Sprite" parent="scene/PlayButton"]
+position = Vector2( 23.0503, 20.0894 )
+scale = Vector2( 0.0722053, 0.0722053 )
+texture = ExtResource( 223 )
+
+[node name="ExitButton" type="Button" parent="scene"]
+anchor_left = 0.051
+anchor_top = 0.54
+anchor_right = 0.128
+anchor_bottom = 0.587
+margin_left = -5.54
+margin_top = -5.14001
+margin_right = 12.88
+margin_bottom = 2.98297
+flat = true
+script = ExtResource( 222 )
+
+[node name="ExitButton" type="Sprite" parent="scene/ExitButton"]
+position = Vector2( 34.6907, 21.5259 )
+scale = Vector2( -0.072, 0.072 )
+texture = ExtResource( 224 )
 
 [node name="Path2D" type="Path2D" parent="scene"]
 position = Vector2( 265, -41 )
@@ -587,7 +646,7 @@ position = Vector2( 264, 81 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "Hard"
-frame = 48
+frame = 25
 playing = true
 flip_h = true
 script = ExtResource( 10 )
@@ -666,18 +725,6 @@ texture = ExtResource( 221 )
 scale = Vector2( 0.998, 0.987 )
 texture = ExtResource( 220 )
 
-[node name="GameplayButtonPlaceholder" type="Button" parent="scene"]
-anchor_left = 0.224
-anchor_top = 0.798
-anchor_right = 0.365
-anchor_bottom = 0.877
-margin_left = 0.210541
-margin_top = 0.406616
-margin_right = 0.0705414
-margin_bottom = 0.0175781
-icon = ExtResource( 222 )
-flat = true
-
 [node name="BlackBars2" type="Sprite" parent="."]
 position = Vector2( 264.06, -73.8148 )
 scale = Vector2( 78.4387, 0.291287 )
@@ -702,9 +749,17 @@ texture = ExtResource( 218 )
 
 [node name="swipeDetector" type="Camera2D" parent="."]
 
+[node name="LoadScreen" type="AnimatedSprite" parent="."]
+position = Vector2( 270.103, 445.883 )
+scale = Vector2( 0.311862, 0.312656 )
+frames = SubResource( 18 )
+frame = 15
+playing = true
+
 [connection signal="soundBounceEventHandler" from="scene/SongPlayer" to="scene/Path2D" method="SoundBounceReciever"]
 [connection signal="timeout" from="scene/SongPlayer/prevTimer" to="scene/SongPlayer" method="stopPlaying"]
 [connection signal="timeout" from="scene/SongPlayer/fadeTimer" to="scene/SongPlayer" method="fadeTime"]
+[connection signal="pressed" from="scene/PlayButton" to="scene/SongPlayer" method="nextScene"]
+[connection signal="pressed" from="scene/ExitButton" to="scene/ExitButton" method="_on_ExitButton_pressed"]
 [connection signal="songChangeEventHandler" from="scene/Path2D" to="scene/SongPlayer" method="_on_Path2D_songChangeEventHandler"]
 [connection signal="update_bannerEventHandler" from="scene/Path2D" to="scene/songBanner" method="_on_Path2D_update_bannerEventHandler"]
-[connection signal="pressed" from="scene/GameplayButtonPlaceholder" to="scene/SongPlayer" method="nextScene"]

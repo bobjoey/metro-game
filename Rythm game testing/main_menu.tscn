@@ -1,14 +1,53 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=40 format=2]
 
-[ext_resource path="res://gameSprites/MainMenu/finalBg.png" type="Texture" id=1]
+[ext_resource path="res://gameSprites/MainMenu/MainBackground.png" type="Texture" id=1]
 [ext_resource path="res://main_menu.cs" type="Script" id=2]
 [ext_resource path="res://gameSprites/MainMenu/mainMenuButtons.png" type="Texture" id=3]
-[ext_resource path="res://gameSprites/MainMenu/title.png" type="Texture" id=4]
+[ext_resource path="res://gameSprites/MainMenu/PatternedBG.png" type="Texture" id=4]
 [ext_resource path="res://gameSprites/MapEditor/scrollBar.png" type="Texture" id=5]
+[ext_resource path="res://gameSprites/MainMenu/TitleCard.png" type="Texture" id=6]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_06_delay-0.05s.png" type="Texture" id=7]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_14_delay-0.05s.png" type="Texture" id=8]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_15_delay-0.05s.png" type="Texture" id=9]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_23_delay-0.16s.png" type="Texture" id=10]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_07_delay-0.05s.png" type="Texture" id=11]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_09_delay-0.05s.png" type="Texture" id=12]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_12_delay-0.05s.png" type="Texture" id=13]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_21_delay-0.16s.png" type="Texture" id=14]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_25_delay-0.16s.png" type="Texture" id=15]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_01_delay-0.05s.png" type="Texture" id=16]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_19_delay-0.16s.png" type="Texture" id=17]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_20_delay-0.16s.png" type="Texture" id=18]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_22_delay-0.16s.png" type="Texture" id=19]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_26_delay-0.16s.png" type="Texture" id=20]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_27_delay-0.16s.png" type="Texture" id=21]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_05_delay-0.05s.png" type="Texture" id=22]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_08_delay-0.05s.png" type="Texture" id=23]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_13_delay-0.05s.png" type="Texture" id=24]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_00_delay-0.05s.png" type="Texture" id=25]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_24_delay-0.16s.png" type="Texture" id=26]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_02_delay-0.05s.png" type="Texture" id=27]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_28_delay-0.16s.png" type="Texture" id=28]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_04_delay-0.05s.png" type="Texture" id=29]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_10_delay-0.05s.png" type="Texture" id=30]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_11_delay-0.05s.png" type="Texture" id=31]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_03_delay-0.05s.png" type="Texture" id=32]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_18_delay-0.16s.png" type="Texture" id=33]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_29_delay-0.05s.png" type="Texture" id=34]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_17_delay-0.16s.png" type="Texture" id=35]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_16_delay-0.05s.png" type="Texture" id=36]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 25 ), ExtResource( 16 ), ExtResource( 27 ), ExtResource( 32 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 23 ), ExtResource( 12 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 13 ), ExtResource( 24 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 36 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 10 ), ExtResource( 26 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 28 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
 
 [node name="main_menu" type="Control"]
 margin_top = 306.0
@@ -20,10 +59,23 @@ script = ExtResource( 2 )
 margin_right = -641.0
 margin_bottom = -1669.0
 
+[node name="Pattern" type="Sprite" parent="background"]
+position = Vector2( 270.005, 170.334 )
+scale = Vector2( 0.325307, 0.356308 )
+texture = ExtResource( 4 )
+
 [node name="MainCharacter" type="Sprite" parent="background"]
 position = Vector2( 270, 445.5 )
 scale = Vector2( 0.3125, 0.312412 )
 texture = ExtResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="background"]
+position = Vector2( -0.9145, 809.274 )
+scale = Vector2( 0.820217, 0.76196 )
+texture = ExtResource( 4 )
+texture_offset = Vector2( 50, 350 )
+texture_scale = Vector2( 1.6, 1.4 )
+polygon = PoolVector2Array( 1.11495, 109.288, 658.931, 108.706, 660.046, -392.39, 577.54, -159.863, 452.667, -54.0627, 1.11495, 26.7405 )
 
 [node name="button_layout" type="Sprite" parent="background"]
 position = Vector2( 270, 577 )
@@ -31,9 +83,10 @@ scale = Vector2( 0.3125, 0.311935 )
 texture = ExtResource( 3 )
 
 [node name="title" type="Sprite" parent="background"]
-position = Vector2( 206, 43 )
-rotation = -0.109956
-texture = ExtResource( 4 )
+position = Vector2( 160, 60 )
+rotation = -0.122173
+scale = Vector2( 0.136552, 0.136552 )
+texture = ExtResource( 6 )
 
 [node name="BlackBars" type="Sprite" parent="background"]
 show_behind_parent = true
@@ -76,6 +129,16 @@ custom_styles/normal = SubResource( 2 )
 __meta__ = {
 "_editor_description_": "connects to the settings menu"
 }
+
+[node name="LoadScreen" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 270.103, 445.883 )
+scale = Vector2( 0.312, 0.313 )
+frames = SubResource( 3 )
+frame = 2
+playing = true
+
+[node name="GifTimer" type="Timer" parent="."]
 
 [connection signal="pressed" from="play_button" to="." method="play_button_pressed"]
 [connection signal="pressed" from="settings_button" to="." method="settings_button_pressed"]

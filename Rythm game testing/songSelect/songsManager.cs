@@ -21,6 +21,7 @@ public class songsManager : Path2D
 	public static songCard[] songsList = {new songCard("Lagtrain"), new songCard("ZenZenZense"), new songCard("Bus"), new songCard("KickBack"), new songCard("OCOLIMBO"), new songCard("cOin")};
 	//public static songCard[] songsList = {new songCard("Lagtrain"), new songCard("ZenZenZense"), new songCard("KickBack"), new songCard("Bus"), new songCard("OCOLIMBO"), new songCard("cOin")};
 	public float[] songPosList = new float[songsList.GetLength(0)];
+	private int lockTimer = 0;
 	//public int cooldown = 0;
 	//private int timeDelay = 0;
 
@@ -117,11 +118,15 @@ public class songsManager : Path2D
 			startPos = GetGlobalMousePosition();
 			curPos = GetGlobalMousePosition();
 		} else if (Input.IsActionPressed("press")){
-	
-			songPosList[0] = GetNode<PathFollow2D>("LeftSong").UnitOffset;
-			songPosList[1] = GetNode<PathFollow2D>("MainSong").UnitOffset;
-			songPosList[2] = GetNode<PathFollow2D>("RightSong").UnitOffset;
-			curPos = GetGlobalMousePosition();
+				curPos = GetGlobalMousePosition();
+		} else if(Math.Round(GetNode<PathFollow2D>(mostMid+"Song").UnitOffset, 2) != 0.5){
+			if(GetNode<PathFollow2D>(mostMid+"Song").UnitOffset > 0.5){
+				curPos = new Vector2(0,0);
+				startPos = new Vector2(-3,0);
+			} else if(GetNode<PathFollow2D>(mostMid+"Song").UnitOffset < 0.5){
+				curPos = new Vector2(0,0);
+				startPos = new Vector2(3,0);
+			} 
 		}
 		float calcOffset = ((curPos.x-startPos.x)/1000);
 		if(calcOffset > 0.3){calcOffset = (float)0.3;}else if(calcOffset < -0.3){calcOffset = (float)-0.3;}
