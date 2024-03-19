@@ -32,6 +32,7 @@ public class MapController : Node2D
     public float space;
     public float songLengthPx;
     public string songCode; // the song code, used in saveNotes()
+    public int score = 0;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -266,5 +267,11 @@ public class MapController : Node2D
         //retry
         GD.Print("exiting level");
         GetTree().ChangeScene("res://songSelect/songSelect.tscn");
+    }
+
+    public void increaseScore(int amount){
+        score+=amount;
+        // *** add score ui update here ***
+        GD.Print("Score: "+score);
     }
 }

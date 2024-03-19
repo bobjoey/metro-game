@@ -49,7 +49,6 @@ margin_top = 0.879974
 margin_right = 0.432983
 margin_bottom = 1.08002
 text = "Like settings and stuff"
-percent_visible = -0.05
 
 [node name="return_button" type="Button" parent="."]
 anchor_top = 0.001

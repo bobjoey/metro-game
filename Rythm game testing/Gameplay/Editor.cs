@@ -127,7 +127,7 @@ public class Editor : Node2D
             } else if (type==21||type==22){
                 GenericNote note = controller.holdNote.Instance<HoldNote>();
                 controller.noteSlots[x, y].addNote(note, color, type);
-                GD.Print("hold note moment");
+                //GD.Print("hold note moment");
             } else{
                 GD.Print("bro u messed up the note type");
             }
@@ -150,7 +150,7 @@ public class Editor : Node2D
                     int y = Convert.ToInt32(line.Substring(2,3));
                     string color = line.Substring(6, 1);
                     int type = Convert.ToInt32(line.Substring(8,2));
-                    GD.Print("x: " + x + " y: " + y + " color: " + color + " type" + type);
+                    //GD.Print("x: " + x + " y: " + y + " color: " + color + " type" + type);
                     //placeNote(x, y);
                     placeNote(x, y, color, type); 
                 }

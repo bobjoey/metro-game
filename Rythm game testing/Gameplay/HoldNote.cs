@@ -48,15 +48,18 @@ public class HoldNote : GenericNote
             active = false;
             //Visible = false;
         }
-        if(holdStarted&&Input.IsActionPressed("press")&&((GetGlobalMousePosition().y>controller.playRegion.y && GetGlobalMousePosition().y<controller.playRegion.x))){
+        if(holdStarted&&Input.IsActionPressed("press")&& GetGlobalMousePosition().y<playRegion.y && GetGlobalMousePosition().y>playRegion.x){
             Vector2 mousePos = GetGlobalMousePosition();
             float y = controller.scrollPos + slot.Position.y;
-            if((y+80>=mousePos.y)&&(y-80<=mousePos.y)){
+            if((y+100>=mousePos.y)&&(y-100<=mousePos.y)){
                 Fail = false;
             }
         }
         if(hasNext && holdStarted && Input.IsActionPressed("press") && (mouseInLine()||touchInLine())){
             // increment score
+            if(controller.songPlayer.GetPlaybackPosition()%0.1==0){
+               controller.increaseScore(10); 
+            }
             Vector2 mousePos = GetGlobalMousePosition();
             float nextNoteY = controller.scrollPos + nextNoteSlot.Position.y;
             //GD.Print("holding");
@@ -124,6 +127,8 @@ public class HoldNote : GenericNote
                 Visible = false;
                 holdStarted = false;
                 GD.Print("no next note, removing this one");
+                // increment score
+                controller.increaseScore(50);
             }
             }
         }
@@ -132,7 +137,6 @@ public class HoldNote : GenericNote
             if(eventScreenTouch.IsPressed()==true){
                 GD.Print("pos"+eventScreenTouch.Position);
                 touchPositions[eventScreenTouch.Index] = eventScreenTouch.Position;
-
             } else{
                 touchPositions[eventScreenTouch.Index] = new Vector2(-1,-1);
             }
@@ -147,7 +151,8 @@ public class HoldNote : GenericNote
         float slotX = slot.noteX*controller.space+controller.space;
         float slotY = controller.scrollPos + slot.Position.y;
         float idealX = getIdealCoord().x;
-        if(mousePos.y>controller.playRegion.y && mousePos.y<controller.playRegion.x){
+        if(mousePos.y>playRegion.y || mousePos.y<playRegion.x){
+            GD.Print("out of bounds");
             return false;
         }
         if((idealX+100>=mousePos.x)&&(idealX-100<=mousePos.x)){
