@@ -34,6 +34,9 @@ public class HoldNote : GenericNote
                 nextNoteSlot = controller.noteSlots[(int)nextNote.x, (int)nextNote.y];
             }
         }
+        if(controller.editor.isOnScreen(slot.noteX, slot.noteY)!=1){
+            return;
+        }
         if(minFrames<=20){ // minimum length to be able to fail (discards a little bit of weirdness)
             minFrames++;
         }
@@ -57,8 +60,8 @@ public class HoldNote : GenericNote
         }
         if(hasNext && holdStarted && Input.IsActionPressed("press") && (mouseInLine()||touchInLine())){
             // increment score
-            if(controller.songPlayer.GetPlaybackPosition()%0.1==0){
-               controller.increaseScore(10); 
+            if(controller.scoreTimer.TimeLeft==0){
+                controller.scoreTimer.Start(.1f);
             }
             Vector2 mousePos = GetGlobalMousePosition();
             float nextNoteY = controller.scrollPos + nextNoteSlot.Position.y;

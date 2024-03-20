@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Gameplay/MapController.cs" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -19,9 +19,17 @@
 [ext_resource path="res://gameSprites/gameplay/redNote.png" type="Texture" id=17]
 [ext_resource path="res://Gameplay/SwipeNote.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Gameplay/HoldNote.tscn" type="PackedScene" id=19]
+[ext_resource path="res://gameSprites/Fonts/Prompt-SemiBold.ttf" type="DynamicFontData" id=20]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 3
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 7
+font_data = ExtResource( 20 )
 
 [node name="MapController" type="Node2D"]
 script = ExtResource( 1 )
@@ -154,15 +162,27 @@ icon = ExtResource( 15 )
 flat = true
 
 [node name="ExitButton" type="Button" parent="."]
-margin_left = 283.0
+margin_left = 270.0
 margin_top = 35.0
-margin_right = 1111.0
+margin_right = 1098.0
 margin_bottom = 857.0
 rect_scale = Vector2( 0.1, 0.1 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 icon = ExtResource( 17 )
 flat = true
+
+[node name="ScoreLabel" type="RichTextLabel" parent="."]
+margin_left = 394.0
+margin_top = 19.0
+margin_right = 1037.0
+margin_bottom = 188.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "Score: "
+scroll_active = false
+
+[node name="ScoreTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="pressed" from="TapNoteButton" to="." method="setNotePlaceSetting" binds= [ "e", 11 ]]
 [connection signal="pressed" from="HoldNoteButton" to="." method="setNotePlaceSetting" binds= [ "e", 22 ]]
@@ -175,3 +195,4 @@ flat = true
 [connection signal="pressed" from="RNoteButton" to="." method="setNotePlaceSetting" binds= [ "r", 0 ]]
 [connection signal="pressed" from="RetryButton" to="." method="retryLevel"]
 [connection signal="pressed" from="ExitButton" to="." method="exitLevel"]
+[connection signal="timeout" from="ScoreTimer" to="." method="increaseScore" binds= [ 20 ]]
