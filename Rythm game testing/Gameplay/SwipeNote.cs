@@ -18,6 +18,9 @@ public class SwipeNote : GenericNote
     public override void _Process(float delta)
     {
         base._Process(delta);
+        if(controller.editor.isOnScreen(slot.noteX, slot.noteY)!=1){
+            return;
+        }
 
         if(swipeStarted && Input.IsActionPressed("press") && holdCount<5){ // 5 is minimum time for swipe, 5 frames
             holdCount++;
@@ -35,6 +38,7 @@ public class SwipeNote : GenericNote
                 Visible = false;
                 swipeStarted = false;
                 //increase score here
+                controller.increaseScore(200);
             }
         }
         if(swipeStarted && Input.IsActionPressed("press")==false){

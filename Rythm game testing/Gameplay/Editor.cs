@@ -127,7 +127,7 @@ public class Editor : Node2D
             } else if (type==21||type==22){
                 GenericNote note = controller.holdNote.Instance<HoldNote>();
                 controller.noteSlots[x, y].addNote(note, color, type);
-                GD.Print("hold note moment");
+                //GD.Print("hold note moment");
             } else{
                 GD.Print("bro u messed up the note type");
             }
@@ -150,7 +150,7 @@ public class Editor : Node2D
                     int y = Convert.ToInt32(line.Substring(2,3));
                     string color = line.Substring(6, 1);
                     int type = Convert.ToInt32(line.Substring(8,2));
-                    GD.Print("x: " + x + " y: " + y + " color: " + color + " type" + type);
+                    //GD.Print("x: " + x + " y: " + y + " color: " + color + " type" + type);
                     //placeNote(x, y);
                     placeNote(x, y, color, type); 
                 }
@@ -163,11 +163,21 @@ public class Editor : Node2D
 
     // drawing notes starts from here
 
+    public int isOnScreen(int x, int y){ // returns 0 if below, 1 if on/near, 2 if above
+        float pos = controller.scrollPos + controller.noteSlots[x,y].Position.y;
+        if(pos<-100){
+            return 2; // above screen
+        } else if (pos>controller.displaySize.y+800){
+            return 0;
+        }
+        return 1;
+    }
+
     public void drawNotes(){
         var noteSlots = controller.noteSlots;
         for(int y=0;y<grid.y;y++){
             for(int x=0; x<controller.keyCount;x++){
-                if(noteSlots[x,y].full && noteSlots[x,y].note.active == true){
+                if(noteSlots[x,y].full && noteSlots[x,y].note.active == true && isOnScreen(x, y)==1){
                     if(noteSlots[x,y].noteType < 30){ // tap notes & hold notes
                         drawTapNote(x, y, noteSlots);
                     } else if(noteSlots[x,y].noteType == 33){ // right swipe
@@ -176,10 +186,11 @@ public class Editor : Node2D
                         drawLSwipeNote(x, y, noteSlots);
                     }
                 }
-                else if(noteSlots[x,y].full && noteSlots[x,y].note.active == false){
+                else if(noteSlots[x,y].full && noteSlots[x,y].note.active == false && isOnScreen(x, y)==1){
                     drawDeadNote(x, y, noteSlots);
+                } else if (isOnScreen(x, y)==2){
+                    return;
                 }
-                
             }
         }
         
@@ -253,7 +264,7 @@ public class Editor : Node2D
         var noteSlots = controller.noteSlots;
         for(int y=0;y<grid.y;y++){
             for(int x=0;x<controller.keyCount;x++){
-                if(noteSlots[x, y].noteType!=0){ // hold notes is 22/21
+                if(noteSlots[x, y].noteType!=0 && isOnScreen(x, y)==1){
                     Vector2 nextSlot = findNextNote(noteSlots[x,y], y);
                     if (nextSlot.x!=-1){
                         Vector2 slot1Pos = new Vector2(x*space+space, controller.scrollPos + noteSlots[x,y].Position.y);
@@ -283,7 +294,7 @@ public class Editor : Node2D
         var noteSlots = controller.noteSlots;
         for(int y=0;y<grid.y;y++){
             for(int x=0;x<controller.keyCount;x++){
-                if(noteSlots[x, y].noteType==22 || noteSlots[x, y].noteType==21){ // hold notes is 22/21
+                if((noteSlots[x, y].noteType==22 || noteSlots[x, y].noteType==21) && isOnScreen(x, y)==1){ // hold notes is 22/21
                     Vector2 nextSlot = findNextHoldNote(noteSlots[x,y], y);
                     if (nextSlot.x!=-1){
                         Vector2 slot1Pos = new Vector2(x*space+space, controller.scrollPos + noteSlots[x,y].Position.y);
@@ -296,6 +307,8 @@ public class Editor : Node2D
                             DrawLine(slot1Pos, slot2Pos, getColor(x,y), 80f, true);
                         }
                     }
+                } else if(isOnScreen(x, y)==2){
+                    return;
                 }
             }
         }

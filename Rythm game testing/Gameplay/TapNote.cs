@@ -27,6 +27,7 @@ public class TapNote : GenericNote
             active = false;
             Visible = false;
             // increase score here
+            controller.increaseScore(100);
             // GD.Print("U press me");
         }
 

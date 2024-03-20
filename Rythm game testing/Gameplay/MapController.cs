@@ -21,7 +21,7 @@ public class MapController : Node2D
     public NoteSlot[,] noteSlots;
     // public System.Collections.Generic.List<GenericNote> notes; // split into lanes? sort by lane?? --> manage in editor
 
-    public Vector2 displaySize = new Vector2(1181, 1968);
+    public Vector2 displaySize = new Vector2(1181, 1968); // should be 2560
     public Vector2 playRegion; // y1, y2: bottom 1/8 of screen +- 1/4 sec
     public int gameState = 0; // 0 = pause, 1 = play, 2 = edit (?)
     public int keyCount = 4;
@@ -32,12 +32,17 @@ public class MapController : Node2D
     public float space;
     public float songLengthPx;
     public string songCode; // the song code, used in saveNotes()
+    public int score = 0;
+    public RichTextLabel scoreLabel;
+    public Timer scoreTimer;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         editor = GetNode<Editor>("Editor");
         songPlayer = GetNode<AudioStreamPlayer>("SongPlayer");
+        scoreLabel = GetNode<RichTextLabel>("ScoreLabel");
+        scoreTimer = GetNode<Timer>("ScoreTimer");
 
         // updateInfo();
         // finding the song:
@@ -78,7 +83,6 @@ public class MapController : Node2D
                 AddChild(slot);
             }
         }
-
         editor.init();
     }
 
@@ -168,6 +172,7 @@ public class MapController : Node2D
         }
         editButtonVisible(true);
         pauseButtonVisible(false);
+        increaseScore(-score); // no cheaters >:(
     }
 
     public override void _Input(InputEvent @event)
@@ -266,5 +271,12 @@ public class MapController : Node2D
         //retry
         GD.Print("exiting level");
         GetTree().ChangeScene("res://songSelect/songSelect.tscn");
+    }
+
+    public void increaseScore(int amount){
+        score+=amount;
+        // *** add score ui update here ***
+        GD.Print("Score: "+score);
+        scoreLabel.Text = "Score: " + score;
     }
 }
