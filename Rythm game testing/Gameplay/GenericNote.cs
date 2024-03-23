@@ -9,6 +9,7 @@ public class GenericNote : Area2D
     public Vector2 playRegion; // y1, y2
     public bool active = true;
     public bool holdStarted = false;
+    public int pointValue = 0;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()

@@ -11,7 +11,7 @@ public class SwipeNote : GenericNote
     public override void _Ready()
     {
         base._Ready();
-
+        pointValue = 200;
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.

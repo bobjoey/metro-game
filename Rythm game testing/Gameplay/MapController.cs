@@ -21,7 +21,7 @@ public class MapController : Node2D
     public NoteSlot[,] noteSlots;
     // public System.Collections.Generic.List<GenericNote> notes; // split into lanes? sort by lane?? --> manage in editor
 
-    public Vector2 displaySize = new Vector2(1181, 1968); // should be 2560
+    public Vector2 displaySize = new Vector2(1181, 2560); // should be 2560 was 1968
     public Vector2 playRegion; // y1, y2: bottom 1/8 of screen +- 1/4 sec
     public int gameState = 0; // 0 = pause, 1 = play, 2 = edit (?)
     public int keyCount = 4;
@@ -64,8 +64,9 @@ public class MapController : Node2D
     public void updateInfo() // updates noteSpeed, playRegion, space, songLengthPx, noteSlots
     {
         // displaySize = OS.WindowSize;
-        noteSpeed = bpm / 60 * displaySize.y / 8; // time to fall = 480/bpm seconds
-        playRegion = new Vector2(displaySize.y * 0.875f - noteSpeed * 0.25f, displaySize.y * 0.875f + noteSpeed * 0.25f);
+        noteSpeed = bpm / 60 * displaySize.y / 10; // time to fall = 480/bpm seconds changed it from displaySize.y/8 to /10 now 600/bpm seconds
+        //playRegion = new Vector2(displaySize.y * 0.875f - noteSpeed * 0.25f, displaySize.y * 0.875f + noteSpeed * 0.25f);
+        playRegion = new Vector2(displaySize.y/2, displaySize.y);
         // scrollPos = getPositionRatio() * displaySize.y;
 
         space = displaySize.x / (keyCount + 1);
@@ -231,7 +232,38 @@ public class MapController : Node2D
 		} else {
 			GD.Print("not found: " + path);
 		}
-        
+        saveMaxScore();
+    }
+
+    public void saveMaxScore(){
+        GD.Print("attempting to max score notes");
+        songCard song = new songCard(songCode);
+        string path = "res://songs/"+songCode+"/"+songCode+".txt";
+		GD.Print(path);
+        int maxScore = 0;
+        File file = new File();
+        if(file.FileExists(path)){
+			file.Open(path, File.ModeFlags.Write);
+            for(int x = 0; x < noteSlots.GetLength(0); x++){
+                for(int y = 0; y < noteSlots.GetLength(1); y++){
+                    if (noteSlots[x, y].full){
+                        maxScore += noteSlots[x, y].note.pointValue;
+                    }
+                }
+            }
+            file.StoreLine(Convert.ToString(song.difficulty));
+            file.StoreLine(song.songTitle);
+            file.StoreLine(song.songAuthor);
+            file.StoreLine(Convert.ToString(song.songLength));
+            file.StoreLine(Convert.ToString(song.previewTime));
+            file.StoreLine(Convert.ToString(song.bpm));
+            file.StoreLine(Convert.ToString(maxScore));
+			file.Close();
+		} else {
+			GD.Print("not found: " + path);
+		}
+        GD.Print("max score = "+maxScore);
+
     }
 
     public void setNotePlaceSetting(string color, int type){

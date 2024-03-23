@@ -40,8 +40,8 @@ noteSlot = ExtResource( 6 )
 
 [node name="tempBG" type="Sprite" parent="."]
 material = SubResource( 1 )
-position = Vector2( 590.4, 984 )
-scale = Vector2( 18.45, 30.75 )
+position = Vector2( 590.4, 1280 )
+scale = Vector2( 18.45, 40 )
 texture = ExtResource( 2 )
 
 [node name="Editor" type="Node2D" parent="."]
@@ -53,7 +53,7 @@ script = ExtResource( 4 )
 script = ExtResource( 7 )
 
 [node name="TimeBar" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1136.52, 984 )
+position = Vector2( 1137, 1268 )
 scale = Vector2( 2.46, 2.46 )
 
 [node name="PauseButton" parent="." instance=ExtResource( 8 )]
@@ -114,38 +114,38 @@ icon = ExtResource( 13 )
 flat = true
 
 [node name="GNoteButton" type="Button" parent="."]
-margin_left = 1042.0
-margin_top = 184.0
-margin_right = 2078.0
-margin_bottom = 1214.0
+margin_left = 1098.0
+margin_top = 185.0
+margin_right = 2134.0
+margin_bottom = 1215.0
 rect_scale = Vector2( 0.05, 0.05 )
 icon = ExtResource( 14 )
 flat = true
 icon_align = 1
 
 [node name="PNoteButton" type="Button" parent="."]
-margin_left = 1053.0
-margin_top = 240.0
-margin_right = 2089.0
-margin_bottom = 1270.0
+margin_left = 1101.0
+margin_top = 242.0
+margin_right = 2137.0
+margin_bottom = 1272.0
 rect_scale = Vector2( 0.05, 0.05 )
 icon = ExtResource( 15 )
 flat = true
 
 [node name="YNoteButton" type="Button" parent="."]
-margin_left = 1055.0
-margin_top = 311.0
-margin_right = 2091.0
-margin_bottom = 1341.0
+margin_left = 1098.0
+margin_top = 309.0
+margin_right = 2134.0
+margin_bottom = 1339.0
 rect_scale = Vector2( 0.05, 0.05 )
 icon = ExtResource( 16 )
 flat = true
 
 [node name="RNoteButton" type="Button" parent="."]
-margin_left = 1052.0
-margin_top = 382.0
-margin_right = 2088.0
-margin_bottom = 1412.0
+margin_left = 1097.0
+margin_top = 375.0
+margin_right = 2133.0
+margin_bottom = 1405.0
 rect_scale = Vector2( 0.05, 0.05 )
 icon = ExtResource( 17 )
 flat = true
@@ -173,9 +173,9 @@ icon = ExtResource( 17 )
 flat = true
 
 [node name="ScoreLabel" type="RichTextLabel" parent="."]
-margin_left = 394.0
+margin_left = 393.0
 margin_top = 19.0
-margin_right = 1037.0
+margin_right = 1036.0
 margin_bottom = 188.0
 custom_fonts/normal_font = SubResource( 2 )
 text = "Score: "

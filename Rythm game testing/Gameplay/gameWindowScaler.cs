@@ -4,6 +4,8 @@ using System;
 public class gameWindowScaler : Control
 {
 	//int[] screenSize = new int[2];
+	int curHeight;
+	int curWidth;
 	public override void _Ready()
 	{
 		Vector2 screenSize = OS.GetScreenSize();

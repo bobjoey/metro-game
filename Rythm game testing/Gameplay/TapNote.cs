@@ -9,7 +9,7 @@ public class TapNote : GenericNote
     public override void _Ready()
     {
         base._Ready();
-
+        pointValue = 100;
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.

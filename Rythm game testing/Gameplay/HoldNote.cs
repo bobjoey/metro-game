@@ -24,22 +24,27 @@ public class HoldNote : GenericNote
     {
         base._Process(delta);
         bool Fail = true;
-        if(frame1){
+        if(frame1){ // replace with init
             nextNote = controller.editor.findNextHoldNote(slot, slot.noteY);
             frame1 = false;
             if(nextNote.x == -1){
                 hasNext = false; 
+                if(pointValue!=-1){
+                    pointValue = 50;
+                } else{
+                    pointValue = 0;
+                }
             } else{
                 hasNext = true;
                 nextNoteSlot = controller.noteSlots[(int)nextNote.x, (int)nextNote.y];
+                pointValue = getPoints()+70;
+                nextNoteSlot.note.pointValue = -1;
             }
         }
         if(controller.editor.isOnScreen(slot.noteX, slot.noteY)!=1){
             return;
         }
-        if(minFrames<=20){ // minimum length to be able to fail (discards a little bit of weirdness)
-            minFrames++;
-        }
+        
         if(isDone&&active){
             isDone=false;
         }
@@ -60,9 +65,9 @@ public class HoldNote : GenericNote
         }
         if(hasNext && holdStarted && Input.IsActionPressed("press") && (mouseInLine()||touchInLine())){
             // increment score
-            if(controller.scoreTimer.TimeLeft==0){
-                controller.scoreTimer.Start(.1f);
-            }
+            // if(controller.scoreTimer.TimeLeft==0){
+            //     controller.scoreTimer.Start(.1f);
+            // }
             Vector2 mousePos = GetGlobalMousePosition();
             float nextNoteY = controller.scrollPos + nextNoteSlot.Position.y;
             //GD.Print("holding");
@@ -71,6 +76,7 @@ public class HoldNote : GenericNote
                 isDone = true;
                 GD.Print("at next note");
                 controller.noteSlots[(int)nextNote.x, (int)nextNote.y].note.holdStarted=true;
+                controller.increaseScore(70+getPoints());
                 //Visible = false;
                 
             }
@@ -204,5 +210,22 @@ public class HoldNote : GenericNote
         float slotY = controller.scrollPos + slot.Position.y;
         float idealX = (slotY-mousePos.y)/slope*-1 + slotX;
         return new Vector2(idealX,mousePos.y);
+    }
+
+    public int getPoints(){
+        double slot2x = (double) (nextNote.x*controller.space+controller.space);
+        double slot2y = (double) (controller.scrollPos + controller.noteSlots[(int)nextNote.x,(int)nextNote.y].Position.y);
+        double slot1x = slot.noteX*controller.space+controller.space;
+        double slot1y = controller.scrollPos + slot.Position.y;
+        double xDistance = Math.Abs(slot2x-slot1x);
+        double yDistance = slot2y - slot1y;
+        // l_n*(1+cos(x_n))^a where l_n is the held length of a given segment of the hold note, x_n is the angle that segment makes with the horizontal, and a is an arbitrary constant
+        double lineDistance = Math.Sqrt(xDistance*xDistance+yDistance*yDistance);
+        double angle = Math.Acos(xDistance/lineDistance); // adj/hyp
+        // double multiplier = 2; // constant
+        // double amount = lineDistance*Math.Pow(1+Math.Cos(angle)*3, multiplier)*.05;
+        double multiplier = 5; // constant
+        double amount = lineDistance*Math.Pow(2.2+Math.Cos(angle), multiplier)*0.0015;
+        return (int)amount;
     }
 }

@@ -18,6 +18,7 @@ public class songCard : PathFollow2D
 	public float songLength;
 	public float previewTime;
 	public int bpm;
+	public int maxScore;
 
 	public AudioStreamMP3 songAudio; //isnt part of the .txt file, is read the mp3 directly with its path
 	public string imagePath;//Isn't part of the .txt file, is read directly with its path
@@ -79,6 +80,7 @@ public class songCard : PathFollow2D
 			bpm = Convert.ToInt32(lines[5]);
 			imagePath = (fPath + songCode + ".png");
 			songAudio = (AudioStreamMP3)GD.Load(fPath + songCode + ".mp3");
+			maxScore = Convert.ToInt32(lines[6]);
 		} else {
 			GD.Print("not found: " + path);
 			difficulty = 0;
