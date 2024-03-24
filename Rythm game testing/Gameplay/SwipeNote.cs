@@ -5,6 +5,7 @@ public class SwipeNote : GenericNote
 {
     public bool swipeStarted = false;
     public Vector2 mouseStartPos;
+    public Vector2 touchStartPos;
     public int holdCount = 0; // num of frames the hold lasts
 
     // Called when the node enters the scene tree for the first time.

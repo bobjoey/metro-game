@@ -1,0 +1,9 @@
+C:\Users\prana\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\bin\ExportDebug\rhythm.dll
+C:\Users\prana\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\bin\ExportDebug\rhythm.pdb
+C:\Users\prana\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\ExportDebug\rhythm.csproj.AssemblyReference.cache
+C:\Users\prana\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\ExportDebug\rhythm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\prana\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\ExportDebug\rhythm.AssemblyInfoInputs.cache
+C:\Users\prana\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\ExportDebug\rhythm.AssemblyInfo.cs
+C:\Users\prana\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\ExportDebug\rhythm.csproj.CoreCompileInputs.cache
+C:\Users\prana\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\ExportDebug\rhythm.dll
+C:\Users\prana\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\ExportDebug\rhythm.pdb

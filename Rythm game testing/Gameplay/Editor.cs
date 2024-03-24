@@ -48,17 +48,20 @@ public class Editor : Node2D
         Color red = new Color(0.9f, 0.2f, 0.2f);
         float width = 4;
 
-        // vertical
-        for (int i = 1; i < grid.x; i++)
-        {
-            DrawLine(new Vector2(i * space, 0), new Vector2(i * space, displaySize.y), red, width);
-        }
+        if(controller.gameState==2){
+            // vertical
+            for (int i = 1; i < grid.x; i++)
+            {
+                DrawLine(new Vector2(i * space, 0), new Vector2(i * space, displaySize.y), red, width);
+            }
 
-        // horizontal
-        for (int i = 0; i <= grid.y; i++)
-        {
-            DrawLine(new Vector2(0, -i * space + offset), new Vector2(displaySize.x, -i * space + offset), red, width);
+            // horizontal
+            for (int i = 0; i <= grid.y; i++)
+            {
+                DrawLine(new Vector2(0, -i * space + offset), new Vector2(displaySize.x, -i * space + offset), red, width);
+            }
         }
+        
 
         Vector2 ar = controller.playRegion;
         DrawLine(new Vector2(0, ar.x), new Vector2(displaySize.x, ar.x), new Color(0.2f, 0.9f, 0.2f), width);
@@ -165,9 +168,9 @@ public class Editor : Node2D
 
     public int isOnScreen(int x, int y){ // returns 0 if below, 1 if on/near, 2 if above
         float pos = controller.scrollPos + controller.noteSlots[x,y].Position.y;
-        if(pos<-100){
+        if(pos<-300){
             return 2; // above screen
-        } else if (pos>controller.displaySize.y+800){
+        } else if (pos>controller.displaySize.y+600){
             return 0;
         }
         return 1;
