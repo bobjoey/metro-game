@@ -10,20 +10,20 @@ config_version=4
 
 [application]
 
-config/name="rhythm"
+config/name="metronome"
 run/main_scene="res://main_menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 globalVariables="*res://globalVariables.cs"
-SongPlayer="*res://songSelect/SongPlayer.cs"
 
 [display]
 
 window/size/width=1181
 window/size/height=2560
 window/size/resizable=false
+window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

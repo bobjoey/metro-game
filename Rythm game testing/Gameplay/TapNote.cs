@@ -31,6 +31,12 @@ public class TapNote : GenericNote
             // GD.Print("U press me");
         }
 
+        if (@event is InputEventScreenTouch eventScreenTouch && eventScreenTouch.IsPressed()==true){
+            controller.increaseScore(100);
+            active = false;
+            Visible = false;
+        }
+
         // GetTree().SetInputAsHandled();
     }
 }

@@ -1,7 +1,7 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Gameplay/MapController.cs" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Gameplay/Background.cs" type="Script" id=2]
 [ext_resource path="res://Gameplay/TimeBar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Gameplay/Editor.cs" type="Script" id=4]
 [ext_resource path="res://Gameplay/TapNote.tscn" type="PackedScene" id=5]
@@ -20,6 +20,8 @@
 [ext_resource path="res://Gameplay/SwipeNote.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Gameplay/HoldNote.tscn" type="PackedScene" id=19]
 [ext_resource path="res://gameSprites/Fonts/Prompt-SemiBold.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://gameSprites/gameplay/GameplayBG.png" type="Texture" id=21]
+[ext_resource path="res://gameSprites/gameplay/ProgressBar.png" type="Texture" id=22]
 
 
 [sub_resource type="CanvasItemMaterial" id=1]
@@ -39,11 +41,21 @@ holdNote = ExtResource( 19 )
 swipeNote = ExtResource( 18 )
 noteSlot = ExtResource( 6 )
 
-[node name="tempBG" type="Sprite" parent="."]
+[node name="TopBG" type="Sprite" parent="."]
 material = SubResource( 1 )
-position = Vector2( 590.4, 1280 )
-scale = Vector2( 18.45, 40 )
-texture = ExtResource( 2 )
+position = Vector2( 590.5, -5590 )
+scale = Vector2( 1.23021, 1 )
+texture = ExtResource( 21 )
+script = ExtResource( 2 )
+StartingOffest = -5590
+
+[node name="BottomBG" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 590.5, -21890 )
+scale = Vector2( 1.23021, 1 )
+texture = ExtResource( 21 )
+script = ExtResource( 2 )
+StartingOffest = -21890
 
 [node name="Editor" type="Node2D" parent="."]
 script = ExtResource( 4 )
@@ -53,8 +65,14 @@ script = ExtResource( 4 )
 [node name="WindowScaler" type="Control" parent="."]
 script = ExtResource( 7 )
 
+[node name="TimeBarSprite" type="Sprite" parent="."]
+position = Vector2( -194, 99 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 22 )
+centered = false
+
 [node name="TimeBar" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1137, 1268 )
+position = Vector2( 1106, 1270 )
 scale = Vector2( 2.46, 2.46 )
 
 [node name="PauseButton" parent="." instance=ExtResource( 8 )]
