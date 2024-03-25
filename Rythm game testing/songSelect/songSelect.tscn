@@ -1,4 +1,4 @@
-[gd_scene load_steps=239 format=2]
+[gd_scene load_steps=240 format=2]
 
 [ext_resource path="res://songSelect/songsManager.cs" type="Script" id=1]
 [ext_resource path="res://gameSprites/SongSelect/scEasy.png" type="Texture" id=2]
@@ -224,6 +224,7 @@
 [ext_resource path="res://gameSprites/SongSelect/PlayButton (2).png" type="Texture" id=222]
 [ext_resource path="res://gameSprites/SongSelect/ExitButton (3).png" type="Texture" id=223]
 [ext_resource path="res://songSelect/ExitButton.cs" type="Script" id=224]
+[ext_resource path="res://gameSprites/Legacy/greenNote.png" type="Texture" id=225]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -501,6 +502,11 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[node name="Rank" type="Sprite" parent="scene/Path2D/MainSong"]
+position = Vector2( 86.9116, -91.3193 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 225 )
+
 [node name="RightSong" type="PathFollow2D" parent="scene/Path2D"]
 position = Vector2( 294.615, 270.471 )
 offset = 163.607
@@ -531,6 +537,11 @@ scroll_active = false
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="Rank" type="Sprite" parent="scene/Path2D/RightSong"]
+position = Vector2( 86.9302, -91.5554 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 225 )
 
 [node name="LeftSong" type="PathFollow2D" parent="scene/Path2D"]
 position = Vector2( -291.183, 274.084 )
@@ -563,6 +574,11 @@ scroll_active = false
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="Rank" type="Sprite" parent="scene/Path2D/LeftSong"]
+position = Vector2( 87.4542, -91.5291 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 225 )
 
 [node name="Sprite" type="Sprite" parent="scene"]
 position = Vector2( 542, 448 )
@@ -623,7 +639,7 @@ position = Vector2( 264, 81 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "Hard"
-frame = 20
+frame = 54
 playing = true
 flip_h = true
 script = ExtResource( 10 )
@@ -633,9 +649,9 @@ texture = ExtResource( 7 )
 offset = Vector2( 0, -2 )
 
 [node name="TitleLabel" type="RichTextLabel" parent="scene/songBanner"]
-margin_left = -630.0
+margin_left = -440.0
 margin_top = -115.0
-margin_right = 640.0
+margin_right = 478.0
 margin_bottom = 6.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/mono_font = SubResource( 13 )
