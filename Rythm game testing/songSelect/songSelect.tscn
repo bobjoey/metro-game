@@ -1,4 +1,4 @@
-[gd_scene load_steps=240 format=2]
+[gd_scene load_steps=241 format=2]
 
 [ext_resource path="res://songSelect/songsManager.cs" type="Script" id=1]
 [ext_resource path="res://gameSprites/SongSelect/scEasy.png" type="Texture" id=2]
@@ -225,6 +225,7 @@
 [ext_resource path="res://gameSprites/SongSelect/ExitButton (3).png" type="Texture" id=223]
 [ext_resource path="res://songSelect/ExitButton.cs" type="Script" id=224]
 [ext_resource path="res://gameSprites/Legacy/greenNote.png" type="Texture" id=225]
+[ext_resource path="res://songSelect/Rank.cs" type="Script" id=226]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -506,6 +507,7 @@ __meta__ = {
 position = Vector2( 86.9116, -91.3193 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 225 )
+script = ExtResource( 226 )
 
 [node name="RightSong" type="PathFollow2D" parent="scene/Path2D"]
 position = Vector2( 294.615, 270.471 )
@@ -639,7 +641,7 @@ position = Vector2( 264, 81 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "Hard"
-frame = 54
+frame = 22
 playing = true
 flip_h = true
 script = ExtResource( 10 )
