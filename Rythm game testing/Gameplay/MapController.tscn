@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Gameplay/MapController.cs" type="Script" id=1]
 [ext_resource path="res://Gameplay/Background.cs" type="Script" id=2]
@@ -22,9 +22,13 @@
 [ext_resource path="res://gameSprites/Fonts/Prompt-SemiBold.ttf" type="DynamicFontData" id=20]
 [ext_resource path="res://gameSprites/gameplay/GameplayBG.png" type="Texture" id=21]
 [ext_resource path="res://gameSprites/gameplay/ProgressBar.png" type="Texture" id=22]
+[ext_resource path="res://Gameplay/TouchController.cs" type="Script" id=23]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 3
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 590.5, 803.5 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 100
@@ -63,6 +67,17 @@ script = ExtResource( 4 )
 
 [node name="WindowScaler" type="Control" parent="."]
 script = ExtResource( 7 )
+
+[node name="TouchController" type="Area2D" parent="."]
+position = Vector2( 0, 963 )
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchController"]
+position = Vector2( 590.5, 793.5 )
+shape = SubResource( 3 )
 
 [node name="TimeBarSprite" type="Sprite" parent="."]
 position = Vector2( -194, 99 )

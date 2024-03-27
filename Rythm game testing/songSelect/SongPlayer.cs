@@ -28,13 +28,15 @@ public class SongPlayer : Control
 		musicPlayer = GetNode<AudioStreamPlayer>("prevPlayer");
 		previewTimer = GetNode<Timer>("prevTimer");
 		fadeTimer = GetNode<Timer>("fadeTimer");
-		string path = "res://settings.txt";
+		string path = "user://settings.txt";
 		File file = new File();
 		if(file.FileExists(path)){
 			file.Open(path, File.ModeFlags.Read);
 			string volume = file.GetLine();
 			file.Close();
+			GD.Print(volume);
 			currentVolume = (float) Convert.ToInt32(volume.Substring(8,3));
+			GD.Print("Volume:"+currentVolume);
 		} else {
 			GD.Print("not found: " + path);
 		}
@@ -105,19 +107,14 @@ public class SongPlayer : Control
 
 	public void nextScene(){ // edit this all you want, this is a placeholder for testing
 		GD.Print("nextScene button clicked");
-		string path = "res://settings.txt";
+		string path = "user://settings.txt";
 		File file = new File();
-		if(file.FileExists(path)){ // will need to be edited for all further settings if they are added
-			string volumeConvert = Convert.ToString(1000 + currentVolume);
-			string volumeString = "volume: "+volumeConvert.Substring(1, 3);
-			
-			file.Open(path, File.ModeFlags.Write);
-            file.StoreLine(volumeString);
-			file.StoreLine("song: "+song.songCode);
-			file.Close();
-		} else {
-			GD.Print("not found: " + path);
-		}
+		string volumeConvert = Convert.ToString(1000 + currentVolume);
+		string volumeString = "volume: "+volumeConvert.Substring(1, 3);
+		file.Open(path, File.ModeFlags.Write);
+        file.StoreLine(volumeString);
+		file.StoreLine("song: "+song.songCode);
+		file.Close();
 
 		GetTree().ChangeScene("res://game.tscn");
 	}

@@ -55,16 +55,13 @@ public class settings : Control
 	{
 		string volumeConvert = Convert.ToString(1000 + volume);
 		string volumeString = "volume: "+volumeConvert.Substring(1, 3);
-		string path = "res://settings.txt";
+		GD.Print("volume: "+volume);
+		string path = "user://settings.txt";
 		File file = new File();
-		if(file.FileExists(path)){
-			file.Open(path, File.ModeFlags.Write);
-            file.StoreLine(volumeString);
-			file.StoreLine(song);
-			file.Close();
-		} else {
-			GD.Print("not found: " + path);
-		}
+		file.Open(path, File.ModeFlags.Write);
+        file.StoreLine(volumeString);
+		file.StoreLine(song);
+		file.Close();
 
 		GD.Print("Return button pressed");
 		GetTree().ChangeScene("res://main_menu.tscn");
@@ -86,7 +83,7 @@ public class settings : Control
 	}
 
 	private void setSettings(){
-		string path = "res://settings.txt";
+		string path = "user://settings.txt";
 		GD.Print(path);
 		File file = new File();
 		if(file.FileExists(path)){
@@ -97,7 +94,12 @@ public class settings : Control
 			}
 			file.Close();
 			VolumeSlider = GetNode<HSlider>("VolumeSlider"); // setting volume slider to current volume
-			VolumeSlider.Value = Convert.ToInt32(lines[0].Substring(8,3));
+			try{
+				VolumeSlider.Value = Convert.ToInt32(lines[0].Substring(8,3));
+			}
+			catch{
+				GD.Print(lines[0]);
+			}
 			song = lines[1];
 			// space to put others settings once they're done
 		} else {

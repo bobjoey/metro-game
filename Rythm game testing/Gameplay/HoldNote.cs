@@ -11,7 +11,6 @@ public class HoldNote : GenericNote
     private Vector2 nextNote;
     private NoteSlot nextNoteSlot;
     public bool isDone = false;
-    public Vector2[] touchPositions = new Vector2[10]; // 10 to avoid errors, shouldn't be getting more than 10 touches
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -59,9 +58,12 @@ public class HoldNote : GenericNote
         if(holdStarted&&Input.IsActionPressed("press")&& GetGlobalMousePosition().y<playRegion.y && GetGlobalMousePosition().y>playRegion.x){
             Vector2 mousePos = GetGlobalMousePosition();
             float y = controller.scrollPos + slot.Position.y;
-            if((y+100>=mousePos.y)&&(y-100<=mousePos.y)){
+            if((y+120>=mousePos.y)&&(y-120<=mousePos.y)){
                 Fail = false;
             }
+        }
+        if(holdStarted&&Input.IsActionPressed("press")&& GetGlobalMousePosition().y<playRegion.y && GetGlobalMousePosition().y>playRegion.x){
+            Fail = protectedTouches() || Fail;
         }
         if(hasNext && holdStarted && Input.IsActionPressed("press") && (mouseInLine()||touchInLine())){
             // increment score
@@ -128,26 +130,33 @@ public class HoldNote : GenericNote
         if (@event is InputEventMouseButton eventMouseButton) // starts hold
         {
             if(eventMouseButton.IsPressed()==true){
-            holdStarted = true;
-            mouseStartPos = GetGlobalMousePosition();
-            GD.Print("hold started?");
-            if(hasNext == false){
-                active = false;
-                Visible = false;
-                holdStarted = false;
-                GD.Print("no next note, removing this one");
-                // increment score
-                controller.increaseScore(50);
-            }
+                holdStarted = true;
+                mouseStartPos = GetGlobalMousePosition();
+                GD.Print("hold started?");
+                if(hasNext == false){
+                    active = false;
+                    Visible = false;
+                    holdStarted = false;
+                    GD.Print("no next note, removing this one");
+                    // increment score
+                    controller.increaseScore(50);
+                }
             }
         }
 
         if (@event is InputEventScreenTouch eventScreenTouch){
             if(eventScreenTouch.IsPressed()==true){
-                GD.Print("pos"+eventScreenTouch.Position);
-                touchPositions[eventScreenTouch.Index] = eventScreenTouch.Position;
-            } else{
-                touchPositions[eventScreenTouch.Index] = new Vector2(-1,-1);
+                holdStarted = true;
+                mouseStartPos = GetGlobalMousePosition();
+                GD.Print("hold started?");
+                if(hasNext == false){
+                    active = false;
+                    Visible = false;
+                    holdStarted = false;
+                    GD.Print("no next note, removing this one");
+                    // increment score
+                    controller.increaseScore(50);
+                }
             }
         }
 
@@ -164,7 +173,7 @@ public class HoldNote : GenericNote
             GD.Print("out of bounds");
             return false;
         }
-        if((idealX+100>=mousePos.x)&&(idealX-100<=mousePos.x)){
+        if((idealX+120>=mousePos.x)&&(idealX-120<=mousePos.x)){
             //GD.Print("mouse in line");
             return true;
         }
@@ -174,6 +183,7 @@ public class HoldNote : GenericNote
     }
 
     public bool touchInLine(){ // basically just mouseInLine but iterates through all touch events
+        Vector2[] touchPositions = controller.touchController.touchPositions;
         for(int i=0; i<touchPositions.Length;i++){
             if(touchPositions[i].x!=-1){
                 Vector2 pos = touchPositions[i];
@@ -185,7 +195,7 @@ public class HoldNote : GenericNote
                 if(pos.y>controller.playRegion.y && pos.y<controller.playRegion.x){
                     possible= false;
                 }
-                if((idealX+100>=pos.x)&&(idealX-100<=pos.x)&&possible){
+                if((idealX+120>=pos.x)&&(idealX-120<=pos.x)&&possible){
                     GD.Print("touch in line");
                     return true;
                 }
@@ -227,5 +237,19 @@ public class HoldNote : GenericNote
         double multiplier = 5; // constant
         double amount = lineDistance*Math.Pow(2.2+Math.Cos(angle), multiplier)*0.0015;
         return (int)amount;
+    }
+
+    public bool protectedTouches(){
+        Vector2[] touchPositions = controller.touchController.touchPositions;
+        for(int i=0; i<touchPositions.Length;i++){
+            if(touchPositions[i].x!=-1){
+                Vector2 pos = touchPositions[i];
+                float y = controller.scrollPos + slot.Position.y;
+                if((y+120>=pos.y)&&(y-120<=pos.y)){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
