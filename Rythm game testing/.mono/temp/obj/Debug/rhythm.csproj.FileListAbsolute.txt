@@ -44,3 +44,12 @@ C:\Users\prana\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\tem
 C:\Users\prana\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.csproj.CoreCompileInputs.cache
 C:\Users\prana\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.dll
 C:\Users\prana\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.pdb
+C:\Users\sheep\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\bin\Debug\rhythm.dll
+C:\Users\sheep\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\bin\Debug\rhythm.pdb
+C:\Users\sheep\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.csproj.AssemblyReference.cache
+C:\Users\sheep\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sheep\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.AssemblyInfoInputs.cache
+C:\Users\sheep\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.AssemblyInfo.cs
+C:\Users\sheep\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.csproj.CoreCompileInputs.cache
+C:\Users\sheep\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.dll
+C:\Users\sheep\OneDrive\Documents\GitHub\metro-game\Rythm game testing\.mono\temp\obj\Debug\rhythm.pdb

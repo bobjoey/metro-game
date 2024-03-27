@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/letterP.png-bd7f16adad8de1f8859e0b6b9a2f5fc9.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://gameSprites/numbersAndLetters/letterP.png"
+dest_files=[ "res://.import/letterP.png-bd7f16adad8de1f8859e0b6b9a2f5fc9.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
