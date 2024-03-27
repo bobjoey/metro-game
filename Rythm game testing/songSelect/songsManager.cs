@@ -34,6 +34,18 @@ public class songsManager : Path2D
 		GetNode<Sprite>(path+"Song/"+path+"Card").Texture = newCard;
 		GetNode<Polygon2D>(path+"Song/"+path+"BG").Texture = newBG;
 		GetNode<RichTextLabel>(path+"Song/"+path+"Diff").BbcodeText = "[color=black]" + newSongCard.difficulty.ToString() + "[/color]";
+
+		if(newSongCard.rankBadge != ""){
+			try
+			{
+				var newRank = ResourceLoader.Load(newSongCard.rankBadge) as Texture;
+				GetNode<Sprite>(path+"Song/Rank").Texture = newRank;
+			}
+			catch (System.Exception)
+			{
+				throw;
+			}
+		}
 	}
 
 	// public void UpdateBanner(songCard newSongCard){

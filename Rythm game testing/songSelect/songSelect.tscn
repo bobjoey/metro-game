@@ -1,4 +1,4 @@
-[gd_scene load_steps=239 format=2]
+[gd_scene load_steps=240 format=2]
 
 [ext_resource path="res://songSelect/songsManager.cs" type="Script" id=1]
 [ext_resource path="res://gameSprites/SongSelect/scEasy.png" type="Texture" id=2]
@@ -224,6 +224,7 @@
 [ext_resource path="res://gameSprites/SongSelect/PlayButton (2).png" type="Texture" id=222]
 [ext_resource path="res://gameSprites/SongSelect/ExitButton (3).png" type="Texture" id=223]
 [ext_resource path="res://songSelect/ExitButton.cs" type="Script" id=224]
+[ext_resource path="res://gameSprites/gameplay/greenNote.png" type="Texture" id=225]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -501,6 +502,15 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[node name="Rank" type="Sprite" parent="scene/Path2D/MainSong"]
+position = Vector2( 85.0818, -92.2324 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="RankBadge" type="Sprite" parent="scene/Path2D/MainSong"]
+position = Vector2( 85.0818, -92.2324 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 225 )
+
 [node name="RightSong" type="PathFollow2D" parent="scene/Path2D"]
 position = Vector2( 294.615, 270.471 )
 offset = 163.607
@@ -531,6 +541,15 @@ scroll_active = false
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="Rank" type="Sprite" parent="scene/Path2D/RightSong"]
+position = Vector2( 85.5601, -92.01 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="RankBadge" type="Sprite" parent="scene/Path2D/RightSong"]
+position = Vector2( 85.5601, -92.01 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 225 )
 
 [node name="LeftSong" type="PathFollow2D" parent="scene/Path2D"]
 position = Vector2( -291.183, 274.084 )
@@ -563,6 +582,15 @@ scroll_active = false
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="RankBadge" type="Sprite" parent="scene/Path2D/LeftSong"]
+position = Vector2( 85.168, -91.9841 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 225 )
+
+[node name="Rank" type="Sprite" parent="scene/Path2D/LeftSong"]
+position = Vector2( 85.168, -91.9841 )
+scale = Vector2( 0.1, 0.1 )
 
 [node name="Sprite" type="Sprite" parent="scene"]
 position = Vector2( 542, 448 )
@@ -623,7 +651,7 @@ position = Vector2( 264, 81 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "Hard"
-frame = 52
+frame = 13
 playing = true
 flip_h = true
 script = ExtResource( 10 )

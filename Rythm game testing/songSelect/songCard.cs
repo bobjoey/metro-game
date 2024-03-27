@@ -10,6 +10,7 @@ public class songCard : PathFollow2D
 	public string diffCard; //difficulty 1-3 = Easy, 4-6 = Medium, 7-9 = Hard
 	public string diffBanner;
 	public string fPath = "res://songs/";
+	public string rankBadge = "";
 	
 	//vars to be initialized with data from .txt file (MAKE SURE THE ORDER IS THE SAME AS HERE)
 	public int difficulty;
@@ -19,6 +20,7 @@ public class songCard : PathFollow2D
 	public float previewTime;
 	public int bpm;
 	public int maxScore;
+	public int highScore = 0;
 
 	public AudioStreamMP3 songAudio; //isnt part of the .txt file, is read the mp3 directly with its path
 	public string imagePath;//Isn't part of the .txt file, is read directly with its path
@@ -55,6 +57,24 @@ public class songCard : PathFollow2D
 				diffBanner = "Medium";
 				break;
 		}
+		if(highScore > 0){
+			int pct = ((highScore/maxScore)*100);
+			if(pct < 70){
+				rankBadge = "res://gameSprites/numbersAndLetters/letterF.png";
+			} else if(pct >=70 && pct < 80){
+				rankBadge = "res://gameSprites/numbersAndLetters/letterC.png";
+			} else if(pct >= 80 && pct < 90){
+				rankBadge = "res://gameSprites/numbersAndLetters/letterB.png";
+			} else if(pct >= 90 && pct < 98){
+				rankBadge = "res://gameSprites/numbersAndLetters/letterA.png";
+			} else if(pct >= 98 && pct < 100){
+				rankBadge = "res://gameSprites/numbersAndLetters/letterS.png";
+			} else{
+				rankBadge = "res://gameSprites/numbersAndLetters/rankP.png";
+			}
+		}
+			
+		
 		//imagePath = ("res://gameSprites/SongsList/" + imagePath + ".png");
 	}
 	
@@ -81,6 +101,7 @@ public class songCard : PathFollow2D
 			imagePath = (fPath + songCode + ".png");
 			songAudio = (AudioStreamMP3)GD.Load(fPath + songCode + ".mp3");
 			maxScore = Convert.ToInt32(lines[6]);
+			highScore = Convert.ToInt32(lines[7]);
 		} else {
 			GD.Print("not found: " + path);
 			difficulty = 0;
