@@ -26,6 +26,20 @@ public class main_menu : Control
 	//	GD.Print(ProjectSettings.GetSetting("display/window/size/width"));
 	//	GD.Print(curHeight);
 	//	GD.Print(curWidth);
+		// string path = "user://settings.txt";
+		// File file = new File();
+		// if(file.FileExists(path)){
+		// 	file.Open(path, File.ModeFlags.Read);
+		// 	string line = file.GetLine();
+		// 	GD.Print("line: \""+line+"\"");
+		// 	file.Close();
+		// 	if(line=="50"||line==" "){
+		// 		file.Open(path, File.ModeFlags.Write);
+		// 		file.StoreLine("volume: 050");
+		// 		file.StoreLine("song: Lagtrain");
+		// 		file.Close();
+		// 	}
+		// }
 	}
 
 	private void play_button_pressed()

@@ -34,7 +34,7 @@ public class MapController : Node2D
     public string songCode; // the song code, used in saveNotes()
     public int score = 0;
     public RichTextLabel scoreLabel;
-    public Timer scoreTimer;
+    public TouchController touchController;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -42,11 +42,11 @@ public class MapController : Node2D
         editor = GetNode<Editor>("Editor");
         songPlayer = GetNode<AudioStreamPlayer>("SongPlayer");
         scoreLabel = GetNode<RichTextLabel>("ScoreLabel");
-        scoreTimer = GetNode<Timer>("ScoreTimer");
+        touchController = GetNode<TouchController>("TouchController");
 
         // updateInfo();
         // finding the song:
-        string path = "res://settings.txt";
+        string path = "user://settings.txt";
 		File file = new File();
 		if(file.FileExists(path)){
 			file.Open(path, File.ModeFlags.Read);
