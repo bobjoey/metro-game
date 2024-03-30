@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Gameplay/MapController.cs" type="Script" id=1]
 [ext_resource path="res://Gameplay/Background.cs" type="Script" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://gameSprites/gameplay/GameplayBG.png" type="Texture" id=21]
 [ext_resource path="res://gameSprites/gameplay/ProgressBar.png" type="Texture" id=22]
 [ext_resource path="res://Gameplay/TouchController.cs" type="Script" id=23]
+[ext_resource path="res://Gameplay/NoteShader.tscn" type="PackedScene" id=24]
+[ext_resource path="res://gameSprites/SettingsMenu/volumeBar_updated.png" type="Texture" id=25]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 3
@@ -43,6 +45,7 @@ tapNote = ExtResource( 5 )
 holdNote = ExtResource( 19 )
 swipeNote = ExtResource( 18 )
 noteSlot = ExtResource( 6 )
+noteShader = ExtResource( 24 )
 
 [node name="TopBG" type="Sprite" parent="."]
 material = SubResource( 1 )
@@ -80,8 +83,9 @@ position = Vector2( 590.5, 793.5 )
 shape = SubResource( 3 )
 
 [node name="TimeBarSprite" type="Sprite" parent="."]
-position = Vector2( -194, 99 )
+position = Vector2( -194, 98 )
 scale = Vector2( 0.8, 0.8 )
+z_index = 1
 texture = ExtResource( 22 )
 centered = false
 
@@ -208,7 +212,7 @@ flat = true
 [node name="ScoreLabel" type="RichTextLabel" parent="."]
 margin_left = 393.0
 margin_top = 19.0
-margin_right = 1036.0
+margin_right = 1160.0
 margin_bottom = 188.0
 custom_fonts/normal_font = SubResource( 2 )
 text = "Score: "
@@ -216,6 +220,12 @@ scroll_active = false
 
 [node name="ScoreTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="BlackBarRight" type="Sprite" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1447.95, 1287.19 )
+scale = Vector2( 1.43965, 58.2839 )
+texture = ExtResource( 25 )
 
 [connection signal="pressed" from="TapNoteButton" to="." method="setNotePlaceSetting" binds= [ "e", 11 ]]
 [connection signal="pressed" from="HoldNoteButton" to="." method="setNotePlaceSetting" binds= [ "e", 22 ]]

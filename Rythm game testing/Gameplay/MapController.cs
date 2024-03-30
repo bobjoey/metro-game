@@ -18,6 +18,8 @@ public class MapController : Node2D
 	public PackedScene swipeNote;
 	[Export]
 	public PackedScene noteSlot;
+	[Export]
+	public PackedScene noteShader;
 
 	public NoteSlot[,] noteSlots;
 	// public System.Collections.Generic.List<GenericNote> notes; // split into lanes? sort by lane?? --> manage in editor
@@ -99,8 +101,8 @@ public class MapController : Node2D
 	{
 		// displaySize = OS.WindowSize;
 		noteSpeed = bpm / 60 * displaySize.y / 10; // time to fall = 480/bpm seconds changed it from displaySize.y/8 to /10 now 600/bpm seconds
-		//playRegion = new Vector2(displaySize.y * 0.875f - noteSpeed * 0.25f, displaySize.y * 0.875f + noteSpeed * 0.25f);
-		playRegion = new Vector2(displaySize.y/2, displaySize.y);
+		playRegion = new Vector2(displaySize.y * 0.875f - noteSpeed * 0.25f, displaySize.y * 0.875f + noteSpeed * 0.25f);
+		//playRegion = new Vector2(displaySize.y/2, displaySize.y);
 		// scrollPos = getPositionRatio() * displaySize.y;
 
 		space = displaySize.x / (keyCount + 1);
@@ -118,6 +120,8 @@ public class MapController : Node2D
 				AddChild(slot);
 			}
 		}
+		NoteShader shader = noteShader.Instance<NoteShader>();
+		AddChild(shader);
 		editor.init();
 	}
 

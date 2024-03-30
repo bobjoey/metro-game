@@ -74,12 +74,13 @@ public class SwipeNote : GenericNote
     public bool checkTouches(){
         Vector2[] touchPositions = controller.touchController.touchPositions;
         for(int i=0; i<touchPositions.Length;i++){
-            if(touchPositions[i].x!=-1){
+            if(touchPositions[i].y>0){
                 Vector2 pos = touchPositions[i];
                 if(slot.noteType==33 && pos.x >= touchStartPos.x+100){
                     return true;
                 }
                 if(slot.noteType==44 && pos.x <= touchStartPos.x-100){
+                    GD.Print("done at:" + touchPositions[i]);
                     return true;
                 }
             }

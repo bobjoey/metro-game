@@ -23,4 +23,5 @@ scale = Vector2( 0.125, 9.625 )
 [node name="Sprite" type="Sprite" parent="Scroll"]
 position = Vector2( 0, -20 )
 scale = Vector2( 0.25, 0.25 )
+z_index = 2
 texture = ExtResource( 1 )

@@ -213,9 +213,9 @@ public class Editor : Node2D
         Color color = getColor(x, y);
         Vector2[] points = new  Vector2[3];
 
-        points[0] = new Vector2(position.x+75, position.y); // right vertex
-        points[1] = new Vector2(position.x-60, position.y+85); // top left vertex
-        points[2] = new Vector2(position.x-60, position.y-85); // top left vertex
+        points[0] = new Vector2(position.x+77, position.y); // right vertex
+        points[1] = new Vector2(position.x-57, position.y+83); // top left vertex
+        points[2] = new Vector2(position.x-57, position.y-83); // top left vertex
         DrawColoredPolygon(points, color, null, null, null, true); // outer triangle
 
         points[0] = new Vector2(position.x+50, position.y); // right vertex
@@ -230,9 +230,9 @@ public class Editor : Node2D
         Color color = getColor(x, y);
         Vector2[] points = new  Vector2[3];
 
-        points[0] = new Vector2(position.x-75, position.y); // left vertex
-        points[1] = new Vector2(position.x+60, position.y+85); // top right vertex
-        points[2] = new Vector2(position.x+60, position.y-85); // top right vertex
+        points[0] = new Vector2(position.x-78, position.y); // left vertex
+        points[1] = new Vector2(position.x+57, position.y+83); // top right vertex
+        points[2] = new Vector2(position.x+57, position.y-83); // top right vertex
         DrawColoredPolygon(points, color, null, null, null, true); // outer triangle
 
         points[0] = new Vector2(position.x-50, position.y); // left vertex
@@ -328,6 +328,7 @@ public class Editor : Node2D
         }
         return new Vector2(-1, -1);
     }
+
 
 
 }
