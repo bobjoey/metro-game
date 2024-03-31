@@ -58,7 +58,8 @@ public class songCard : PathFollow2D
 				break;
 		}
 		if(highScore > 0){
-			int pct = ((highScore/maxScore)*100);
+
+			double pct = ((double)highScore/(double)maxScore) * 100;
 			if(pct < 70){
 				rankBadge = "res://gameSprites/numbersAndLetters/letterF.png";
 			} else if(pct >=70 && pct < 80){

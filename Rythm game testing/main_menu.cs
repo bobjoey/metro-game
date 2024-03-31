@@ -49,11 +49,15 @@ public class main_menu : Control
 				GD.Print("making: "+path);
 				file.Open(path, File.ModeFlags.Write);
 				file.StoreLine("0"); // for 0 score cuz file no exist
+				file.Close();
 			}
 		}
 		
 	}
 
+	public void exitLevel(){
+		GetTree().ReloadCurrentScene();
+	}
 	private void play_button_pressed()
 	{
 		//GetNode<Timer>("GifTimer").start

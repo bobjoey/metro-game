@@ -25,9 +25,9 @@
 [ext_resource path="res://Gameplay/TouchController.cs" type="Script" id=23]
 [ext_resource path="res://Gameplay/NoteShader.tscn" type="PackedScene" id=24]
 [ext_resource path="res://gameSprites/SettingsMenu/volumeBar_updated.png" type="Texture" id=25]
-[ext_resource path="res://audioTesting/testAudioFiles/George Michael - Careless Whisper (Official Video).mp3" type="AudioStream" id=26]
-[ext_resource path="res://audioTesting/testAudioFiles/The Duck Song.mp3" type="AudioStream" id=27]
-[ext_resource path="res://audioTesting/testAudioFiles/Purupuru Pururin 4K Edition.mp3" type="AudioStream" id=28]
+[ext_resource path="res://gameSprites/gameplay/count1s.mp3" type="AudioStream" id=26]
+[ext_resource path="res://gameSprites/gameplay/normal-slidertick.ogg" type="AudioStream" id=27]
+[ext_resource path="res://gameSprites/gameplay/dry-snap_100bpm_A#_minor.wav" type="AudioStream" id=28]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 3
@@ -73,12 +73,15 @@ script = ExtResource( 4 )
 
 [node name="tapPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 26 )
+volume_db = 5.0
 
 [node name="holdPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 28 )
+stream = ExtResource( 27 )
+volume_db = 5.0
 
 [node name="swipePlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 27 )
+stream = ExtResource( 28 )
+volume_db = 5.0
 
 [node name="WindowScaler" type="Control" parent="."]
 script = ExtResource( 7 )

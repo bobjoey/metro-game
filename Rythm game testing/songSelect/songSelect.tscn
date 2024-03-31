@@ -1,4 +1,4 @@
-[gd_scene load_steps=240 format=2]
+[gd_scene load_steps=249 format=2]
 
 [ext_resource path="res://songSelect/songsManager.cs" type="Script" id=1]
 [ext_resource path="res://gameSprites/SongSelect/scEasy.png" type="Texture" id=2]
@@ -225,6 +225,14 @@
 [ext_resource path="res://gameSprites/SongSelect/ExitButton (3).png" type="Texture" id=223]
 [ext_resource path="res://songSelect/ExitButton.cs" type="Script" id=224]
 [ext_resource path="res://gameSprites/gameplay/greenNote.png" type="Texture" id=225]
+[ext_resource path="res://gameSprites/SongSelect/tutorialSheet1.png" type="Texture" id=226]
+[ext_resource path="res://gameSprites/SongSelect/tutorialHolder.png" type="Texture" id=227]
+[ext_resource path="res://gameSprites/SongSelect/tutorialSheet2.png" type="Texture" id=228]
+[ext_resource path="res://gameSprites/SongSelect/tutorialSheetFin.png" type="Texture" id=229]
+[ext_resource path="res://gameSprites/SongSelect/tutorialReadMe.png" type="Texture" id=230]
+[ext_resource path="res://gameSprites/SongSelect/tutorialSheet3.png" type="Texture" id=231]
+[ext_resource path="res://songSelect/CloseTutorial.cs" type="Script" id=232]
+[ext_resource path="res://songSelect/OpenTutorial.cs" type="Script" id=233]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -433,6 +441,14 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 217 )
 
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ ExtResource( 226 ), ExtResource( 228 ), ExtResource( 231 ), ExtResource( 229 ) ],
+"loop": false,
+"name": "default",
+"speed": 25.0
+} ]
+
 [node name="songSelect" type="Control"]
 margin_left = 1.0
 margin_top = 300.0
@@ -502,14 +518,15 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Rank" type="Sprite" parent="scene/Path2D/MainSong"]
-position = Vector2( 85.0818, -92.2324 )
-scale = Vector2( 0.1, 0.1 )
-
 [node name="RankBadge" type="Sprite" parent="scene/Path2D/MainSong"]
+visible = false
 position = Vector2( 85.0818, -92.2324 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 225 )
+
+[node name="Rank" type="Sprite" parent="scene/Path2D/MainSong"]
+position = Vector2( 85.0818, -92.2324 )
+scale = Vector2( 0.2, 0.2 )
 
 [node name="RightSong" type="PathFollow2D" parent="scene/Path2D"]
 position = Vector2( 294.615, 270.471 )
@@ -542,14 +559,15 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Rank" type="Sprite" parent="scene/Path2D/RightSong"]
-position = Vector2( 85.5601, -92.01 )
-scale = Vector2( 0.1, 0.1 )
-
 [node name="RankBadge" type="Sprite" parent="scene/Path2D/RightSong"]
+visible = false
 position = Vector2( 85.5601, -92.01 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 225 )
+
+[node name="Rank" type="Sprite" parent="scene/Path2D/RightSong"]
+position = Vector2( 85.5601, -92.01 )
+scale = Vector2( 0.2, 0.2 )
 
 [node name="LeftSong" type="PathFollow2D" parent="scene/Path2D"]
 position = Vector2( -291.183, 274.084 )
@@ -584,13 +602,14 @@ __meta__ = {
 }
 
 [node name="RankBadge" type="Sprite" parent="scene/Path2D/LeftSong"]
+visible = false
 position = Vector2( 85.168, -91.9841 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 225 )
 
 [node name="Rank" type="Sprite" parent="scene/Path2D/LeftSong"]
 position = Vector2( 85.168, -91.9841 )
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.2, 0.2 )
 
 [node name="Sprite" type="Sprite" parent="scene"]
 position = Vector2( 542, 448 )
@@ -651,7 +670,6 @@ position = Vector2( 264, 81 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "Hard"
-frame = 37
 playing = true
 flip_h = true
 script = ExtResource( 10 )
@@ -754,6 +772,52 @@ texture = ExtResource( 218 )
 
 [node name="swipeDetector" type="Camera2D" parent="."]
 
+[node name="readmeText" type="Sprite" parent="."]
+position = Vector2( 285.466, 432.742 )
+scale = Vector2( 0.28, 0.28 )
+texture = ExtResource( 230 )
+
+[node name="OpenTutorial" type="Button" parent="."]
+anchor_left = 0.044
+anchor_top = 0.534
+anchor_right = 0.159
+anchor_bottom = 0.593
+margin_left = 209.0
+margin_top = 580.0
+margin_right = 278.0
+margin_bottom = 669.0
+flat = true
+script = ExtResource( 233 )
+
+[node name="TutorialMenu" type="Sprite" parent="OpenTutorial"]
+visible = false
+position = Vector2( 63.2063, -139.975 )
+scale = Vector2( 0.28, 0.28 )
+texture = ExtResource( 229 )
+
+[node name="TutorialSheet" type="AnimatedSprite" parent="OpenTutorial"]
+position = Vector2( 63.2063, -139.975 )
+scale = Vector2( 0.28, 0.28 )
+frames = SubResource( 18 )
+
+[node name="Holder" type="Sprite" parent="OpenTutorial"]
+position = Vector2( 63.0623, -151.689 )
+scale = Vector2( 0.28, 0.28 )
+texture = ExtResource( 227 )
+
+[node name="CloseTutorial" type="Button" parent="."]
+visible = false
+anchor_left = 0.044
+anchor_top = 0.534
+anchor_right = 0.159
+anchor_bottom = 0.593
+margin_left = 470.0
+margin_top = 21.0
+margin_right = 532.0
+margin_bottom = 77.0
+flat = true
+script = ExtResource( 232 )
+
 [connection signal="soundBounceEventHandler" from="scene/SongPlayer" to="scene/Path2D" method="SoundBounceReciever"]
 [connection signal="timeout" from="scene/SongPlayer/prevTimer" to="scene/SongPlayer" method="stopPlaying"]
 [connection signal="timeout" from="scene/SongPlayer/fadeTimer" to="scene/SongPlayer" method="fadeTime"]
@@ -761,3 +825,7 @@ texture = ExtResource( 218 )
 [connection signal="update_bannerEventHandler" from="scene/Path2D" to="scene/songBanner" method="_on_Path2D_update_bannerEventHandler"]
 [connection signal="pressed" from="scene/PlayButton" to="scene/SongPlayer" method="nextScene"]
 [connection signal="pressed" from="scene/ExitButton" to="scene/ExitButton" method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="OpenTutorial" to="OpenTutorial" method="_on_OpenTutorial_pressed"]
+[connection signal="pressed" from="OpenTutorial" to="CloseTutorial" method="_on_OpenTutorial_pressed"]
+[connection signal="pressed" from="CloseTutorial" to="OpenTutorial" method="_on_CloseTutorial_pressed"]
+[connection signal="pressed" from="CloseTutorial" to="CloseTutorial" method="_on_CloseTutorial_pressed"]

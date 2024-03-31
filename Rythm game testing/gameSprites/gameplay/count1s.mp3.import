@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/count1s.mp3-245bc0472208595c8e7b74ce1c4206d1.mp3str"
+
+[deps]
+
+source_file="res://gameSprites/gameplay/count1s.mp3"
+dest_files=[ "res://.import/count1s.mp3-245bc0472208595c8e7b74ce1c4206d1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

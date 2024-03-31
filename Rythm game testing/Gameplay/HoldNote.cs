@@ -126,6 +126,10 @@ public class HoldNote : GenericNote
                 DrawCircle(new Vector2(0,0), 40, controller.editor.getColor(slot.noteX, slot.noteY));
             }
         }
+
+        if(holdStarted){
+            DrawCircle(new Vector2(0,0), 40, controller.editor.getColor(slot.noteX, slot.noteY));
+        }
     }
 
     public override void _InputEvent(Godot.Object viewport, InputEvent @event, int shapeIdx)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/count1s.ogg-803c83f8685bf99c011bf1692c473a4d.oggstr"
+
+[deps]
+
+source_file="res://gameSprites/gameplay/count1s.ogg"
+dest_files=[ "res://.import/count1s.ogg-803c83f8685bf99c011bf1692c473a4d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -45,6 +45,11 @@ public class songsManager : Path2D
 			{
 				throw;
 			}
+			GetNode<Sprite>(path+"Song/RankBadge").Visible = true;
+			GetNode<Sprite>(path+"Song/Rank").Visible = true;
+		} else {
+			GetNode<Sprite>(path+"Song/RankBadge").Visible = false;
+			GetNode<Sprite>(path+"Song/Rank").Visible = false;
 		}
 	}
 
@@ -109,8 +114,8 @@ public class songsManager : Path2D
 		}
 	}
 	public override void _Ready()
-	{		
-		
+	{
+		songsList = new songCard[]{new songCard("Lagtrain"), new songCard("ZenZenZense"), new songCard("Bus"), new songCard("KickBack"), new songCard("OCOLIMBO"), new songCard("cOin")};
 		UpdateCard("Left", songsList[0]);
 		UpdateCard("Main", songsList[1]);
 		UpdateCard("Right", songsList[2]);
