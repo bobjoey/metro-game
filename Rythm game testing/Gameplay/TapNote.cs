@@ -29,12 +29,14 @@ public class TapNote : GenericNote
             // increase score here
             controller.increaseScore(100);
             // GD.Print("U press me");
+            controller.tapPlayer.Play(1);
         }
 
         if (@event is InputEventScreenTouch eventScreenTouch && eventScreenTouch.IsPressed()==true){
             controller.increaseScore(100);
             active = false;
             Visible = false;
+            controller.tapPlayer.Play(1.2f);
         }
 
         // GetTree().SetInputAsHandled();

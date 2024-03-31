@@ -35,11 +35,14 @@ public class SwipeNote : GenericNote
                 swipeStarted = false;
                 //increase score here
                 controller.increaseScore(200);
+                controller.swipePlayer.Play();
+
             } else if(checkTouches()){
                 active = false;
                 Visible = false;
                 swipeStarted = false;
                 controller.increaseScore(200);
+                controller.swipePlayer.Play();
             }
         }
         if(swipeStarted && Input.IsActionPressed("press")==false){

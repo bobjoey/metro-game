@@ -40,6 +40,10 @@ public class MapController : Node2D
 	public List<String>songFile; // Read the entire file at the start into an array, make all the changes you want to the array, and then write the array back into the file at the end
 	private string filePath;
 	public TouchController touchController;
+	public AudioStreamPlayer tapPlayer;
+	public AudioStreamPlayer holdPlayer;
+	public AudioStreamPlayer swipePlayer;
+	public Timer holdTimer;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -48,6 +52,10 @@ public class MapController : Node2D
 		songPlayer = GetNode<AudioStreamPlayer>("SongPlayer");
 		scoreLabel = GetNode<RichTextLabel>("ScoreLabel");
 		touchController = GetNode<TouchController>("TouchController");
+		tapPlayer = GetNode<AudioStreamPlayer>("tapPlayer");
+		holdPlayer = GetNode<AudioStreamPlayer>("holdPlayer");
+		swipePlayer = GetNode<AudioStreamPlayer>("swipePlayer");
+		holdTimer = GetNode<Timer>("HoldSoundTimer");
 
 		string path = "user://settings.txt";
 		File file = new File();
@@ -365,5 +373,9 @@ public class MapController : Node2D
 		// *** add score ui update here ***
 		GD.Print("Score: "+score);
 		scoreLabel.Text = "Score: " + score;
+	}
+
+	public void stopHoldNoteSound(){
+		holdPlayer.Stop();
 	}
 }

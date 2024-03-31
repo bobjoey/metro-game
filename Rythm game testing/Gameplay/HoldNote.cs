@@ -86,10 +86,15 @@ public class HoldNote : GenericNote
         } else if(hasNext && holdStarted && Input.IsActionPressed("press") && !(mouseInLine()||touchInLine())&&Fail){
             GD.Print("mouse out of line");
             holdStarted = false;
+            controller.holdPlayer.Stop();
         }
         else if(holdStarted && Input.IsActionPressed("press")==false){
             holdStarted = false;
             GD.Print("hold released");
+            controller.holdPlayer.Stop();
+        }
+        if(holdStarted&&!hasNext){
+            controller.holdTimer.Start(.01f);
         }
         
     }
@@ -132,6 +137,7 @@ public class HoldNote : GenericNote
             if(eventMouseButton.IsPressed()==true){
                 holdStarted = true;
                 mouseStartPos = GetGlobalMousePosition();
+                controller.tapPlayer.Play();
                 GD.Print("hold started?");
                 if(hasNext == false){
                     active = false;
@@ -140,6 +146,8 @@ public class HoldNote : GenericNote
                     GD.Print("no next note, removing this one");
                     // increment score
                     controller.increaseScore(50);
+                } else{
+                    controller.holdPlayer.Play();
                 }
             }
         }
@@ -147,6 +155,7 @@ public class HoldNote : GenericNote
         if (@event is InputEventScreenTouch eventScreenTouch){
             if(eventScreenTouch.IsPressed()==true){
                 holdStarted = true;
+                controller.holdPlayer.Play();
                 mouseStartPos = GetGlobalMousePosition();
                 GD.Print("hold started?");
                 if(hasNext == false){

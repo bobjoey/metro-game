@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Gameplay/MapController.cs" type="Script" id=1]
 [ext_resource path="res://Gameplay/Background.cs" type="Script" id=2]
@@ -25,6 +25,9 @@
 [ext_resource path="res://Gameplay/TouchController.cs" type="Script" id=23]
 [ext_resource path="res://Gameplay/NoteShader.tscn" type="PackedScene" id=24]
 [ext_resource path="res://gameSprites/SettingsMenu/volumeBar_updated.png" type="Texture" id=25]
+[ext_resource path="res://audioTesting/testAudioFiles/George Michael - Careless Whisper (Official Video).mp3" type="AudioStream" id=26]
+[ext_resource path="res://audioTesting/testAudioFiles/The Duck Song.mp3" type="AudioStream" id=27]
+[ext_resource path="res://audioTesting/testAudioFiles/Purupuru Pururin 4K Edition.mp3" type="AudioStream" id=28]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 3
@@ -67,6 +70,15 @@ StartingOffest = -21890
 script = ExtResource( 4 )
 
 [node name="SongPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="tapPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+
+[node name="holdPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+
+[node name="swipePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
 
 [node name="WindowScaler" type="Control" parent="."]
 script = ExtResource( 7 )
@@ -218,7 +230,7 @@ custom_fonts/normal_font = SubResource( 2 )
 text = "Score: "
 scroll_active = false
 
-[node name="ScoreTimer" type="Timer" parent="."]
+[node name="HoldSoundTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="BlackBarRight" type="Sprite" parent="."]
@@ -238,4 +250,4 @@ texture = ExtResource( 25 )
 [connection signal="pressed" from="RNoteButton" to="." method="setNotePlaceSetting" binds= [ "r", 0 ]]
 [connection signal="pressed" from="RetryButton" to="." method="retryLevel"]
 [connection signal="pressed" from="ExitButton" to="." method="exitLevel"]
-[connection signal="timeout" from="ScoreTimer" to="." method="increaseScore" binds= [ 20 ]]
+[connection signal="timeout" from="HoldSoundTimer" to="." method="stopHoldNoteSound"]

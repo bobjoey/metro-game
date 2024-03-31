@@ -135,7 +135,7 @@ visible = false
 position = Vector2( 270.103, 445.883 )
 scale = Vector2( 0.312, 0.313 )
 frames = SubResource( 3 )
-frame = 2
+frame = 15
 playing = true
 
 [node name="GifTimer" type="Timer" parent="."]
