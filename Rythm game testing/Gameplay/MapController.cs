@@ -287,8 +287,20 @@ public class MapController : Node2D
 				}
 			}
 		}
-		songFile[6] = maxScore.ToString();
+		//songFile[6] = maxScore.ToString();
 		GD.Print("max score = "+maxScore);
+		File file = new File();
+		if(file.FileExists(path)){
+			file.Open(path, File.ModeFlags.Write);
+			file.StoreLine(Convert.ToString(song.difficulty));
+            file.StoreLine(song.songTitle);
+            file.StoreLine(song.songAuthor);
+            file.StoreLine(Convert.ToString(song.songLength));
+            file.StoreLine(Convert.ToString(song.previewTime));
+            file.StoreLine(Convert.ToString(song.bpm));
+            file.StoreLine(Convert.ToString(maxScore));
+			file.Close();
+		}
 	}
 
 	public void setNotePlaceSetting(string color, int type){

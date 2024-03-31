@@ -170,7 +170,7 @@ public class Editor : Node2D
         float pos = controller.scrollPos + controller.noteSlots[x,y].Position.y;
         if(pos<-300){
             return 2; // above screen
-        } else if (pos>controller.displaySize.y+600){
+        } else if (pos>controller.displaySize.y+900){
             return 0;
         }
         return 1;
