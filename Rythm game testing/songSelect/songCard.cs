@@ -101,7 +101,17 @@ public class songCard : PathFollow2D
 			imagePath = (fPath + songCode + ".png");
 			songAudio = (AudioStreamMP3)GD.Load(fPath + songCode + ".mp3");
 			maxScore = Convert.ToInt32(lines[6]);
-			highScore = Convert.ToInt32(lines[7]);
+			//highScore = Convert.ToInt32(lines[7]);
+			File scoreFile = new File();
+			string scorePath = "user://"+songCode+".txt";
+			if(scoreFile.FileExists(scorePath)){
+				scoreFile.Open(scorePath, File.ModeFlags.Read);
+				highScore = Convert.ToInt32(scoreFile.GetLine());
+				scoreFile.Close();
+			} else{
+				GD.Print("high score messed up :/");
+				highScore = 0;
+			}
 		} else {
 			GD.Print("not found: " + path);
 			difficulty = 0;

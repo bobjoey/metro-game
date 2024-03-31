@@ -50,52 +50,53 @@ public class MapController : Node2D
 		touchController = GetNode<TouchController>("TouchController");
 
 		string path = "user://settings.txt";
-			File file = new File();
-			if(file.FileExists(path)){
-				file.Open(path, File.ModeFlags.Read);
-				string song = file.GetLine();
-				song = file.GetLine(); // is there a better way to open the second line? (pls fix)
-				file.Close();
-				songCode = song.Substring(6);
-			} else {
-				GD.Print("not found: " + path);
-			}
-		loadSong(new songCard(songCode));
-		readFile(new songCard(songCode));
-	}
-	public void readFile(songCard song){
-		string path = "res://songs/" + song.songCode+"/"+song.songCode+".txt";
-		filePath = path;
 		File file = new File();
 		if(file.FileExists(path)){
 			file.Open(path, File.ModeFlags.Read);
-			songFile = new List<String>();
-			int iter = 0;
-			while(!file.EofReached()){
-				songFile.Add(file.GetLine());
-				iter++;
-			}
+			string song = file.GetLine();
+			song = file.GetLine(); // is there a better way to open the second line? (pls fix)
 			file.Close();
+			songCode = song.Substring(6);
 		} else {
 			GD.Print("not found: " + path);
 		}
+		loadSong(new songCard(songCode));
+		//readFile(new songCard(songCode));
 	}
+	// public void readFile(songCard song){
+	// 	string path = "user://"+song.songCode+".txt";
+	// 	filePath = path;
+	// 	File file = new File();
+	// 	if(file.FileExists(path)){
+	// 		file.Open(path, File.ModeFlags.Read);
+	// 		songFile = new List<String>();
+	// 		int iter = 0;
+	// 		while(!file.EofReached()){
+	// 			songFile.Add(file.GetLine());
+	// 			iter++;
+	// 		}
+	// 		file.Close();
+	// 	} else {
+	// 		GD.Print("not found: " + path);
+	// 	}
+	// }
 
-	public void writeFile(){
-		string path = filePath;
-		File file = new File();
-		if(file.FileExists(path)){
-			file.Open(path, File.ModeFlags.Write);
-			int iter = 0;
-			while(iter < songFile.Count){
-				file.StoreLine(songFile[iter]);
-				iter++;
-			}
-			file.Close();
-		} else {
-			GD.Print("not found: " + path);
-		}
-	}
+	// public void writeFile(){
+	// 	string path = filePath;
+	// 	File file = new File();
+	// 	if(file.FileExists(path)){
+	// 		file.Open(path, File.ModeFlags.Write);
+	// 		int iter = 0;
+	// 		while(iter < songFile.Count){
+	// 			file.StoreLine(songFile[iter]);
+	// 			GD.Print(songFile[iter]);
+	// 			iter++;
+	// 		}
+	// 		file.Close();
+	// 	} else {
+	// 		GD.Print("not found: " + path);
+	// 	}
+	// }
 
 	public void updateInfo() // updates noteSpeed, playRegion, space, songLengthPx, noteSlots
 	{
@@ -131,7 +132,7 @@ public class MapController : Node2D
 		songPlayer.Stream = song.songAudio;
 		bpm = song.bpm;
 		// some other cosmetic data like title and author to be displayed at the start maybe
-
+		GD.Print("Current highscore: "+song.highScore);
 		updateInfo();
 		editor.setNotes(song.songCode);
 		enterPlay();
@@ -333,9 +334,19 @@ public class MapController : Node2D
 	public void saveScore(string songCode){
 		songCard curSong = new songCard(songCode);
 		if(score > curSong.highScore){
-			songFile[7] = score.ToString();
+			//songFile[7] = score.ToString();
+			string path = "user://"+songCode+".txt";
+			File file = new File();
+			if(file.FileExists(path)){
+				file.Open(path, File.ModeFlags.Write);
+				file.StoreLine(score.ToString());
+				file.Close();
+			}
+			GD.Print("new highscore: "+score);
+		} else{
+			GD.Print("not a high score, do better");
 		}
-		writeFile();
+		//writeFile();
 	}
 	public void increaseScore(int amount){
 		score+=amount;

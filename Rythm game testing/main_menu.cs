@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class main_menu : Control
 {
@@ -40,6 +41,17 @@ public class main_menu : Control
 		// 		file.Close();
 		// 	}
 		// }
+		string[] songs = {"Lagtrain", "Bus", "cOin", "KickBack", "OCOLIMBO", "ZenZenZense"};
+		for(int i=0;i<songs.Length;i++){
+			string path = "user://"+songs[i]+".txt";
+			File file = new File();
+			if(!file.FileExists(path)){
+				GD.Print("making: "+path);
+				file.Open(path, File.ModeFlags.Write);
+				file.StoreLine("0"); // for 0 score cuz file no exist
+			}
+		}
+		
 	}
 
 	private void play_button_pressed()
