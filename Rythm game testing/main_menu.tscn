@@ -160,8 +160,8 @@ __meta__ = {
 
 [node name="LoadScreen" type="AnimatedSprite" parent="."]
 visible = false
-position = Vector2( 270.103, 445.883 )
-scale = Vector2( 0.312, 0.313 )
+position = Vector2( 270.501, 445.883 )
+scale = Vector2( 0.31246, 0.313 )
 frames = SubResource( 3 )
 animation = "opening"
 frame = 2

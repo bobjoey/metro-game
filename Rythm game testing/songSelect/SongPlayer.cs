@@ -22,6 +22,7 @@ public class SongPlayer : Control
 	private float timeAvg;
 	private float metroNome;
 	private float timePassed = 0;
+	public bool goToNext = false;
 	public override void _Ready()
 	{
 		//song = songsManager.songsList[0];
@@ -40,6 +41,10 @@ public class SongPlayer : Control
 		} else {
 			GD.Print("not found: " + path);
 		}
+
+		AnimatedSprite loadScreen = GetNode<AnimatedSprite>("LoadScreen");
+		loadScreen.Visible = true;
+		loadScreen.Play("opening");
 	}	
 
 	public void songChange(songCard newSong){ // idk man just call this when u change the song thing
@@ -124,8 +129,15 @@ public class SongPlayer : Control
 
 	public void switchAnimation(){
 		AnimatedSprite loadScreen = GetNode<AnimatedSprite>("LoadScreen");
-		loadScreen.Play("bouncing");
-		GetNode<Timer>("GifTimer").Start(1);
+		if(goToNext){
+			loadScreen.Play("bouncing");
+			GetNode<Timer>("GifTimer").Start(1);
+		} else{
+			loadScreen.Visible = false;
+			loadScreen.Stop();
+			goToNext = true;
+		}
+		
 	}
 	public void switchScene(){
 		GetTree().ChangeScene("res://game.tscn");

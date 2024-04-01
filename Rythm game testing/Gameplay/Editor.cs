@@ -283,7 +283,7 @@ public class Editor : Node2D
 
     public Vector2 findNextNote(NoteSlot slot,  int y){
         var noteSlots = controller.noteSlots;
-        for(int y1=y+1;y1<y+5;y1++){
+        for(int y1=y+1;y1<y+5&&y1<controller.vSlotCnt;y1++){
             for(int x1=0;x1<4;x1++){
                 if(slot.color==noteSlots[x1,y1].color){
                     return new Vector2(x1, y1);
@@ -319,7 +319,7 @@ public class Editor : Node2D
 
     public Vector2 findNextHoldNote(NoteSlot slot, int y){
         var noteSlots = controller.noteSlots;
-        for(int y1=y+1;y1<y+5;y1++){
+        for(int y1=y+1;y1<y+5&&y1<controller.vSlotCnt;y1++){
             for(int x1=0;x1<4;x1++){
                 if(noteSlots[x1, y1].noteType==slot.noteType && slot.color==noteSlots[x1,y1].color){ // hold notes is 22/21
                     return new Vector2(x1, y1);

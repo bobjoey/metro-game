@@ -26,7 +26,7 @@ public class MapController : Node2D
 
 	public Vector2 displaySize = new Vector2(1181, 2560); // should be 2560 was 1968
 	public Vector2 playRegion; // y1, y2: bottom 1/8 of screen +- 1/4 sec
-	public int gameState = 0; // 0 = pause, 1 = play, 2 = edit (?)
+	public int gameState = 0; // 0 = pause, 1 = play, 2 = edit (?) // 3 - exiting
 	public int keyCount = 4;
 	public float bpm = 120;
 	public float noteSpeed = 200; // px per sec
@@ -46,6 +46,8 @@ public class MapController : Node2D
 	public Timer holdTimer;
 	private string volume;
 	public float current = 0;
+	public bool retry = false;
+	public int vSlotCnt = 0;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -118,7 +120,7 @@ public class MapController : Node2D
 
 		space = displaySize.x / (keyCount + 1);
 		songLengthPx = getSongLength() * noteSpeed;
-		int vSlotCnt = (int)(songLengthPx / space) + 1;
+		vSlotCnt = (int)(songLengthPx / space) + 1;
 		noteSlots = new NoteSlot[keyCount, vSlotCnt];
 
 		for (int x = 0; x < keyCount; x++)
@@ -169,6 +171,11 @@ public class MapController : Node2D
 				break;
 
 			case 2:
+				break;
+			
+			case 3:
+				songPlayer.Stop();
+				fadeToBlack();
 				break;
 
 			default: break;
@@ -353,8 +360,14 @@ public class MapController : Node2D
 	public void retryLevel(){
 		//retry		
 		GD.Print("re-trying level");		
-		saveScore(songCode);
-		GetTree().ReloadCurrentScene();
+		gameState = 3;
+		retry = true;
+		pauseButtonVisible(false);
+	}
+
+	public void startExiting(){
+		gameState = 3;
+		pauseButtonVisible(false);
 	}
 
 	public void exitLevel(){
@@ -416,8 +429,11 @@ public class MapController : Node2D
 		fade.Visible = true;
 		current += 0.05f;
 		fade.Modulate = new Color(0, 0, 0, current);
-		if(current>1){
+		if(current>1 && retry==false){
 			exitLevel();
+		} else if(current>1 && retry){
+			saveScore(songCode);
+			GetTree().ReloadCurrentScene();
 		}
 	}
 }

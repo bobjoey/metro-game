@@ -283,9 +283,10 @@ icon = ExtResource( 17 )
 flat = true
 
 [node name="RetryButton" type="Button" parent="."]
-margin_left = 720.0
+visible = false
+margin_left = 794.0
 margin_top = 1129.0
-margin_right = 3360.0
+margin_right = 3634.0
 margin_bottom = 4181.0
 rect_scale = Vector2( 0.1, 0.1 )
 size_flags_horizontal = 0
@@ -293,9 +294,10 @@ size_flags_vertical = 0
 flat = true
 
 [node name="ExitButton" type="Button" parent="."]
-margin_left = 203.0
+visible = false
+margin_left = 75.0
 margin_top = 1131.0
-margin_right = 2353.0
+margin_right = 3505.0
 margin_bottom = 4071.0
 rect_scale = Vector2( 0.1, 0.1 )
 size_flags_horizontal = 0
@@ -303,9 +305,10 @@ size_flags_vertical = 0
 flat = true
 
 [node name="LeavePauseButton" type="Button" parent="."]
-margin_left = 479.0
+visible = false
+margin_left = 432.0
 margin_top = 1137.0
-margin_right = 2929.0
+margin_right = 3752.0
 margin_bottom = 4077.0
 rect_scale = Vector2( 0.1, 0.1 )
 size_flags_horizontal = 0
@@ -349,12 +352,14 @@ texture = ExtResource( 25 )
 self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 607, -320 )
 scale = Vector2( 8.1159, -13.3412 )
+z_index = -1
 texture = ExtResource( 25 )
 
 [node name="BlackBarBot" type="Sprite" parent="."]
 self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 612, 2839 )
 scale = Vector2( 8.09704, 11.5833 )
+z_index = -1
 texture = ExtResource( 25 )
 
 [node name="LoadScreen" type="AnimatedSprite" parent="."]
@@ -371,6 +376,7 @@ visible = false
 modulate = Color( 0.00392157, 0.00392157, 0.00392157, 0.00392157 )
 position = Vector2( 561.967, 945 )
 scale = Vector2( 3.34753, 71.9583 )
+z_index = 5
 texture = ExtResource( 25 )
 
 [node name="PauseMenu" type="Sprite" parent="."]
@@ -390,7 +396,7 @@ texture = ExtResource( 72 )
 [connection signal="pressed" from="YNoteButton" to="." method="setNotePlaceSetting" binds= [ "y", 0 ]]
 [connection signal="pressed" from="RNoteButton" to="." method="setNotePlaceSetting" binds= [ "r", 0 ]]
 [connection signal="pressed" from="RetryButton" to="." method="retryLevel"]
-[connection signal="pressed" from="ExitButton" to="." method="exitLevel"]
+[connection signal="pressed" from="ExitButton" to="." method="startExiting"]
 [connection signal="pressed" from="LeavePauseButton" to="." method="enterPlay"]
 [connection signal="timeout" from="HoldSoundTimer" to="." method="stopHoldNoteSound"]
 [connection signal="animation_finished" from="LoadScreen" to="." method="enterPlay"]

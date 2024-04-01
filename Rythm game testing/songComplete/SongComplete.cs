@@ -10,6 +10,9 @@ public class SongComplete : Control
 
     string volume;
     string song;
+    // for fading
+    public float current = 1;
+    public bool fade = true;
     // Declare member variables here. Examples:
     // private int a = 2;
     // private string b = "text";
@@ -65,6 +68,28 @@ public class SongComplete : Control
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
   public override void _Process(float delta)
   {
-      
+      if(fade){
+        fadeToBlack();
+      }
   }
+
+    public void fadeToBlack(){
+		Sprite fade = GetNode<Sprite>("FadeToBlack");
+		fade.Visible = true;
+		current -= 0.05f;
+		fade.Modulate = new Color(0, 0, 0, current);
+		if(current<=0){
+			this.fade = false;
+            fade.Visible = false;
+		}
+	}
+
+    public void switchScene(){
+		GetTree().ChangeScene("res://songSelect/songSelect.tscn");
+	}
+	public void switchAnimation(){
+		AnimatedSprite loadScreen = GetNode<AnimatedSprite>("LoadScreen");
+		loadScreen.Play("bouncing");
+		GetNode<Timer>("GifTimer").Start(1);
+	}
 }
