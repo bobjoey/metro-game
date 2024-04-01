@@ -79,6 +79,7 @@ public class HoldNote : GenericNote
                 GD.Print("at next note");
                 controller.noteSlots[(int)nextNote.x, (int)nextNote.y].note.holdStarted=true;
                 controller.increaseScore(70+getPoints());
+                controller.holdPlayer.Play();
                 //Visible = false;
                 
             }
@@ -86,15 +87,10 @@ public class HoldNote : GenericNote
         } else if(hasNext && holdStarted && Input.IsActionPressed("press") && !(mouseInLine()||touchInLine())&&Fail){
             GD.Print("mouse out of line");
             holdStarted = false;
-            controller.holdPlayer.Stop();
         }
         else if(holdStarted && Input.IsActionPressed("press")==false){
             holdStarted = false;
             GD.Print("hold released");
-            controller.holdPlayer.Stop();
-        }
-        if(holdStarted&&!hasNext){
-            controller.holdTimer.Start(.01f);
         }
         
     }
@@ -150,9 +146,8 @@ public class HoldNote : GenericNote
                     GD.Print("no next note, removing this one");
                     // increment score
                     controller.increaseScore(50);
-                } else{
-                    controller.holdPlayer.Play();
                 }
+                controller.holdPlayer.Play();
             }
         }
 
@@ -170,6 +165,7 @@ public class HoldNote : GenericNote
                     // increment score
                     controller.increaseScore(50);
                 }
+                controller.holdPlayer.Play();
             }
         }
 

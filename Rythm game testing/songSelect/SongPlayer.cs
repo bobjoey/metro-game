@@ -116,6 +116,18 @@ public class SongPlayer : Control
 		file.StoreLine("song: "+song.songCode);
 		file.Close();
 
+		AnimatedSprite loadScreen = GetNode<AnimatedSprite>("LoadScreen");
+		loadScreen.Visible = true;
+		loadScreen.Play("closing");
+		//GetTree().ChangeScene("res://game.tscn");
+	}
+
+	public void switchAnimation(){
+		AnimatedSprite loadScreen = GetNode<AnimatedSprite>("LoadScreen");
+		loadScreen.Play("bouncing");
+		GetNode<Timer>("GifTimer").Start(1);
+	}
+	public void switchScene(){
 		GetTree().ChangeScene("res://game.tscn");
 	}
 }

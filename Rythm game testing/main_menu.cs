@@ -58,21 +58,33 @@ public class main_menu : Control
 	public void exitLevel(){
 		GetTree().ReloadCurrentScene();
 	}
-	private void play_button_pressed()
+
+
+	public void play_button_pressed()
 	{
 		//GetNode<Timer>("GifTimer").start
 		//GD.Print("Play button pressed");
 		//GetTree().ChangeScene("res://game.tscn");
+		AnimatedSprite loadScreen = GetNode<AnimatedSprite>("LoadScreen");
+		loadScreen.Visible = true;
+		loadScreen.Play("closing");
 		
-		GetTree().ChangeScene("res://songSelect/songSelect.tscn");
 	}
 	
-	private void settings_button_pressed()
+	public void settings_button_pressed()
 {
 	//GD.Print("Settings button pressed");
 	GetTree().ChangeScene("res://settings.tscn");
 }
 
+	public void switchScene(){
+		GetTree().ChangeScene("res://songSelect/songSelect.tscn");
+	}
+	public void switchAnimation(){
+		AnimatedSprite loadScreen = GetNode<AnimatedSprite>("LoadScreen");
+		loadScreen.Play("bouncing");
+		GetNode<Timer>("GifTimer").Start(1);
+	}
 
 }
 

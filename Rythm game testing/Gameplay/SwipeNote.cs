@@ -28,6 +28,7 @@ public class SwipeNote : GenericNote
                 active = false;
                 Visible = false;
                 swipeStarted = false; 
+                controller.swipePlayer.Play();
             }
             else if(slot.noteType==44 && GetGlobalMousePosition().x <= mouseStartPos.x-100){
                 active = false;

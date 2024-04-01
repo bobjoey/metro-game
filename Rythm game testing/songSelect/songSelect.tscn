@@ -1,4 +1,4 @@
-[gd_scene load_steps=249 format=2]
+[gd_scene load_steps=293 format=2]
 
 [ext_resource path="res://songSelect/songsManager.cs" type="Script" id=1]
 [ext_resource path="res://gameSprites/SongSelect/scEasy.png" type="Texture" id=2]
@@ -233,6 +233,72 @@
 [ext_resource path="res://gameSprites/SongSelect/tutorialSheet3.png" type="Texture" id=231]
 [ext_resource path="res://songSelect/CloseTutorial.cs" type="Script" id=232]
 [ext_resource path="res://songSelect/OpenTutorial.cs" type="Script" id=233]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_39_delay-0.05s.png" type="Texture" id=234]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_38_delay-0.05s.png" type="Texture" id=235]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_42_delay-0.05s.png" type="Texture" id=236]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_40_delay-0.05s.png" type="Texture" id=237]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_37_delay-0.05s.png" type="Texture" id=238]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_41_delay-0.05s.png" type="Texture" id=239]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_23_delay-0.16s.png" type="Texture" id=240]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_07_delay-0.05s.png" type="Texture" id=241]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_06_delay-0.05s.png" type="Texture" id=242]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_14_delay-0.05s.png" type="Texture" id=243]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_15_delay-0.05s.png" type="Texture" id=244]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_12_delay-0.05s.png" type="Texture" id=245]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_24_delay-0.16s.png" type="Texture" id=246]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_00_delay-0.05s.png" type="Texture" id=247]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_26_delay-0.16s.png" type="Texture" id=248]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_02_delay-0.05s.png" type="Texture" id=249]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_28_delay-0.16s.png" type="Texture" id=250]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_21_delay-0.16s.png" type="Texture" id=251]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_09_delay-0.05s.png" type="Texture" id=252]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_01_delay-0.05s.png" type="Texture" id=253]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_25_delay-0.16s.png" type="Texture" id=254]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_19_delay-0.16s.png" type="Texture" id=255]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_20_delay-0.16s.png" type="Texture" id=256]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_22_delay-0.16s.png" type="Texture" id=257]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_27_delay-0.16s.png" type="Texture" id=258]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_05_delay-0.05s.png" type="Texture" id=259]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_08_delay-0.05s.png" type="Texture" id=260]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_13_delay-0.05s.png" type="Texture" id=261]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_36_delay-0.05s.png" type="Texture" id=262]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_34_delay-0.05s.png" type="Texture" id=263]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_03_delay-0.05s.png" type="Texture" id=264]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_11_delay-0.05s.png" type="Texture" id=265]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_17_delay-0.16s.png" type="Texture" id=266]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_32_delay-0.05s.png" type="Texture" id=267]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_16_delay-0.05s.png" type="Texture" id=268]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_18_delay-0.16s.png" type="Texture" id=269]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_30_delay-0.05s.png" type="Texture" id=270]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_31_delay-0.05s.png" type="Texture" id=271]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_04_delay-0.05s.png" type="Texture" id=272]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_33_delay-0.05s.png" type="Texture" id=273]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_29_delay-0.05s.png" type="Texture" id=274]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_35_delay-0.05s.png" type="Texture" id=275]
+[ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_10_delay-0.05s.png" type="Texture" id=276]
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ ExtResource( 266 ), ExtResource( 269 ), ExtResource( 255 ), ExtResource( 256 ), ExtResource( 251 ), ExtResource( 257 ), ExtResource( 240 ), ExtResource( 246 ), ExtResource( 254 ), ExtResource( 248 ), ExtResource( 258 ), ExtResource( 250 ), ExtResource( 274 ) ],
+"loop": true,
+"name": "bouncing",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 247 ), ExtResource( 253 ), ExtResource( 249 ), ExtResource( 264 ), ExtResource( 272 ), ExtResource( 259 ), ExtResource( 242 ), ExtResource( 241 ), ExtResource( 260 ), ExtResource( 252 ), ExtResource( 276 ), ExtResource( 265 ), ExtResource( 245 ), ExtResource( 261 ), ExtResource( 243 ), ExtResource( 244 ), ExtResource( 268 ) ],
+"loop": true,
+"name": "closing",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 247 ), ExtResource( 253 ), ExtResource( 249 ), ExtResource( 264 ), ExtResource( 272 ), ExtResource( 259 ), ExtResource( 242 ), ExtResource( 241 ), ExtResource( 260 ), ExtResource( 252 ), ExtResource( 276 ), ExtResource( 265 ), ExtResource( 245 ), ExtResource( 261 ), ExtResource( 243 ), ExtResource( 244 ), ExtResource( 268 ), ExtResource( 266 ), ExtResource( 269 ), ExtResource( 255 ), ExtResource( 256 ), ExtResource( 251 ), ExtResource( 257 ), ExtResource( 240 ), ExtResource( 246 ), ExtResource( 254 ), ExtResource( 248 ), ExtResource( 258 ), ExtResource( 250 ), ExtResource( 274 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 274 ), ExtResource( 270 ), ExtResource( 271 ), ExtResource( 267 ), ExtResource( 273 ), ExtResource( 263 ), ExtResource( 275 ), ExtResource( 262 ), ExtResource( 238 ), ExtResource( 235 ), ExtResource( 234 ), ExtResource( 237 ), ExtResource( 239 ), ExtResource( 272 ), ExtResource( 264 ), ExtResource( 249 ), ExtResource( 253 ), ExtResource( 247 ), ExtResource( 236 ) ],
+"loop": true,
+"name": "opening",
+"speed": 10.0
+} ]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -477,6 +543,18 @@ wait_time = 10.0
 [node name="fadeTimer" type="Timer" parent="scene/SongPlayer"]
 wait_time = 0.5
 
+[node name="LoadScreen" type="AnimatedSprite" parent="scene/SongPlayer"]
+visible = false
+position = Vector2( 270.103, 445.883 )
+scale = Vector2( 0.312, 0.313 )
+z_index = 1
+frames = SubResource( 19 )
+animation = "opening"
+frame = 2
+
+[node name="GifTimer" type="Timer" parent="scene/SongPlayer"]
+one_shot = true
+
 [node name="screenBG" type="Sprite" parent="scene"]
 position = Vector2( 268.5, 359.403 )
 scale = Vector2( 0.640464, 0.640464 )
@@ -670,7 +748,7 @@ position = Vector2( 264, 81 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "Hard"
-frame = 17
+frame = 49
 playing = true
 flip_h = true
 script = ExtResource( 10 )
@@ -822,6 +900,8 @@ script = ExtResource( 232 )
 [connection signal="soundBounceEventHandler" from="scene/SongPlayer" to="scene/Path2D" method="SoundBounceReciever"]
 [connection signal="timeout" from="scene/SongPlayer/prevTimer" to="scene/SongPlayer" method="stopPlaying"]
 [connection signal="timeout" from="scene/SongPlayer/fadeTimer" to="scene/SongPlayer" method="fadeTime"]
+[connection signal="animation_finished" from="scene/SongPlayer/LoadScreen" to="scene/SongPlayer" method="switchAnimation"]
+[connection signal="timeout" from="scene/SongPlayer/GifTimer" to="scene/SongPlayer" method="switchScene"]
 [connection signal="songChangeEventHandler" from="scene/Path2D" to="scene/SongPlayer" method="_on_Path2D_songChangeEventHandler"]
 [connection signal="update_bannerEventHandler" from="scene/Path2D" to="scene/songBanner" method="_on_Path2D_update_bannerEventHandler"]
 [connection signal="pressed" from="scene/PlayButton" to="scene/SongPlayer" method="nextScene"]

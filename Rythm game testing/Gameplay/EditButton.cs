@@ -15,9 +15,9 @@ public class EditButton : Area2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-        bool active = true; // controller.gameState != 1;
+        /*bool active = true; // controller.gameState != 1;
         Visible = active;
-        InputPickable = active;
+        InputPickable = active;*/
     }
 
     public override void _InputEvent(Godot.Object viewport, InputEvent @event, int shapeIdx)

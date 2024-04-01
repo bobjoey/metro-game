@@ -11,5 +11,5 @@ dest_files=[ "res://.import/normal-slidertick.ogg-9bf1bffab07c84e510822475692f07
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
