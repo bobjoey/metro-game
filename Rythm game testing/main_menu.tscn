@@ -118,8 +118,8 @@ texture = ExtResource( 6 )
 
 [node name="BlackBars" type="Sprite" parent="background"]
 show_behind_parent = true
-position = Vector2( 269.093, 445.573 )
-scale = Vector2( 49.9237, 2.29958 )
+position = Vector2( 270.69, 436.671 )
+scale = Vector2( 111.568, 3.00962 )
 texture = ExtResource( 5 )
 
 [node name="play_button" type="Button" parent="."]

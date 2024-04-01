@@ -73,8 +73,8 @@ texture = ExtResource( 2 )
 offset = Vector2( 8.9468, 27.0065 )
 
 [node name="BlackBars" type="Sprite" parent="Panel"]
-position = Vector2( 610, 2446.5 )
-scale = Vector2( 249.636, 0.44336 )
+position = Vector2( 610, 2531.5 )
+scale = Vector2( 249.636, 0.775391 )
 texture = ExtResource( 2 )
 
 [node name="SongName" type="RichTextLabel" parent="."]

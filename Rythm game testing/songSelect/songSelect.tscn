@@ -702,7 +702,7 @@ position = Vector2( 264, 81 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "Hard"
-frame = 42
+frame = 7
 playing = true
 flip_h = true
 script = ExtResource( 10 )
@@ -782,25 +782,25 @@ scale = Vector2( 0.998, 0.987 )
 texture = ExtResource( 220 )
 
 [node name="BlackBars2" type="Sprite" parent="."]
-position = Vector2( 264.06, -73.8148 )
-scale = Vector2( 78.4387, 0.291287 )
+position = Vector2( 287.38, -170.082 )
+scale = Vector2( 142.038, 0.667332 )
 texture = ExtResource( 218 )
 
 [node name="BlackBars4" type="Sprite" parent="."]
-position = Vector2( 436.214, 380.095 )
-scale = Vector2( 30, 2.30783 )
+position = Vector2( 374.011, 380.095 )
+scale = Vector2( 48.0465, 2.30783 )
 texture = ExtResource( 218 )
 offset = Vector2( 8.9468, 27.0065 )
 
 [node name="BlackBars3" type="Sprite" parent="."]
-position = Vector2( -440.787, 394.174 )
-scale = Vector2( 30, 2.30695 )
+position = Vector2( -656.461, 380.519 )
+scale = Vector2( 44.9289, 2.30695 )
 texture = ExtResource( 218 )
 offset = Vector2( 8.9468, 27.0065 )
 
 [node name="BlackBars" type="Sprite" parent="."]
-position = Vector2( 266.804, 962.513 )
-scale = Vector2( 81.4316, 0.27495 )
+position = Vector2( 286.694, 1045.97 )
+scale = Vector2( 142.162, 0.600961 )
 texture = ExtResource( 218 )
 
 [node name="swipeDetector" type="Camera2D" parent="."]

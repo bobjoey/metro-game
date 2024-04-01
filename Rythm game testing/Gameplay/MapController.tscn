@@ -335,8 +335,26 @@ one_shot = true
 
 [node name="BlackBarRight" type="Sprite" parent="."]
 self_modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 1447.95, 1287.19 )
-scale = Vector2( 1.43965, 58.2839 )
+position = Vector2( 1657.45, 1287.19 )
+scale = Vector2( 2.56902, 58.2839 )
+texture = ExtResource( 25 )
+
+[node name="BlackBarLeft" type="Sprite" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -444.997, 1287.19 )
+scale = Vector2( 2.39894, 58.2839 )
+texture = ExtResource( 25 )
+
+[node name="BlackBarTop" type="Sprite" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 607, -320 )
+scale = Vector2( 8.1159, -13.3412 )
+texture = ExtResource( 25 )
+
+[node name="BlackBarBot" type="Sprite" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 612, 2839 )
+scale = Vector2( 8.09704, 11.5833 )
 texture = ExtResource( 25 )
 
 [node name="LoadScreen" type="AnimatedSprite" parent="."]
