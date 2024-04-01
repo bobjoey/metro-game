@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://Gameplay/MapController.cs" type="Script" id=1]
 [ext_resource path="res://Gameplay/Background.cs" type="Script" id=2]
@@ -19,7 +19,7 @@
 [ext_resource path="res://gameSprites/gameplay/redNote.png" type="Texture" id=17]
 [ext_resource path="res://Gameplay/SwipeNote.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Gameplay/HoldNote.tscn" type="PackedScene" id=19]
-[ext_resource path="res://gameSprites/Fonts/Prompt-SemiBold.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://gameSprites/gameplay/MetroSign.png" type="Texture" id=20]
 [ext_resource path="res://gameSprites/gameplay/GameplayBG.png" type="Texture" id=21]
 [ext_resource path="res://gameSprites/gameplay/ProgressBar.png" type="Texture" id=22]
 [ext_resource path="res://Gameplay/TouchController.cs" type="Script" id=23]
@@ -72,6 +72,7 @@
 [ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_35_delay-0.05s.png" type="Texture" id=70]
 [ext_resource path="res://gameSprites/LoadingScreens/TempLoadScreen/frame_10_delay-0.05s.png" type="Texture" id=71]
 [ext_resource path="res://gameSprites/gameplay/PauseScreen.png" type="Texture" id=72]
+[ext_resource path="res://gameSprites/Fonts/HelveticaBold.ttf" type="DynamicFontData" id=73]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 3
@@ -79,12 +80,9 @@ blend_mode = 3
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 590.5, 803.5 )
 
-[sub_resource type="DynamicFont" id=2]
-size = 100
-outline_size = 5
-outline_color = Color( 0, 0, 0, 1 )
-extra_spacing_top = 7
-font_data = ExtResource( 20 )
+[sub_resource type="DynamicFont" id=5]
+size = 72
+font_data = ExtResource( 73 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -191,6 +189,7 @@ visible = false
 position = Vector2( 75, 275 )
 
 [node name="TapNoteButton" type="Button" parent="."]
+visible = false
 margin_left = 865.0
 margin_top = 242.0
 margin_right = 1901.0
@@ -200,6 +199,7 @@ icon = ExtResource( 11 )
 flat = true
 
 [node name="HoldNoteButton" type="Button" parent="."]
+visible = false
 margin_left = 923.0
 margin_top = 235.0
 margin_right = 1959.0
@@ -209,6 +209,7 @@ icon = ExtResource( 12 )
 flat = true
 
 [node name="Hold1NoteButton" type="Button" parent="."]
+visible = false
 margin_left = 1037.0
 margin_top = 299.0
 margin_right = 2073.0
@@ -219,6 +220,7 @@ icon = ExtResource( 12 )
 flat = true
 
 [node name="LSwipeNoteButton" type="Button" parent="."]
+visible = false
 margin_left = 978.0
 margin_top = 373.0
 margin_right = 2014.0
@@ -230,6 +232,7 @@ flat = true
 icon_align = 1
 
 [node name="RSwipeNoteButton" type="Button" parent="."]
+visible = false
 margin_left = 991.0
 margin_top = 324.0
 margin_right = 2027.0
@@ -239,6 +242,7 @@ icon = ExtResource( 13 )
 flat = true
 
 [node name="GNoteButton" type="Button" parent="."]
+visible = false
 margin_left = 1098.0
 margin_top = 185.0
 margin_right = 2134.0
@@ -249,6 +253,7 @@ flat = true
 icon_align = 1
 
 [node name="PNoteButton" type="Button" parent="."]
+visible = false
 margin_left = 1101.0
 margin_top = 242.0
 margin_right = 2137.0
@@ -258,6 +263,7 @@ icon = ExtResource( 15 )
 flat = true
 
 [node name="YNoteButton" type="Button" parent="."]
+visible = false
 margin_left = 1098.0
 margin_top = 309.0
 margin_right = 2134.0
@@ -267,6 +273,7 @@ icon = ExtResource( 16 )
 flat = true
 
 [node name="RNoteButton" type="Button" parent="."]
+visible = false
 margin_left = 1097.0
 margin_top = 375.0
 margin_right = 2133.0
@@ -305,12 +312,17 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 flat = true
 
+[node name="Sign" type="Sprite" parent="."]
+position = Vector2( 400, 99 )
+scale = Vector2( 0.59322, 0.610266 )
+texture = ExtResource( 20 )
+
 [node name="ScoreLabel" type="RichTextLabel" parent="."]
-margin_left = 77.0
-margin_top = 25.0
-margin_right = 844.0
-margin_bottom = 194.0
-custom_fonts/normal_font = SubResource( 2 )
+margin_left = 46.0
+margin_top = 80.0
+margin_right = 813.0
+margin_bottom = 178.0
+custom_fonts/normal_font = SubResource( 5 )
 text = "Score: "
 scroll_active = false
 
