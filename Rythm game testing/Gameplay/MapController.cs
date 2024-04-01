@@ -44,6 +44,7 @@ public class MapController : Node2D
 	public AudioStreamPlayer holdPlayer;
 	public AudioStreamPlayer swipePlayer;
 	public Timer holdTimer;
+	private string volume;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -61,8 +62,8 @@ public class MapController : Node2D
 		File file = new File();
 		if(file.FileExists(path)){
 			file.Open(path, File.ModeFlags.Read);
-			string song = file.GetLine();
-			song = file.GetLine(); // is there a better way to open the second line? (pls fix)
+			volume = file.GetLine();
+			string song = file.GetLine(); // is there a better way to open the second line? (pls fix)
 			file.Close();
 			songCode = song.Substring(6);
 		} else {
@@ -339,16 +340,17 @@ public class MapController : Node2D
 	}
 
 	public void retryLevel(){
-		//retry
-		GD.Print("re-trying level");
-		GetTree().ReloadCurrentScene();
+		//retry		
+		GD.Print("re-trying level");		
 		saveScore(songCode);
+		GetTree().ReloadCurrentScene();
 	}
 
 	public void exitLevel(){
 		saveScore(songCode);
 		GD.Print("exiting level");
-		GetTree().ChangeScene("res://songSelect/songSelect.tscn");
+		GetTree().ChangeScene("res://songComplete/SongComplete.tscn");
+		//GetTree().ChangeScene("res://songSelect/songSelect.tscn");
 	}
 	
 	public void saveScore(string songCode){
@@ -366,6 +368,18 @@ public class MapController : Node2D
 		} else{
 			GD.Print("not a high score, do better");
 		}
+		
+		File otherFile = new File();
+		if(otherFile.FileExists("user://settings.txt")){
+			otherFile.Open("user://settings.txt", File.ModeFlags.Write);
+			otherFile.StoreLine(volume);
+			otherFile.StoreLine("song: " + songCode);
+			otherFile.StoreLine(score.ToString());
+			otherFile.Close();
+		}
+		else{
+		}
+		
 		//writeFile();
 	}
 	public void increaseScore(int amount){

@@ -1,0 +1,159 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://gameSprites/MainMenu/PatternedBG.png" type="Texture" id=1]
+[ext_resource path="res://gameSprites/MapEditor/scrollBar.png" type="Texture" id=2]
+[ext_resource path="res://gameSprites/SongComplete/PunchCard.png" type="Texture" id=3]
+[ext_resource path="res://songComplete/SongComplete.cs" type="Script" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://gameSprites/Fonts/Prompt-SemiBold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://gameSprites/Fonts/Prompt-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://gameSprites/Fonts/TTT-Regular.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://gameSprites/SongComplete/WhiteArrow.png" type="Texture" id=9]
+[ext_resource path="res://gameSprites/SongComplete/BlueCircle.png" type="Texture" id=10]
+[ext_resource path="res://songComplete/Continue.cs" type="Script" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 72
+outline_size = 1
+outline_color = Color( 1, 1, 1, 0 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 8 )
+
+[node name="SongComplete" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -227.0
+script = ExtResource( 4 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 1185.0
+margin_bottom = 2333.0
+
+[node name="BackGround" type="Sprite" parent="Panel"]
+position = Vector2( 610.676, 1206.73 )
+rotation = 1.5708
+scale = Vector2( 1.45991, 1.28698 )
+texture = ExtResource( 1 )
+
+[node name="PunchCard" type="Sprite" parent="Panel"]
+position = Vector2( 595, 1308 )
+scale = Vector2( 0.72, 0.71 )
+texture = ExtResource( 3 )
+
+[node name="BlackBars2" type="Sprite" parent="Panel"]
+position = Vector2( 610, -23.1226 )
+scale = Vector2( 249.636, 0.968271 )
+texture = ExtResource( 2 )
+
+[node name="BlackBars4" type="Sprite" parent="Panel"]
+position = Vector2( 935.481, 995.088 )
+scale = Vector2( 72.5087, 4.7275 )
+texture = ExtResource( 2 )
+offset = Vector2( 8.9468, 27.0065 )
+
+[node name="BlackBars3" type="Sprite" parent="Panel"]
+position = Vector2( -1001.92, 961.421 )
+scale = Vector2( 69.316, 4.84646 )
+texture = ExtResource( 2 )
+offset = Vector2( 8.9468, 27.0065 )
+
+[node name="BlackBars" type="Sprite" parent="Panel"]
+position = Vector2( 610, 2446.5 )
+scale = Vector2( 249.636, 0.44336 )
+texture = ExtResource( 2 )
+
+[node name="SongName" type="RichTextLabel" parent="."]
+margin_left = 85.0
+margin_top = 1437.0
+margin_right = 1101.0
+margin_bottom = 1545.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = SubResource( 1 )
+custom_fonts/bold_italics_font = SubResource( 2 )
+custom_fonts/italics_font = SubResource( 3 )
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "Title"
+text = "Title"
+scroll_active = false
+__meta__ = {
+"_editor_description_": "[color=black]Title[/color]"
+}
+
+[node name="Percentage" type="RichTextLabel" parent="."]
+margin_left = 85.0
+margin_top = 1545.0
+margin_right = 520.0
+margin_bottom = 1725.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = SubResource( 1 )
+custom_fonts/bold_italics_font = SubResource( 2 )
+custom_fonts/italics_font = SubResource( 3 )
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "Title"
+text = "Title"
+scroll_active = false
+__meta__ = {
+"_editor_description_": "[color=black]Title[/color]"
+}
+
+[node name="Fraction" type="RichTextLabel" parent="."]
+margin_left = 314.0
+margin_top = 1545.0
+margin_right = 1101.0
+margin_bottom = 1653.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = SubResource( 1 )
+custom_fonts/bold_italics_font = SubResource( 2 )
+custom_fonts/italics_font = SubResource( 3 )
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "Title"
+text = "Title"
+scroll_active = false
+__meta__ = {
+"_editor_description_": "[color=black]Title[/color]"
+}
+
+[node name="RankStamp" type="Sprite" parent="."]
+position = Vector2( 815, 1160 )
+texture = ExtResource( 5 )
+
+[node name="circle" type="Sprite" parent="."]
+position = Vector2( 595, 2162 )
+scale = Vector2( 0.522876, 0.522876 )
+texture = ExtResource( 10 )
+
+[node name="Arrow" type="Sprite" parent="."]
+position = Vector2( 612, 2163 )
+scale = Vector2( 0.738462, 0.738462 )
+texture = ExtResource( 9 )
+
+[node name="Continue" type="Button" parent="."]
+anchor_left = 0.044
+anchor_top = 0.534
+anchor_right = 0.159
+anchor_bottom = 0.593
+margin_left = 430.036
+margin_top = 803.178
+margin_right = 520.221
+margin_bottom = 898.531
+flat = true
+script = ExtResource( 11 )
+
+[connection signal="pressed" from="Continue" to="Continue" method="_on_Continue_pressed"]

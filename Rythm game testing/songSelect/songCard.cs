@@ -21,6 +21,7 @@ public class songCard : PathFollow2D
 	public int bpm;
 	public int maxScore;
 	public int highScore = 0;
+	public double percentage;
 
 	public AudioStreamMP3 songAudio; //isnt part of the .txt file, is read the mp3 directly with its path
 	public string imagePath;//Isn't part of the .txt file, is read directly with its path
@@ -60,6 +61,7 @@ public class songCard : PathFollow2D
 		if(highScore > 0){
 
 			double pct = ((double)highScore/(double)maxScore) * 100;
+			percentage = (int)pct;
 			if(pct < 70){
 				rankBadge = "res://gameSprites/numbersAndLetters/letterF.png";
 			} else if(pct >=70 && pct < 80){
