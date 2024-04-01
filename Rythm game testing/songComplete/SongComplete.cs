@@ -39,7 +39,12 @@ public class SongComplete : Control
 		}
 
         pct = (int)(((double)score/(double)currentSong.maxScore) * 100);
-        GetNode<RichTextLabel>("SongName").BbcodeText = "Song: " + currentSong.songTitle;
+        if(currentSong.songTitle.Length() > 25){
+            GetNode<RichTextLabel>("SongName").BbcodeText = "Song: " + currentSong.songTitle.Substr(0,25) + "...";
+        } else {
+            GetNode<RichTextLabel>("SongName").BbcodeText = "Song: " + currentSong.songTitle;
+        }
+
         GetNode<RichTextLabel>("Percentage").BbcodeText = pct + "%";
         GetNode<RichTextLabel>("Fraction").BbcodeText = "Score: " + score + " / " + currentSong.maxScore;
         if(pct < 70){
@@ -48,9 +53,9 @@ public class SongComplete : Control
             GetNode<Sprite>("RankStamp").Texture = ResourceLoader.Load("res://gameSprites/SongComplete/StampC.png") as Texture;
         } else if(pct >= 80 && pct < 90){
             GetNode<Sprite>("RankStamp").Texture = ResourceLoader.Load("res://gameSprites/SongComplete/StampB.png") as Texture;
-        } else if(pct >= 90 && pct < 98){
+        } else if(pct >= 90 && pct < 95){
             GetNode<Sprite>("RankStamp").Texture = ResourceLoader.Load("res://gameSprites/SongComplete/StampA.png") as Texture;
-        } else if(pct >= 98 && pct < 100){
+        } else if(pct >= 95 && pct < 100){
             GetNode<Sprite>("RankStamp").Texture = ResourceLoader.Load("res://gameSprites/SongComplete/StampS.png") as Texture;
         } else{
             GetNode<Sprite>("RankStamp").Texture = ResourceLoader.Load("res://gameSprites/SongComplete/StampP.png") as Texture;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://gameSprites/MainMenu/PatternedBG.png" type="Texture" id=1]
 [ext_resource path="res://gameSprites/MapEditor/scrollBar.png" type="Texture" id=2]
@@ -29,6 +29,10 @@ outline_color = Color( 1, 1, 1, 0 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 8 )
+
+[sub_resource type="Theme" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
 
 [node name="SongComplete" type="Control"]
 anchor_right = 1.0
@@ -74,10 +78,10 @@ scale = Vector2( 249.636, 0.44336 )
 texture = ExtResource( 2 )
 
 [node name="SongName" type="RichTextLabel" parent="."]
-margin_left = 85.0
-margin_top = 1437.0
-margin_right = 1101.0
-margin_bottom = 1545.0
+margin_left = 92.0
+margin_top = 1567.0
+margin_right = 1108.0
+margin_bottom = 1675.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/mono_font = SubResource( 1 )
 custom_fonts/bold_italics_font = SubResource( 2 )
@@ -93,10 +97,10 @@ __meta__ = {
 }
 
 [node name="Percentage" type="RichTextLabel" parent="."]
-margin_left = 85.0
-margin_top = 1545.0
-margin_right = 520.0
-margin_bottom = 1725.0
+margin_left = 73.0
+margin_top = 1706.0
+margin_right = 508.0
+margin_bottom = 1886.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/mono_font = SubResource( 1 )
 custom_fonts/bold_italics_font = SubResource( 2 )
@@ -112,10 +116,10 @@ __meta__ = {
 }
 
 [node name="Fraction" type="RichTextLabel" parent="."]
-margin_left = 314.0
-margin_top = 1545.0
-margin_right = 1101.0
-margin_bottom = 1653.0
+margin_left = 302.0
+margin_top = 1706.0
+margin_right = 1089.0
+margin_bottom = 1814.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/mono_font = SubResource( 1 )
 custom_fonts/bold_italics_font = SubResource( 2 )
@@ -145,14 +149,16 @@ scale = Vector2( 0.738462, 0.738462 )
 texture = ExtResource( 9 )
 
 [node name="Continue" type="Button" parent="."]
-anchor_left = 0.044
-anchor_top = 0.534
-anchor_right = 0.159
-anchor_bottom = 0.593
-margin_left = 430.036
-margin_top = 803.178
-margin_right = 520.221
-margin_bottom = 898.531
+anchor_left = 0.408
+anchor_top = 0.878
+anchor_right = 0.599
+anchor_bottom = 0.978
+margin_left = 0.151978
+margin_top = 0.625977
+margin_right = 0.580933
+margin_bottom = 0.325928
+theme = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
 flat = true
 script = ExtResource( 11 )
 

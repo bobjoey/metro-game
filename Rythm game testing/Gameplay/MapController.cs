@@ -417,8 +417,7 @@ public class MapController : Node2D
 		current += 0.05f;
 		fade.Modulate = new Color(0, 0, 0, current);
 		if(current>1){
-			saveScore(songCode);
-			GetTree().ChangeScene("res://songSelect/songSelect.tscn"); // change to other scene
+			exitLevel();
 		}
 	}
 }

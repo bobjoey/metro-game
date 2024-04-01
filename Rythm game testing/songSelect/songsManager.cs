@@ -18,7 +18,7 @@ public class songsManager : Path2D
 	public Vector2 curPos;
 	public int selected = 1; //Selected starts at 1 ( center/selected songCard is songsList[1] )
 //	public int nextSong = 3; //SongsList array index
-	public static songCard[] songsList = {new songCard("Lagtrain"), new songCard("ZenZenZense"), new songCard("Bus"), new songCard("KickBack"), new songCard("OCOLIMBO"), new songCard("cOin")};
+	public static songCard[] songsList = {new songCard("ZenZenZense"), new songCard("Lagtrain"), new songCard("Bus"), new songCard("KickBack"), new songCard("OCOLIMBO"), new songCard("cOin")};
 	//public static songCard[] songsList = {new songCard("Lagtrain"), new songCard("ZenZenZense"), new songCard("KickBack"), new songCard("Bus"), new songCard("OCOLIMBO"), new songCard("cOin")};
 	public float[] songPosList = new float[songsList.GetLength(0)];
 	private int lockTimer = 0;
@@ -115,7 +115,7 @@ public class songsManager : Path2D
 	}
 	public override void _Ready()
 	{
-		songsList = new songCard[]{new songCard("Lagtrain"), new songCard("ZenZenZense"), new songCard("Bus"), new songCard("KickBack"), new songCard("OCOLIMBO"), new songCard("cOin")};
+		songsList = new songCard[]{new songCard("ZenZenZense"), new songCard("Lagtrain"), new songCard("Bus"), new songCard("KickBack"), new songCard("OCOLIMBO"), new songCard("cOin")};
 		UpdateCard("Left", songsList[0]);
 		UpdateCard("Main", songsList[1]);
 		UpdateCard("Right", songsList[2]);

@@ -96,17 +96,17 @@ animations = [ {
 "frames": [ ExtResource( 42 ), ExtResource( 48 ), ExtResource( 44 ), ExtResource( 59 ), ExtResource( 67 ), ExtResource( 54 ), ExtResource( 37 ), ExtResource( 36 ), ExtResource( 55 ), ExtResource( 47 ), ExtResource( 71 ), ExtResource( 60 ), ExtResource( 40 ), ExtResource( 56 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 63 ) ],
 "loop": true,
 "name": "closing",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [ ExtResource( 42 ), ExtResource( 48 ), ExtResource( 44 ), ExtResource( 59 ), ExtResource( 67 ), ExtResource( 54 ), ExtResource( 37 ), ExtResource( 36 ), ExtResource( 55 ), ExtResource( 47 ), ExtResource( 71 ), ExtResource( 60 ), ExtResource( 40 ), ExtResource( 56 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 63 ), ExtResource( 61 ), ExtResource( 64 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 46 ), ExtResource( 52 ), ExtResource( 35 ), ExtResource( 41 ), ExtResource( 49 ), ExtResource( 43 ), ExtResource( 53 ), ExtResource( 45 ), ExtResource( 69 ) ],
 "loop": true,
 "name": "default",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [ ExtResource( 69 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 62 ), ExtResource( 68 ), ExtResource( 58 ), ExtResource( 70 ), ExtResource( 57 ), ExtResource( 33 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 32 ), ExtResource( 34 ), ExtResource( 67 ), ExtResource( 59 ), ExtResource( 44 ), ExtResource( 48 ), ExtResource( 42 ), ExtResource( 31 ) ],
 "loop": true,
 "name": "opening",
-"speed": 10.0
+"speed": 20.0
 } ]
 
 [node name="MapController" type="Node2D"]
@@ -329,8 +329,8 @@ texture = ExtResource( 25 )
 
 [node name="LoadScreen" type="AnimatedSprite" parent="."]
 visible = false
-position = Vector2( 590.267, 1279.77 )
-scale = Vector2( 0.682561, 0.897775 )
+position = Vector2( 584, 1279.71 )
+scale = Vector2( 0.90162, 0.90162 )
 z_index = 3
 frames = SubResource( 4 )
 animation = "opening"
@@ -346,7 +346,7 @@ texture = ExtResource( 25 )
 [node name="PauseMenu" type="Sprite" parent="."]
 visible = false
 position = Vector2( 590.5, 1280 )
-scale = Vector2( 0.683449, 0.897616 )
+scale = Vector2( 0.9, 0.9 )
 z_index = 4
 texture = ExtResource( 72 )
 

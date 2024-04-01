@@ -68,9 +68,9 @@ public class songCard : PathFollow2D
 				rankBadge = "res://gameSprites/numbersAndLetters/letterC.png";
 			} else if(pct >= 80 && pct < 90){
 				rankBadge = "res://gameSprites/numbersAndLetters/letterB.png";
-			} else if(pct >= 90 && pct < 98){
+			} else if(pct >= 90 && pct < 95){
 				rankBadge = "res://gameSprites/numbersAndLetters/letterA.png";
-			} else if(pct >= 98 && pct < 100){
+			} else if(pct >= 95 && pct < 100){
 				rankBadge = "res://gameSprites/numbersAndLetters/letterS.png";
 			} else{
 				rankBadge = "res://gameSprites/numbersAndLetters/rankP.png";
