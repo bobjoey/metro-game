@@ -26,7 +26,7 @@ public class MapController : Node2D
 
 	public Vector2 displaySize = new Vector2(1181, 2560); // should be 2560 was 1968
 	public Vector2 playRegion; // y1, y2: bottom 1/8 of screen +- 1/4 sec
-	public int gameState = 0; // 0 = pause, 1 = play, 2 = edit (?)
+	public int gameState = 0; // 0 = pause, 1 = play, 2 = edit (?), 3 for entering
 	public int keyCount = 4;
 	public float bpm = 120;
 	public float noteSpeed = 200; // px per sec
@@ -44,6 +44,7 @@ public class MapController : Node2D
 	public AudioStreamPlayer holdPlayer;
 	public AudioStreamPlayer swipePlayer;
 	public Timer holdTimer;
+	public float current = 0;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -143,7 +144,8 @@ public class MapController : Node2D
 		GD.Print("Current highscore: "+song.highScore);
 		updateInfo();
 		editor.setNotes(song.songCode);
-		enterPlay();
+		//enterPlay();
+		startAnimation();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -155,7 +157,10 @@ public class MapController : Node2D
 				break;
 
 			case 1:
-				if (time > getSongLength()) enterPause();
+				if (time > getSongLength()){
+					songPlayer.Stop();
+					fadeToBlack();
+				}
 
 				time += delta;
 				scrollPos = time * noteSpeed + playRegion.x;
@@ -180,6 +185,10 @@ public class MapController : Node2D
 	public void enterPlay()
 	{
 		gameState = 1;
+		AnimatedSprite loadScreen = GetNode<AnimatedSprite>("LoadScreen");
+		loadScreen.Visible = false;
+		loadScreen.Stop();
+		GetNode<Sprite>("RedundantBG").Visible=false;
 		// delay & title
 		// delay can be done by generating notes and "song start bar" higher up
 		// there will be an interaction bar for where notes can be pressed and when the song start bar hits there the song & game starts
@@ -336,6 +345,8 @@ public class MapController : Node2D
 	public void pauseButtonVisible(bool yesno){
 		GetNode<Button>("RetryButton").Visible = yesno;
 		GetNode<Button>("ExitButton").Visible = yesno;
+		GetNode<Button>("LeavePauseButton").Visible = yesno;
+		GetNode<Sprite>("PauseMenu").Visible = yesno;
 	}
 
 	public void retryLevel(){
@@ -377,5 +388,23 @@ public class MapController : Node2D
 
 	public void stopHoldNoteSound(){
 		holdPlayer.Stop();
+	}
+
+	public void startAnimation(){
+		AnimatedSprite loadScreen = GetNode<AnimatedSprite>("LoadScreen");
+		loadScreen.Visible = true;
+		loadScreen.Play("opening");
+		GetNode<Sprite>("RedundantBG").Visible=true;
+	}
+
+	public void fadeToBlack(){
+		Sprite fade = GetNode<Sprite>("FadeToBlack");
+		fade.Visible = true;
+		current += 0.05f;
+		fade.Modulate = new Color(0, 0, 0, current);
+		if(current>1){
+			saveScore(songCode);
+			GetTree().ChangeScene("res://songSelect/songSelect.tscn"); // change to other scene
+		}
 	}
 }
